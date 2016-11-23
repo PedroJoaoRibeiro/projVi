@@ -1,16 +1,14 @@
-var dataSet;
-
-function main(){
-    dataSet = new Data();
-    getTeamData("TOT");
-    var scatterPlot = new ScatterPlot(dataSet.data);
+var dataSet, scatterPlot;
+function main() {
+    dataSet = new Data("TOT");
+    //scatterPlot = new ScatterPlot();
 }
 
-function getTeamData(teamName){
-    for(i = 1950; i< 2016; i++){
-        var file = "data/Jogadores_VI/Players/" + i + ".json";
+function getPlayersDataByTeam(teamName, obj) {
+    for (i = 1950; i < 2016; i++) {
+        var file = "data/Jogadores_VI/playoffs/" + i + ".json";
         d3.json(file, function (data) {
-            selectFromData(data,"Tm", teamName);
+            selectFromData(data, "Tm", teamName, obj);
         });
     }
 }
@@ -22,23 +20,26 @@ function selectFromData(data, type, value) {
             array.push(data[i]);
         }
     }
-    console.log(array);
-    dataSet.add(array);
+    return array;
 }
 
-class Data{
-    constructor(){
+class Data {
+    constructor(teamName) {
         this.data = [];
+        getPlayersDataByTeam(teamName, this);
     }
-    add(value){
-        this.data.push(value);
+    addData(array) {
+        this.data.push(array);
+    }
+    getData(i) {
+        return this.data[i];
     }
 }
 
 
 class ScatterPlot {
-    constructor(data) {
-        this.dataset = data;
+    constructor(aux) {
+        this.dataSet = [];
         var w = 940,
             h = 300,
             pad = 20,
@@ -50,8 +51,8 @@ class ScatterPlot {
             .attr("width", w)
             .attr("height", h);
 
-        var x = d3.scaleLinear().domain([0,40]).range([left_pad, w - pad]);
-        var y = d3.scaleLinear().domain([2, 0]).range([pad, h - pad * 2]);
+        var x = d3.scaleLinear().domain([2013, 2016]).range([left_pad, w - pad]);
+        var y = d3.scaleLinear().domain([1.5, 0]).range([pad, h - pad * 2]);
 
         var xAxis = d3.axisBottom().scale(x);
         var yAxis = d3.axisLeft().scale(y);
@@ -67,19 +68,32 @@ class ScatterPlot {
             .attr("transform", "translate(" + (left_pad - pad) + ", 0)")
             .call(yAxis);
 
-
-        var max_r = d3.max(data.map(
-                       function (d) { return d[2]; })),
-        r = d3.scaleLinear()
-            .domain([0, d3.max(data, function (d) { return d.Impact / 10; })]);
-        
         this.svg.selectAll("circle")
-            .data(data)
+            .data(aux)
             .enter()
             .append("circle")
             .attr("class", "circle")
-            .attr("cx", function (d) { return x(d.Age); })
-            .attr("cy", function (d) { return x(d.Impact); })
-            .attr("r", function (d) { return r(d.Impact); });
+            .attr("cx", function (d) {
+                console.log(this.x);
+                return x(2015);
+            })
+            .attr("cy", function (d) {
+                return y(d.Impact);
+            })
+            .attr("r", function(d){
+                return 3;
+            });
     }
+}
+
+//BUTTONS
+
+function doFunction() {
+    var file = "data/Jogadores_VI/Players/2015.json";
+        d3.json(file, function (data) {
+            var aux = selectFromData(data, "Tm", "TOT");
+            console.log(aux);
+            scatterPlot = new ScatterPlot(aux);
+        });
+    
 }
