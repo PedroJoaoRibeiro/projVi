@@ -39,7 +39,6 @@ class Data {
 
 class ScatterPlot {
     constructor(aux) {
-        this.dataSet = [];
         var w = 940,
             h = 300,
             pad = 20,
@@ -74,7 +73,6 @@ class ScatterPlot {
             .append("circle")
             .attr("class", "circle")
             .attr("cx", function (d) {
-                console.log(this.x);
                 return x(2015);
             })
             .attr("cy", function (d) {
@@ -88,11 +86,10 @@ class ScatterPlot {
 
 //BUTTONS
 
-function doFunction() {
+function doScatterPlot() {
     var file = "data/Jogadores_VI/Players/2015.json";
         d3.json(file, function (data) {
             var aux = selectFromData(data, "Tm", "TOT");
-            console.log(aux);
             scatterPlot = new ScatterPlot(aux);
         });
     
