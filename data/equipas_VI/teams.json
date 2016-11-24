@@ -1,0 +1,226 @@
+[
+  {
+    "Sport": "NBA",
+    "Venue": "American Airlines Arena",
+    "Team(s)": "Miami Heat",
+    "Abbreviation": "MIA",
+    "Latitude": 25.78138889,
+    "Longitude": -80.18805556
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "American Airlines Center",
+    "Team(s)": "Dallas Mavericks",
+    "Abbreviation": "DAL",
+    "Latitude": 32.79055556,
+    "Longitude": -96.81027778
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Amway Center",
+    "Team(s)": "Orlando Magic",
+    "Abbreviation": "ORL",
+    "Latitude": 28.53916667,
+    "Longitude": -81.38361111
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "AT&T Center",
+    "Team(s)": "San Antonio Spurs",
+    "Abbreviation": "SAN",
+    "Latitude": 29.42694444,
+    "Longitude": -98.4375
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Bankers Life Fieldhouse",
+    "Team(s)": "Indiana Pacers",
+    "Abbreviation": "IND",
+    "Latitude": 39.76388889,
+    "Longitude": -86.15555556
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Barclays Center",
+    "Team(s)": "Brooklyn Nets",
+    "Abbreviation": "BKL",
+    "Latitude": 40.68265,
+    "Longitude": -73.97468889
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "BMO Harris Bradley Center",
+    "Team(s)": "Milwaukee Bucks",
+    "Abbreviation": "MIL",
+    "Latitude": 43.04361111,
+    "Longitude": -87.91694444
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Chesapeake Energy Arena",
+    "Team(s)": "Oklahoma City Thunder",
+    "Abbreviation": "OKC",
+    "Latitude": 35.46333333,
+    "Longitude": -97.515
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "EnergySolutions Arena",
+    "Team(s)": "Utah Jazz",
+    "Abbreviation": "UTA",
+    "Latitude": 40.76833333,
+    "Longitude": -111.9011111
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "FedExForum",
+    "Team(s)": "Memphis Grizzlies",
+    "Abbreviation": "MEM",
+    "Latitude": 35.13833333,
+    "Longitude": -90.05055556
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Madison Square Garden",
+    "Team(s)": "New York Knicks",
+    "Abbreviation": "NYK",
+    "Latitude": 40.75055556,
+    "Longitude": -73.99361111
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "New Orleans Arena",
+    "Team(s)": "New Orleans Hornets",
+    "Abbreviation": "NO",
+    "Latitude": 29.94888889,
+    "Longitude": -90.08194444
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Oracle Arena",
+    "Team(s)": "Golden State Warriors",
+    "Abbreviation": "GSW",
+    "Latitude": 37.75027778,
+    "Longitude": -122.2030556
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Pepsi Center",
+    "Team(s)": "Denver Nuggets",
+    "Abbreviation": "DEN",
+    "Latitude": 39.74861111,
+    "Longitude": -105.0075
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Philips Arena",
+    "Team(s)": "Atlanta Hawks",
+    "Abbreviation": "ATL",
+    "Latitude": 33.75722222,
+    "Longitude": -84.39638889
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Quicken Loans Arena",
+    "Team(s)": "Cleveland Cavaliers",
+    "Abbreviation": "CLE",
+    "Latitude": 41.49638889,
+    "Longitude": -81.68805556
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Rose Garden",
+    "Team(s)": "Portland Trail Blazers",
+    "Abbreviation": "POR",
+    "Latitude": 45.53166667,
+    "Longitude": -122.6666667
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Sleep Train Arena",
+    "Team(s)": "Sacramento Kings",
+    "Abbreviation": "SAC",
+    "Latitude": 38.64916667,
+    "Longitude": -121.5180556
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Staples Center",
+    "Team(s)": "Los Angeles Lakers/Los Angeles Clippers",
+    "Abbreviation": "LAL/LAC",
+    "Latitude": 34.04305556,
+    "Longitude": -118.2672222
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Target Center",
+    "Team(s)": "Minnesota Timberwolves",
+    "Abbreviation": "MIN",
+    "Latitude": 44.97944444,
+    "Longitude": -93.27611111
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "TD Garden",
+    "Team(s)": "Boston Celtics",
+    "Abbreviation": "BOS",
+    "Latitude": 42.36630278,
+    "Longitude": -71.06222778
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "The Palace of Auburn Hills",
+    "Team(s)": "Detroit Pistons",
+    "Abbreviation": "DET",
+    "Latitude": 42.69694444,
+    "Longitude": -83.24555556
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Time Warner Cable Arena",
+    "Team(s)": "Charlotte Bobcats",
+    "Abbreviation": "CHA",
+    "Latitude": 35.225,
+    "Longitude": -80.83916667
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Toyota Center",
+    "Team(s)": "Houston Rockets",
+    "Abbreviation": "HOU",
+    "Latitude": 29.75083333,
+    "Longitude": -95.36222222
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "United Center",
+    "Team(s)": "Chicago Bulls",
+    "Abbreviation": "CHI",
+    "Latitude": 41.88055556,
+    "Longitude": -87.67416667
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "US Airways Center",
+    "Team(s)": "Phoenix Suns",
+    "Abbreviation": "PHX",
+    "Latitude": 33.44583333,
+    "Longitude": -112.0713889
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Verizon Center",
+    "Team(s)": "Washington Wizards",
+    "Abbreviation": "WAS",
+    "Latitude": 38.89805556,
+    "Longitude": -77.02083333
+  },
+  {
+    "Sport": "NBA",
+    "Venue": "Wells Fargo Center",
+    "Team(s)": "Philadelphia 76ers",
+    "Abbreviation": "PHI",
+    "Latitude": 39.90111111,
+    "Longitude": -75.17194444
+  }
+]
