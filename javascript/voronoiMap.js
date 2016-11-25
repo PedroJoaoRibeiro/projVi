@@ -47,9 +47,10 @@ class VoronoiMap {
                     tooltip.transition()
                         .duration(200)
                         .style("opacity", .9);
-                    tooltip.html(data[i].team + "<br/>" )
+                    tooltip.html(data[i].team + "<br/>")
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY - 28) + "px");
+                    verify(data[i]);
                 })
                 .on('mouseout', function () {
                     tooltip.transition()
@@ -62,14 +63,31 @@ class VoronoiMap {
     }
 }
 
-
-
-
-
 function main() {
     var file = "data/equipas_VI/teams.json";
+    var file1 = "data/Playoff_Equipas_VI/2016.json";
     d3.json(file, function (data) {
-        var voronoiMap = new VoronoiMap(data);
+        d3.json(file1, function (teams) {
+            var array = selectTeamsToPlayoffs(data, teams);
+            console.log(array);
+            var voronoiMap = new VoronoiMap(array);
+        });
     });
 
 }
+
+function selectTeamsToPlayoffs(data, teams){
+    var array = [];
+
+    for (var i = 0; i < data.length; i++){
+        for (var j = 0; j < teams.length; j++){
+            if(data[i].team == teams[j].Team){
+                array.push(data[i]);
+                break;
+            }
+        }
+    }
+    if (array.length != 16)
+        console.log("ver nomes de equipas mal");
+    return array;
+} 

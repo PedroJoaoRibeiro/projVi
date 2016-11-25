@@ -37,7 +37,7 @@
   },
   {
     "team": "San Antonio Spurs",
-    "abbreviation": "SAN",
+    "abbreviation": "SAS",
     "stadium": "AT&T Center",
     "color": "#bec8c9",
     "iconWidth": 21,
@@ -204,8 +204,20 @@
     ]
   },
   {
-    "team": "Los Angeles Lakers/Los Angeles Clippers",
+    "team": "Los Angeles Lakers",
     "abbreviation": "LALLAC",
+    "stadium": "Staples Center",
+    "color": "url(#LALLAC)",
+    "iconWidth": 42,
+    "iconHeight": 21,
+    "location": [
+      -118.267222222222,
+      34.0430555555556
+    ]
+  },
+  {
+    "team": "Los Angeles Clippers",
+    "abbreviation": "LAC",
     "stadium": "Staples Center",
     "color": "url(#LALLAC)",
     "iconWidth": 42,
@@ -252,8 +264,8 @@
     ]
   },
   {
-    "team": "Charlotte Bobcats",
-    "abbreviation": "CHA",
+    "team": "Charlotte Hornets",
+    "abbreviation": "CHO",
     "stadium": "Time Warner Cable Arena",
     "color": "#5191cd",
     "iconWidth": 21,

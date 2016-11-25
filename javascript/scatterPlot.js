@@ -3,14 +3,13 @@ var dataSet, scatterPlot, barChart, average;
 //BUTTONS
 
 function doScatterPlot() {
-    var file = "data/Jogadores_VI/playoffs/2015.json";
+    var file = "data/Jogadores_VI/playoffs/2016.json";
     d3.json(file, function (data) {
-        var aux = selectFromData(data, "Tm", "CLE");
+        var aux = selectFromData(data, "Tm", "OKC");
         scatterPlot = new ScatterPlot(aux);
     });
 
 }
-
 
 class ScatterPlot {
     constructor(data) {
@@ -119,4 +118,12 @@ function selectFromData(data, type, value) {
         }
     }
     return array;
+}
+
+function verify(obj){
+    var file = "data/Jogadores_VI/playoffs/2016.json";
+    d3.json(file, function (data) {
+        var aux = selectFromData(data, "Tm",obj.abbreviation);
+        console.log(aux);
+    });
 }
