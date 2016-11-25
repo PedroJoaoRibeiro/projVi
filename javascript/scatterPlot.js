@@ -20,15 +20,10 @@ class ScatterPlot {
             left_pad = 100;
 
 
-        var svg = d3.select("#the_scatterPlot")
+        this.svg = d3.select("#the_scatterPlot")
             .append("svg")
             .attr("width", w)
             .attr("height", h);
-
-        var tooltip = d3.select("#the_scatterPlot")
-            .append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0);
 
         var maxValue = d3.max(data.map(function (d) { return d.MP; }));
         var x = d3.scaleLinear().domain([0, maxValue]).range([left_pad, w - pad]);
@@ -38,17 +33,48 @@ class ScatterPlot {
         var yAxis = d3.axisLeft().scale(y);
 
 
-        svg.append("g")
+        this.svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(0, " + (h - pad) + ")")
             .call(xAxis);
 
-        svg.append("g")
+        this.svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(" + (left_pad - pad) + ", 0)")
             .call(yAxis);
 
-        svg.selectAll("circle")
+        this.update(data);
+            
+    }
+
+    calculateAverage(data) {
+        var average = 0;
+        var cont = 0;
+        while (data.length > cont) {
+            average += data[cont].Impact;
+            cont++;
+        }
+        return average / cont;
+    }
+
+    update(data){
+        var w = 940,
+            h = 300,
+            pad = 20,
+            left_pad = 100;
+
+        
+        var maxValue = d3.max(data.map(function (d) { return d.MP; }));
+        var x = d3.scaleLinear().domain([0, maxValue]).range([left_pad, w - pad]);
+        var y = d3.scaleLinear().domain([1.5, 0]).range([pad, h - pad * 2]);
+
+        var tooltip = d3.select("#the_scatterPlot")
+            .append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+
+        this.svg.selectAll("circle")
             .data(data)
             .enter()
             .append("circle")
@@ -76,8 +102,10 @@ class ScatterPlot {
                     .style("opacity", 0);
             });
 
-        svg.append("line")
+
+            this.svg.append("line")
             .style("stroke", "black")
+            .style("stroke-width", "2px")
             .attr("x1", x(0))
             .attr("x2", x(maxValue))
             .attr("y1", y(average))
@@ -96,16 +124,7 @@ class ScatterPlot {
                     .style("opacity", 0);
             });
     }
-
-    calculateAverage(data) {
-        var average = 0;
-        var cont = 0;
-        while (data.length > cont) {
-            average += data[cont].Impact;
-            cont++;
-        }
-        return average / cont;
-    }
+        
 }
 
 //Aux Methods
@@ -124,6 +143,9 @@ function verify(obj){
     var file = "data/Jogadores_VI/playoffs/2016.json";
     d3.json(file, function (data) {
         var aux = selectFromData(data, "Tm",obj.abbreviation);
-        console.log(aux);
+        if(scatterPlot == null)
+            scatterPlot = new ScatterPlot(aux);
+        else
+            scatterPlot.update(aux);
     });
 }

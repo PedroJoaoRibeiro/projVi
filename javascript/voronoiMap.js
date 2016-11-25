@@ -43,19 +43,20 @@ class VoronoiMap {
                 .attr("d", function (d) { return "M" + d.join("L") + "Z"; })
                 .attr("fill", function (d, i) { return data[i].color; })
                 .on('mouseover', function (d, i) {
-
                     tooltip.transition()
                         .duration(200)
                         .style("opacity", .9);
                     tooltip.html(data[i].team + "<br/>")
                         .style("left", (d3.event.pageX) + "px")
                         .style("top", (d3.event.pageY - 28) + "px");
-                    verify(data[i]);
                 })
                 .on('mouseout', function () {
                     tooltip.transition()
                         .duration(500)
                         .style("opacity", 0);
+                })
+                .on("click",function (d,i) {
+                    verify(data[i]);
                 });
         });
 
