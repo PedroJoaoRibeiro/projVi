@@ -1,4 +1,4 @@
-var dataSet, scatterPlot, barChart, average;
+var dataSet, scatterPlot, barChart;
 
 //BUTTONS
 
@@ -13,38 +13,18 @@ function doScatterPlot() {
 
 class ScatterPlot {
     constructor(data) {
-        average = this.calculateAverage(data);
         var w = 940,
             h = 300,
             pad = 20,
             left_pad = 100;
-
 
         this.svg = d3.select("#the_scatterPlot")
             .append("svg")
             .attr("width", w)
             .attr("height", h);
 
-        var maxValue = d3.max(data.map(function (d) { return d.MP; }));
-        var x = d3.scaleLinear().domain([0, maxValue]).range([left_pad, w - pad]);
-        var y = d3.scaleLinear().domain([1.5, 0]).range([pad, h - pad * 2]);
-
-        var xAxis = d3.axisBottom().scale(x);
-        var yAxis = d3.axisLeft().scale(y);
-
-
-        this.svg.append("g")
-            .attr("class", "axis")
-            .attr("transform", "translate(0, " + (h - pad) + ")")
-            .call(xAxis);
-
-        this.svg.append("g")
-            .attr("class", "axis")
-            .attr("transform", "translate(" + (left_pad - pad) + ", 0)")
-            .call(yAxis);
-
         this.update(data);
-            
+
     }
 
     calculateAverage(data) {
@@ -57,16 +37,33 @@ class ScatterPlot {
         return average / cont;
     }
 
-    update(data){
+    update(data) {
         var w = 940,
             h = 300,
             pad = 20,
             left_pad = 100;
 
-        
+        this.svg.selectAll("g")
+            .remove()
+            .exit()
+
         var maxValue = d3.max(data.map(function (d) { return d.MP; }));
         var x = d3.scaleLinear().domain([0, maxValue]).range([left_pad, w - pad]);
         var y = d3.scaleLinear().domain([1.5, 0]).range([pad, h - pad * 2]);
+
+        var xAxis = d3.axisBottom().scale(x);
+        var yAxis = d3.axisLeft().scale(y);
+
+        this.svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", "translate(" + (left_pad - pad) + ", 0)")
+            .call(yAxis);
+
+        this.svg.append("g")
+            .attr("class", "axis")
+            .attr("transform", "translate(0, " + (h - pad) + ")")
+            .call(xAxis);
+
 
         var tooltip = d3.select("#the_scatterPlot")
             .append("div")
@@ -75,6 +72,8 @@ class ScatterPlot {
 
 
         this.svg.selectAll("circle")
+            .remove()
+            .exit()
             .data(data)
             .enter()
             .append("circle")
@@ -101,9 +100,13 @@ class ScatterPlot {
                     .duration(500)
                     .style("opacity", 0);
             });
+        
+        var average = this.calculateAverage(data);
+        this.svg.selectAll("line")
+            .remove()
+            .exit()
 
-
-            this.svg.append("line")
+        this.svg.append("line")
             .style("stroke", "black")
             .style("stroke-width", "2px")
             .attr("x1", x(0))
@@ -124,7 +127,7 @@ class ScatterPlot {
                     .style("opacity", 0);
             });
     }
-        
+
 }
 
 //Aux Methods
@@ -139,11 +142,11 @@ function selectFromData(data, type, value) {
     return array;
 }
 
-function verify(obj){
+function verify(obj) {
     var file = "data/Jogadores_VI/playoffs/2016.json";
     d3.json(file, function (data) {
-        var aux = selectFromData(data, "Tm",obj.abbreviation);
-        if(scatterPlot == null)
+        var aux = selectFromData(data, "Tm", obj.abbreviation);
+        if (scatterPlot == null)
             scatterPlot = new ScatterPlot(aux);
         else
             scatterPlot.update(aux);
