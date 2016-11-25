@@ -35,6 +35,11 @@ div.tooltip {
     fill: #222;
 }
 
+path {
+  fill: #ccc;
+  stroke: #fff;
+}
+
 #old {
 	background-color: red;
 }

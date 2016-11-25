@@ -6,6 +6,7 @@
 	<title>NBA STATS</title>
 	<link rel="stylesheet" href="css/scatterPlot.css">
 	<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+	<script src="https://d3js.org/topojson.v1.min.js"></script>
 	<script src="javascript/scatterPlot.js"></script>
 	<script src="javascript/voronoiMap.js"></script>
 	
@@ -15,11 +16,12 @@
 	<h1>NBA STATS</h1>
 	<div id="the_scatterPlot"> </div>
 	<div id="the_starPlot"> </div>
+	<div id="the_VoronoiMap"> </div>
 
 	<input id="starPlot" type="button" value="ScatterPlot" onclick="doScatterPlot();" />
 	<input id="starPlot" type="button" value="StarPlot" onclick="doStarPlot();" />
 	<script>
-      //main();
+      main();
   </script>
 </body>
 
