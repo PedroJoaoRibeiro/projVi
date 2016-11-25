@@ -35,6 +35,13 @@ div.tooltip {
     fill: #222;
 }
 
+.teams-cells {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: 0.1;
+  pointer-events: all;
+}
+
 path {
   fill: #ccc;
   stroke: #fff;
