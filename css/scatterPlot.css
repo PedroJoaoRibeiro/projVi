@@ -4,7 +4,6 @@ h1 {
 }
 
 body {
- 
   background-image: url("../nba2.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -12,6 +11,7 @@ body {
 
 
 #the_VoronoiMap {
+  fill: none;
   position: static;
   margin: auto;
   width: 50%;
@@ -61,21 +61,13 @@ div.tooltip {
 }
 
 .teams-cells {
-  fill: none;
   stroke: #000;
   stroke-opacity: 0.1;
   pointer-events: all;
 }
 
 path {
-  fill: #ccc;
+  fill: none;
   stroke: #fff;
 }
 
-#old {
-	background-color: red;
-}
-
-#new {
-	background-color: purple;
-}

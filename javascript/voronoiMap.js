@@ -24,11 +24,6 @@ class VoronoiMap {
         d3.json("data/us.json", function (error, topology) {
             if (error) throw error;
 
-            svg.append("path")
-                .datum(topojson.feature(topology, topology.objects.land))
-                .attr("d", path);
-
-
             var projectedPoints = [];
             for (var i = 0; i < data.length; i++) {
                 projectedPoints.push(projection(data[i].location));
@@ -58,6 +53,10 @@ class VoronoiMap {
                 .on("click",function (d,i) {
                     verify(data[i]);
                 });
+
+            svg.append("path")
+                .datum(topojson.feature(topology, topology.objects.land))
+                .attr("d", path);
         });
 
 
