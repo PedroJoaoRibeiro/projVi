@@ -70,6 +70,32 @@ class ScatterPlot {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
+        var average = this.calculateAverage(data);
+        this.svg.selectAll("line")
+            .remove()
+            .exit();
+
+        this.svg.append("line")
+            .style("stroke", "black")
+            .style("stroke-width", "2px")
+            .attr("x1", x(0))
+            .attr("x2", x(maxValue))
+            .attr("y1", y(average))
+            .attr("y2", y(average))
+            .on("mouseover", function (d) {
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltip.html("Impact " + average.toFixed(2))
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+            })
+            .on("mouseout", function (d) {
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            });    
+
         this.svg.selectAll("image")
             .remove()
             .exit()
@@ -102,31 +128,7 @@ class ScatterPlot {
                     .style("opacity", 0);
             });
         
-        var average = this.calculateAverage(data);
-        this.svg.selectAll("line")
-            .remove()
-            .exit();
 
-        this.svg.append("line")
-            .style("stroke", "black")
-            .style("stroke-width", "2px")
-            .attr("x1", x(0))
-            .attr("x2", x(maxValue))
-            .attr("y1", y(average))
-            .attr("y2", y(average))
-            .on("mouseover", function (d) {
-                tooltip.transition()
-                    .duration(200)
-                    .style("opacity", .9);
-                tooltip.html("Impact " + average.toFixed(2))
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            })
-            .on("mouseout", function (d) {
-                tooltip.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-            });
     }
 
 }
