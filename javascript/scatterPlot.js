@@ -76,17 +76,19 @@ class ScatterPlot {
             .exit()
             .data(data)
             .enter()
-            .append("circle")
-            .attr("class", "circle")
-            .attr("cx", function (d) {
+            .append("image")
+            //.attr("class", "circle")
+            .attr("xlink:href", "https://github.com/favicon.ico")
+            .attr("width", 16)
+            .attr("height", 16)
+            .attr("x", function (d) {
                 return x(d.MP);
             })
-            .attr("cy", function (d) {
+            .attr("y", function (d) {
                 return y(d.Impact);
             })
-            .attr("r", function (d) {
-                return 5;
-            })
+
+
             .on("mouseover", function (d) {
                 tooltip.transition()
                     .duration(200)
