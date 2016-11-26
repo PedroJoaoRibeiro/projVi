@@ -2,10 +2,23 @@ h1 {
    font-size: 18pt;
    font-family: calibri, arial, sans serif;
 }
+
+body {
+  background-color: #D3D3D3;
+}
+
+
+#the_VoronoiMap {
+  position: absolute;
+  top: 8%;
+  left: 25%;
+}
+
+
 div.tooltip {	
-    position: absolute;			
+    position: fixed;			
     text-align: center;			
-    width: 100px;					
+    width: 100px;			
     height: 28px;					
     padding: 2px;				
     font: 12px sans-serif;		
@@ -14,6 +27,15 @@ div.tooltip {
     border-radius: 8px;			
     pointer-events: none;			
 }
+
+
+#the_scatterPlot {
+  position: relative;
+  top: 600px;
+  left: 400px;
+}
+
+
 .axis path,
 .axis line {
     fill: stroke;
