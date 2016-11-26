@@ -9,14 +9,14 @@ body {
 
 
 #the_VoronoiMap {
-  position: absolute;
-  top: 8%;
-  left: 25%;
+  position: static;
+  margin: auto;
+  width: 50%;
 }
 
 
 div.tooltip {	
-    position: fixed;			
+    position: absolute;			
     text-align: center;			
     width: 100px;			
     height: 28px;					
@@ -30,9 +30,9 @@ div.tooltip {
 
 
 #the_scatterPlot {
-  position: relative;
-  top: 600px;
-  left: 400px;
+  position: static;
+  margin: auto;
+  width: 50%;
 }
 
 
