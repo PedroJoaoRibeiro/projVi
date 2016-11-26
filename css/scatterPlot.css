@@ -5,7 +5,9 @@ h1 {
 
 body {
  
-  background-image: url("../nba.jpg");
+  background-image: url("../nba2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 
