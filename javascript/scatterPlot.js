@@ -45,7 +45,7 @@ class ScatterPlot {
 
         this.svg.selectAll("g")
             .remove()
-            .exit()
+            .exit();
 
         var maxValue = d3.max(data.map(function (d) { return d.MP; }));
         var x = d3.scaleLinear().domain([0, maxValue]).range([left_pad, w - pad]);
@@ -70,15 +70,14 @@ class ScatterPlot {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
-
-        this.svg.selectAll("circle")
+        this.svg.selectAll("image")
             .remove()
             .exit()
             .data(data)
             .enter()
             .append("image")
             //.attr("class", "circle")
-            .attr("xlink:href", "https://github.com/favicon.ico")
+            .attr("xlink:href", "http://cyberpuck.com/images/new/basketball.png")
             .attr("width", 16)
             .attr("height", 16)
             .attr("x", function (d) {
@@ -106,7 +105,7 @@ class ScatterPlot {
         var average = this.calculateAverage(data);
         this.svg.selectAll("line")
             .remove()
-            .exit()
+            .exit();
 
         this.svg.append("line")
             .style("stroke", "black")
