@@ -146,7 +146,7 @@ function selectFromData(data, type, value) {
 }
 
 function verify(obj) {
-    var file = "data/Jogadores_VI/playoffs/2016.json";
+    var file = "data/Jogadores_VI/playoffs/" + currentYear+".json";
     d3.json(file, function (data) {
         var aux = selectFromData(data, "Tm", obj.abbreviation);
         if (scatterPlot == null)
