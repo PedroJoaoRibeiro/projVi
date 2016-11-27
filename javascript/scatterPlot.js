@@ -44,15 +44,20 @@ class ScatterPlot {
             left_pad = 100;
 
         this.svg.selectAll("g")
-            .remove()
-            .exit();
+            .remove();
+        this.svg.selectAll("path")
+            .remove();
+        this.svg.selectAll("line")
+            .remove();
+            this.svg.selectAll("image")
+            .remove();
 
         var maxValue = d3.max(data.map(function (d) { return d.MP; }));
-        var x = d3.scaleLinear().domain([0, maxValue]).range([left_pad, w - pad]);
-        var y = d3.scaleLinear().domain([1.5, 0]).range([pad, h - pad * 2]);
+        var x = d3.scale.linear().domain([0, maxValue]).range([left_pad, w - pad]);
+        var y = d3.scale.linear().domain([1.5, 0]).range([pad, h - pad * 2]);
 
-        var xAxis = d3.axisBottom().scale(x);
-        var yAxis = d3.axisLeft().scale(y);
+        var xAxis = d3.svg.axis().orient("bottom").scale(x);
+        var yAxis = d3.svg.axis().orient("left").scale(y);
 
         this.svg.append("g")
             .attr("class", "axis")
@@ -71,9 +76,7 @@ class ScatterPlot {
             .style("opacity", 0);
 
         var average = this.calculateAverage(data);
-        this.svg.selectAll("line")
-            .remove()
-            .exit();
+        
 
         this.svg.append("line")
             .style("stroke", "black")
@@ -97,8 +100,6 @@ class ScatterPlot {
             });    
 
         this.svg.selectAll("image")
-            .remove()
-            .exit()
             .data(data)
             .enter()
             .append("image")

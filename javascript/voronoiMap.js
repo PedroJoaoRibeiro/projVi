@@ -5,10 +5,10 @@ class VoronoiMap {
         var width = 900,
             height = 600;
 
-        this.projection = d3.geoAlbers()
+        this.projection = d3.geo.albers()
             .scale(1100).translate([430, 340]);
 
-        this.path = d3.geoPath()
+        this.path = d3.geo.path()
             .projection(this.projection)
             .pointRadius(2.5);
 
@@ -23,8 +23,8 @@ class VoronoiMap {
     update(data) {
         var width = 900,
             height = 600;
-        var voronoi = d3.voronoi()
-            .extent([[-1, -1], [width + 1, height + 1]]);
+        var voronoi = d3.geom.voronoi()
+            .clipExtent([[-1, -1], [width + 1, height + 1]]);
 
         var projectedPoints = [];
         for (var i = 0; i < data.length; i++) {
@@ -37,9 +37,10 @@ class VoronoiMap {
             .style("opacity", 0);
 
         this.svg.selectAll("path")
-            .remove()
-            .exit()
-            .data(voronoi.polygons(projectedPoints))
+            .remove();
+
+        this.svg.selectAll("path")
+            .data(voronoi(projectedPoints))
             .enter()
             .append("path")
             .attr("class", "teams-cells")
@@ -62,9 +63,11 @@ class VoronoiMap {
             .on("click", function (d, i) {
                 verify(data[i]);
             });
+
             this.svg.append("path")
             .datum(topojson.feature(this.topology, this.topology.objects.land))
             .attr("d", this.path);
+            
 
     }
 }
