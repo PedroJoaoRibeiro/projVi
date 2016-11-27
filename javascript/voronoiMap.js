@@ -37,6 +37,8 @@ class VoronoiMap {
             .style("opacity", 0);
 
         this.svg.selectAll("path")
+            .remove()
+            .exit()
             .data(voronoi.polygons(projectedPoints))
             .enter()
             .append("path")
@@ -60,12 +62,10 @@ class VoronoiMap {
             .on("click", function (d, i) {
                 verify(data[i]);
             });
-
             this.svg.append("path")
             .datum(topojson.feature(this.topology, this.topology.objects.land))
             .attr("d", this.path);
 
-            console.log("uma");
     }
 }
 
@@ -77,7 +77,6 @@ function main() {
             d3.json("data/us.json", function (error, topology) {
                 if (error) throw error;
                 var array = selectTeamsToPlayoffs(data, teams);
-                console.log(array);
                 voronoiMap = new VoronoiMap(array, topology);
 
             });
@@ -105,14 +104,15 @@ function selectTeamsToPlayoffs(data, teams) {
 }
 
 function updateVoronoi(year) {
-    currentYear = year;
     console.log("here");
+    currentYear = year;
 
     var file = "data/equipas_VI/teams.json";
     var file1 = "data/Playoff_Equipas_VI/" + currentYear + ".json";
     d3.json(file, function (data) {
         d3.json(file1, function (teams) {
             var array = selectTeamsToPlayoffs(data, teams);
+            console.log(array);
             voronoiMap.update(array);
 
         });
