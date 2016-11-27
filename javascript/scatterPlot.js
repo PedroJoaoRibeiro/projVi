@@ -15,13 +15,14 @@ class ScatterPlot {
     constructor(data) {
         var w = 940,
             h = 300,
+            hei = 350,
             pad = 20,
             left_pad = 100;
 
         this.svg = d3.select("#the_scatterPlot")
             .append("svg")
             .attr("width", w)
-            .attr("height", h);
+            .attr("height", hei);
 
         this.update(data);
 
@@ -132,6 +133,10 @@ class ScatterPlot {
             });
         
             this.svg.append("text").attr("x", 100).attr("y", 23).style("font-size", "30px").text(team); 
+
+            this.svg.append("text").attr("x", 470 ).attr("y", 325 ).style("text-anchor", "middle").text("Minutes Played");
+
+            this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 20).attr("x",-150).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
 
     }
 
