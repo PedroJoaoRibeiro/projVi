@@ -13,8 +13,8 @@ function doScatterPlot() {
 
 class ScatterPlot {
     constructor(data) {
-        var w = 600,
-            h = 500,
+        var w = 500,
+            h = 400,
             pad = 20,
             left_pad = 50;
 
@@ -38,8 +38,8 @@ class ScatterPlot {
     }
 
     update(data) {
-        var w = 600,
-            h = 500,
+        var w = 500,
+            h = 400,
             pad = 20,
             left_pad = 50;
 
@@ -141,11 +141,11 @@ class ScatterPlot {
                     .style("opacity", 0);
             });
         
-            this.svg.append("text").attr("x", 100).attr("y", 23).style("font-size", "30px").text(team); 
+            this.svg.append("text").attr("x", 50).attr("y", 23).style("font-size", "30px").text(team); 
 
-            this.svg.append("text").attr("x", 470 ).attr("y", 325 ).style("text-anchor", "middle").text("Minutes Played");
+            this.svg.append("text").attr("x", 400 ).attr("y", 370 ).style("text-anchor", "middle").text("Minutes Played");
 
-            this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 20).attr("x",-150).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
+            this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("x",-50).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
 
     }
 

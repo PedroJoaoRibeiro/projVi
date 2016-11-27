@@ -6,11 +6,11 @@ class VoronoiMap {
 
         this.topology = topology
         var width = 600,
-            height = 400;
+            height = 300;
 
 
         this.projection = d3.geo.albers()
-            .scale(700).translate([300, 200]);
+            .scale(500).translate([300, 150]);
 
         this.path = d3.geo.path()
             .projection(this.projection)
@@ -26,7 +26,7 @@ class VoronoiMap {
     }
     update(data) {
         var width = 600,
-            height = 400;
+            height = 300;
         var voronoi = d3.geom.voronoi()
             .clipExtent([[-1, -1], [width + 1, height + 1]]);
 
