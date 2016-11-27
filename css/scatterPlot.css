@@ -121,6 +121,11 @@ path {
   stroke: #fff;
 }
 
+image1 {
+      pointer-events: none;
+  }
+
+  
 .radar-chart .area {
   fill-opacity: 0.7;
 }
