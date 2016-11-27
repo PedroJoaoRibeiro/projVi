@@ -123,6 +123,16 @@ class ScatterPlot {
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 28) + "px");
             })
+
+            .on("click", function (d) {
+                if (d.Player.split("\\")[0]== "LeBron James"){
+                    drawRadarChart("LeBron");
+                }
+                else if (d.Player.split("\\")[0]== "Stephen Curry"){
+                    drawRadarChart("Curry");
+                }
+            })
+
             .on("mouseout", function (d) {
                 tooltip.transition()
                     .duration(500)

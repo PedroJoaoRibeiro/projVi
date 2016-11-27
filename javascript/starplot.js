@@ -267,23 +267,21 @@ class RadarChart {
 }
 
 
-function drawRadarChart() {
+function drawRadarChart(placeholder) {
   var margin = { top: 100, right: 100, bottom: 100, left: 100 },
     width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
     height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 
-
-  var data = [
-    [//iPhone
-      { axis: "Battery Life", value: 0.22 },
-      { axis: "Brand", value: 0.28 },
-      { axis: "Contract Cost", value: 0.29 },
-      { axis: "Design And Quality", value: 0.17 },
-      { axis: "Have Internet Connectivity", value: 0.22 },
-      { axis: "Large Screen", value: 0.02 },
-      { axis: "Price Of Device", value: 0.21 },
+  if (placeholder == "LeBron"){
+    var data = [
+    [//Lebron
+      { axis: "Pontos", value: 552 },
+      { axis: "Assistencias", value: 160 },
+      { axis: "Blocos", value: 27 },
+      { axis: "Roubos", value: 49 },
+      { axis: "Dribles", value: 158 },
       
-    ], [//Samsung
+    ]/*, [//Samsung
       { axis: "Battery Life", value: 0.27 },
       { axis: "Brand", value: 0.16 },
       { axis: "Contract Cost", value: 0.35 },
@@ -301,8 +299,39 @@ function drawRadarChart() {
       { axis: "Large Screen", value: 0.04 },
       { axis: "Price Of Device", value: 0.41 },
       
-    ]
-  ];
+    ]*/
+    ];
+  }
+
+  else if (placeholder == "Curry"){
+    var data = [
+    [//Lebron
+      { axis: "Pontos", value: 552 },
+      { axis: "Assistencias", value: 160 },
+      { axis: "Blocos", value: 27 },
+      { axis: "Roubos", value: 49 },
+      { axis: "Dribles", value: 158 },
+      
+    ],     [//Curry
+      { axis: "Pontos", value: 161 },
+      { axis: "Assistencias", value: 59 },
+      { axis: "Blocos", value: 1 },
+      { axis: "Roubos", value: 12 },
+      { axis: "Dribles", value: 21 },
+      
+    ],/* [//Nokia Smartphone
+      { axis: "Battery Life", value: 0.26 },
+      { axis: "Brand", value: 0.10 },
+      { axis: "Contract Cost", value: 0.30 },
+      { axis: "Design And Quality", value: 0.14 },
+      { axis: "Have Internet Connectivity", value: 0.22 },
+      { axis: "Large Screen", value: 0.04 },
+      { axis: "Price Of Device", value: 0.41 },
+      
+    ]*/
+    ];
+  }  
+  
 
 
   var color = d3.scale.ordinal()
