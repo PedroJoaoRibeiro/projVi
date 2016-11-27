@@ -70,6 +70,7 @@ class VoronoiMap {
 }
 
 function main() {
+    currentYear = 2016;
     var file = "data/equipas_VI/teams.json";
     var file1 = "data/Playoff_Equipas_VI/2016.json";
     d3.json(file, function (data) {
@@ -88,8 +89,6 @@ function main() {
 
 function selectTeamsToPlayoffs(data, teams) {
     var array = [];
-    currentYear = 2016;
-
     for (var i = 0; i < data.length; i++) {
         for (var j = 0; j < teams.length; j++) {
             if (data[i].team == teams[j].Team) {

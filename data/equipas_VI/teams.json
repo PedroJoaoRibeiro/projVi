@@ -60,9 +60,21 @@
     ]
   },
   {
-    "team": "New York Knicks/Brooklyn Nets",
-    "abbreviation": "NYKBKL",
-    "stadium": "Madison Square Garden/Barclays Center",
+    "team": "New York Knicks",
+    "abbreviation": "NYK",
+    "stadium": "Madison Square Garden",
+    "color": "url(#NYKBKL)",
+    "iconWidth": 42,
+    "iconHeight": 21,
+    "location": [
+      -73.9841,
+      40.7166
+    ]
+  },
+  {
+    "team": "Brooklyn Nets",
+    "abbreviation": "BRK",
+    "stadium": "Barclays Center",
     "color": "url(#NYKBKL)",
     "iconWidth": 42,
     "iconHeight": 21,
@@ -120,8 +132,8 @@
     ]
   },
   {
-    "team": "New Orleans Hornets",
-    "abbreviation": "NO",
+    "team": "New Orleans Pelicans",
+    "abbreviation": "NOP",
     "stadium": "New Orleans Arena",
     "color": "#008fc5",
     "iconWidth": 21,
@@ -345,6 +357,18 @@
     "location": [
       -79.3791666666667,
       43.6433333333333
+    ]
+  },
+  {
+    "team": "Charlotte Bobcats",
+    "abbreviation": "CHA",
+    "stadium": "Time Warner Cable Arena",
+    "color": "#d0103a",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -80.839167,
+      35.225
     ]
   }
 ]
