@@ -13,16 +13,15 @@ function doScatterPlot() {
 
 class ScatterPlot {
     constructor(data) {
-        var w = 940,
-            h = 300,
-            hei = 350,
+        var w = 600,
+            h = 500,
             pad = 20,
-            left_pad = 100;
+            left_pad = 50;
 
         this.svg = d3.select("#the_scatterPlot")
             .append("svg")
             .attr("width", w)
-            .attr("height", hei);
+            .attr("height", h);
 
         this.update(data);
 
@@ -39,10 +38,10 @@ class ScatterPlot {
     }
 
     update(data) {
-        var w = 940,
-            h = 300,
+        var w = 600,
+            h = 500,
             pad = 20,
-            left_pad = 100;
+            left_pad = 50;
 
         this.svg.selectAll("g")
             .remove();

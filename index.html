@@ -13,25 +13,28 @@
 	<script src="javascript/starplot.js"></script>
 
 	<script src="javascript/dropdown.js"></script>
-	
-	
+
+
 </head>
 
 <body>
-	<div style="width: 100% ; overflow: hidden;"> <div id="the_VoronoiMap" style="width: 400px; float: left;"> </div> <div id="the_starPlot" class="radarChart" style="margin-left: 850px; position:absolute; left:0; right:0;"> </div> </div>
+	<div style="width: 100% ; overflow: hidden;">
+		<div id="the_VoronoiMap"> </div>
+		<div id="the_starPlot" class="radarChart" style="margin-left: 850px; position:absolute; left:0; right:0;"> </div>
+	</div>
 	<div id="the_scatterPlot"> </div>
 	<div class="dropdown">
 		<button onclick="myFunction()" class="dropbtn">Search</button>
-  		<div id="myDropdown" class="dropdown-content">
-    		<input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-    		<a href="#2016" onclick="updateVoronoi(2016)">2016</a>
-    		<a href="#2015" onclick="updateVoronoi(2015)">2015</a>
-    		<a href="#2014" onclick="updateVoronoi(2014)">2014</a>
-    		<a href="#2013" onclick="updateVoronoi(2013)">2013</a>
-    		<a href="#2012" onclick="updateVoronoi(2012)">2012</a>
-    		<a href="#2011" onclick="updateVoronoi(2011)">2011</a>
-    		<a href="#2010" onclick="updateVoronoi(2010)">2010</a>
-  		</div>
+		<div id="myDropdown" class="dropdown-content">
+			<input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+			<a href="#2016" onclick="updateVoronoi(2016)">2016</a>
+			<a href="#2015" onclick="updateVoronoi(2015)">2015</a>
+			<a href="#2014" onclick="updateVoronoi(2014)">2014</a>
+			<a href="#2013" onclick="updateVoronoi(2013)">2013</a>
+			<a href="#2012" onclick="updateVoronoi(2012)">2012</a>
+			<a href="#2011" onclick="updateVoronoi(2011)">2011</a>
+			<a href="#2010" onclick="updateVoronoi(2010)">2010</a>
+		</div>
 	</div>
 	<script>
       main();
