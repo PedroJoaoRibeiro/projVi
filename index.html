@@ -9,6 +9,7 @@
 	<script src="https://d3js.org/topojson.v1.min.js"></script>
 	<script src="javascript/scatterPlot.js"></script>
 	<script src="javascript/voronoiMap.js"></script>
+	<script src="javascript/dropdown.js"></script>
 	
 </head>
 
@@ -18,6 +19,19 @@
 	<div id="the_starPlot"> </div>
 	<button onclick="updateVoronoi(2015)">Click me</button>
 	<button onclick="updateVoronoi(2014)">Click me2</button>
+	<div class="dropdown">
+		<button onclick="myFunction()" class="dropbtn">Dropdown</button>
+  		<div id="myDropdown" class="dropdown-content">
+    		<input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    		<a href="#2016" onclick="updateVoronoi(2016)">2016</a>
+    		<a href="#2015" onclick="updateVoronoi(2015)">2015</a>
+    		<a href="#2014" onclick="updateVoronoi(2014)">2014</a>
+    		<a href="#2013" onclick="updateVoronoi(2013)">2013</a>
+    		<a href="#2012" onclick="updateVoronoi(2012)">2012</a>
+    		<a href="#2011" onclick="updateVoronoi(2011)">2011</a>
+    		<a href="#2010" onclick="updateVoronoi(2010)">2010</a>
+  		</div>
+	</div>
 	
 	<script>
       main();
