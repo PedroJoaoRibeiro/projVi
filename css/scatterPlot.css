@@ -24,7 +24,6 @@ body {
 }
 #myInput {
     border-box: box-sizing;
-    background-image: url('searchicon.png');
     background-position: 14px 12px;
     background-repeat: no-repeat;
     font-size: 16px;
@@ -88,6 +87,12 @@ div.tooltip {
   width: 50%;
 }
 
+#the_starPlot {
+  position: static;
+  margin: auto;
+  width: 50%;
+}
+
 
 .axis path,
 .axis line {
@@ -121,28 +126,12 @@ path {
   stroke: #fff;
 }
 
+
 image1 {
       pointer-events: none;
   }
 
-  
-.radar-chart .area {
-  fill-opacity: 0.7;
-}
-.radar-chart.focus .area {
-  fill-opacity: 0.3;
-}
-.radar-chart.focus .area.focused {
-  fill-opacity: 0.9;
-}
-.area.germany, .germany .circle {
-  fill: #FFD700;
-  stroke: none;
-}
-.area.argentina, .argentina .circle {
-  fill: #ADD8E6;
-  stroke: none;
-}
+
 
 
 
