@@ -63,7 +63,7 @@ class VoronoiMap {
             .on("click", function (d, i) {
                 verify(data[i]);
             });
-
+            var x = this.projection;
             this.svg.append("path")
             .datum(topojson.feature(this.topology, this.topology.objects.land))
             .attr("d", this.path);
@@ -76,7 +76,7 @@ class VoronoiMap {
             .attr("height", function (d) { return d.iconHeight; })
             .attr("xlink:href", "http://cyberpuck.com/images/new/basketball.png")
             //.attr("xlink:href", function (d) { return "logos/"+league+"/"+d.abbreviation+".png";})
-            .attr("transform", function (d) { return "translate(" + offset(this.projection(d.location),d) + ")"; }); 
+            .attr("transform", function (d,i) { return "translate(" + offset(x(d.location),d) + ")"; }); 
             
 
     }
