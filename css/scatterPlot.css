@@ -14,9 +14,7 @@ body {
     color: white;
     padding: 16px;
     font-size: 16px;
-    border: none;
-    cursor: pointer;
-
+    position:relative;
 }
 
 .dropbtn:hover, .dropbtn:focus {
@@ -43,6 +41,7 @@ body {
     min-width: 230px;
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    bottom: 100%;
 }
 
 .dropdown-content a {
@@ -50,6 +49,7 @@ body {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    bottom: 100%;
 }
 
 .dropdown a:hover {background-color: #ddd}

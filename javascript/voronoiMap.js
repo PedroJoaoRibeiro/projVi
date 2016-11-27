@@ -1,9 +1,13 @@
 var currentYear, voronoiMap;
 class VoronoiMap {
     constructor(data, topology) {
+
+        
+
         this.topology = topology
         var width = 900,
             height = 600;
+
 
         this.projection = d3.geo.albers()
             .scale(1100).translate([430, 340]);
@@ -38,6 +42,8 @@ class VoronoiMap {
 
         this.svg.selectAll("path")
             .remove();
+              
+
 
         this.svg.selectAll("path")
             .data(voronoi(projectedPoints))

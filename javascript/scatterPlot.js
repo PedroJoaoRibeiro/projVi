@@ -15,13 +15,14 @@ class ScatterPlot {
     constructor(data) {
         var w = 940,
             h = 300,
+            hei = 350,
             pad = 20,
             left_pad = 100;
 
         this.svg = d3.select("#the_scatterPlot")
             .append("svg")
             .attr("width", w)
-            .attr("height", h);
+            .attr("height", hei);
 
         this.update(data);
 
@@ -52,7 +53,10 @@ class ScatterPlot {
             this.svg.selectAll("image")
             .remove();
 
+        this.svg.selectAll("text").remove();
+
         var maxValue = d3.max(data.map(function (d) { return d.MP; }));
+        var team = d3.max(data.map(function (d) { return d.Tm; }));
         var x = d3.scale.linear().domain([0, maxValue]).range([left_pad, w - pad]);
         var y = d3.scale.linear().domain([1.5, 0]).range([pad, h - pad * 2]);
 
@@ -68,7 +72,6 @@ class ScatterPlot {
             .attr("class", "axis")
             .attr("transform", "translate(0, " + (h - pad) + ")")
             .call(xAxis);
-
 
         var tooltip = d3.select("#the_scatterPlot")
             .append("div")
@@ -97,7 +100,7 @@ class ScatterPlot {
                 tooltip.transition()
                     .duration(500)
                     .style("opacity", 0);
-            });    
+            });   
 
         this.svg.selectAll("image")
             .data(data)
@@ -139,6 +142,11 @@ class ScatterPlot {
                     .style("opacity", 0);
             });
         
+            this.svg.append("text").attr("x", 100).attr("y", 23).style("font-size", "30px").text(team); 
+
+            this.svg.append("text").attr("x", 470 ).attr("y", 325 ).style("text-anchor", "middle").text("Minutes Played");
+
+            this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 20).attr("x",-150).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
 
     }
 
