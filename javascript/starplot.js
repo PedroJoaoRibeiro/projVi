@@ -29,7 +29,7 @@ class RadarChart {
     var allAxis = (data[0].map(function (i, j) { return i.axis })),	//Names of each axis
       total = allAxis.length,					//The number of different axes
       radius = Math.min(cfg.w / 2, cfg.h / 2), 	//Radius of the outermost circle
-      Format = d3.format('%'),			 	//Percentage formatting
+      Format = d3.format('r'),			 	//Percentage formatting
       angleSlice = Math.PI * 2 / total;		//The width in radians of each "slice"
 
     //Scale for the radius
@@ -78,8 +78,8 @@ class RadarChart {
       .append("circle")
       .attr("class", "gridCircle")
       .attr("r", function (d, i) { return radius / cfg.levels * d; })
-      .style("fill", "#CDCDCD")
-      .style("stroke", "#CDCDCD")
+      .style("fill", "#a0a0a0")
+      .style("stroke", "#a0a0a0")
       .style("fill-opacity", cfg.opacityCircles)
       .style("filter", "url(#glow)");
 
