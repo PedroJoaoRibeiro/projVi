@@ -61,9 +61,9 @@ body {
 
 #the_VoronoiMap {
   fill: none;
-  position: static;
+  position: relative;
   margin: auto;
-  width: 50%;
+  width: 33%;
 }
 
 
@@ -83,15 +83,11 @@ div.tooltip {
 
 #the_scatterPlot {
   position: static;
-  margin: auto;
+
   
 }
 
-#the_starPlot {
-  position: static;
-  margin: auto;
-  width: 50%;
-}
+
 
 
 .axis path,
