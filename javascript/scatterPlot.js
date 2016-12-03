@@ -49,7 +49,7 @@ class ScatterPlot {
             .remove();
         this.svg.selectAll("line")
             .remove();
-            this.svg.selectAll("image")
+        this.svg.selectAll("image")
             .remove();
 
         this.svg.selectAll("text").remove();
@@ -78,7 +78,7 @@ class ScatterPlot {
             .style("opacity", 0);
 
         var average = this.calculateAverage(data);
-        
+
 
         this.svg.append("line")
             .style("stroke", "black")
@@ -99,7 +99,7 @@ class ScatterPlot {
                 tooltip.transition()
                     .duration(500)
                     .style("opacity", 0);
-            });   
+            });
 
         this.svg.selectAll("image")
             .data(data)
@@ -127,12 +127,24 @@ class ScatterPlot {
             })
 
             .on("click", function (d) {
-                if (d.Player.split("\\")[0]== "LeBron James"){
+
+                var data = [
+                    [//Lebron
+                        { axis: "Pontos", value: d.PTS },
+                        { axis: "Assistencias", value: d.AST },
+                        { axis: "Blocos", value: d.BLK },
+                        { axis: "Roubos", value: d.STL },
+                        { axis: "Dribles", value: d.DRB },
+
+                ]];
+                drawRadarChart(data);
+
+               /* if (d.Player.split("\\")[0] == "LeBron James") {
                     drawRadarChart("LeBron");
                 }
-                else if (d.Player.split("\\")[0]== "Stephen Curry"){
+                else if (d.Player.split("\\")[0] == "Stephen Curry") {
                     drawRadarChart("Curry");
-                }
+                }*/
             })
 
             .on("mouseout", function (d) {
@@ -140,12 +152,12 @@ class ScatterPlot {
                     .duration(500)
                     .style("opacity", 0);
             });
-        
-            this.svg.append("text").attr("x", 50).attr("y", 23).style("font-size", "30px").text(team); 
 
-            this.svg.append("text").attr("x", 400 ).attr("y", 370 ).style("text-anchor", "middle").text("Minutes Played");
+        this.svg.append("text").attr("x", 50).attr("y", 23).style("font-size", "30px").text(team);
 
-            this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("x",-50).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
+        this.svg.append("text").attr("x", 400).attr("y", 370).style("text-anchor", "middle").text("Minutes Played");
+
+        this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("x", -50).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
 
     }
 
@@ -164,10 +176,10 @@ function selectFromData(data, type, value) {
 }
 
 function verify(obj) {
-    var file = "data/Jogadores_VI/playoffs/" + currentYear+".json";
+    var file = "data/Jogadores_VI/playoffs/" + currentYear + ".json";
     d3.json(file, function (data) {
         var aux = selectFromData(data, "Tm", obj.abbreviation);
-        
+
         if (scatterPlot == null)
             scatterPlot = new ScatterPlot(aux);
         else

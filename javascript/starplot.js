@@ -267,12 +267,12 @@ class RadarChart {
 }
 
 
-function drawRadarChart(placeholder) {
+function drawRadarChart(data) {
   var margin = { top: 50, right: 50, bottom: 50, left: 50 },
     width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
     height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
 
-  if (placeholder == "LeBron"){
+  /*if (placeholder == "LeBron"){
     var data = [
     [//Lebron
       { axis: "Pontos", value: 552 },
@@ -299,7 +299,7 @@ function drawRadarChart(placeholder) {
       { axis: "Large Screen", value: 0.04 },
       { axis: "Price Of Device", value: 0.41 },
       
-    ]*/
+    ]
     ];
   }
 
@@ -328,9 +328,9 @@ function drawRadarChart(placeholder) {
       { axis: "Large Screen", value: 0.04 },
       { axis: "Price Of Device", value: 0.41 },
       
-    ]*/
+    ]
     ];
-  }  
+  }*/  
   
 
 
