@@ -266,11 +266,28 @@ class RadarChart {
   }//RadarChart
 }
 
+var comparator = 0;
+var data;
+function Comparator() {
+  if (comparator == 0) {
+    comparator = 1;
+  }
+  else {
+    comparator = 0;
+  }
+}
 
-function drawRadarChart(data) {
+function drawRadarChart(D) {
   var margin = { top: 50, right: 50, bottom: 50, left: 50 },
     width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
     height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
+  if (comparator == 1) {
+    data.push(D[0]);
+  }
+  else {
+    data = D;
+  }
+
 
   /*if (placeholder == "LeBron"){
     var data = [
@@ -330,8 +347,8 @@ function drawRadarChart(data) {
       
     ]
     ];
-  }*/  
-  
+  }*/
+
 
 
   var color = d3.scale.ordinal()
