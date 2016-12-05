@@ -43,6 +43,8 @@ class VoronoiMap {
         this.svg.selectAll("path")
             .remove();
               
+	
+
 
 
         this.svg.selectAll("path")
@@ -77,12 +79,14 @@ class VoronoiMap {
             this.svg.selectAll("image1")
             .data(data)
             .enter()
-            .append("image1")
+            .append("image")
             .attr("width", function (d) { return d.iconWidth; })
             .attr("height", function (d) { return d.iconHeight; })
             .attr("xlink:href", "http://cyberpuck.com/images/new/basketball.png")
             //.attr("xlink:href", function (d) { return "logos/"+league+"/"+d.abbreviation+".png";})
-            .attr("transform", function (d,i) { return "translate(" + offset(x(d.location),d) + ")"; }); 
+            .attr("transform", function (d,i) { return "translate(" + offset(x(d.location),d) + ")"; });
+		
+	
             
 
     }
