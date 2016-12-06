@@ -53,7 +53,23 @@ class VoronoiMap {
             .append("path")
             .attr("class", "teams-cells")
             .attr("id", function (d, i) { return data[i].abbreviation; })
-            .attr("d", function (d) { return "M" + d.join("L") + "Z"; });
+            .attr("d", function (d) { return "M" + d.join("L") + "Z"; })
+            .on('mouseover', function (d, i) {
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+                tooltip.html(data[i].team + "<br/>")
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px");
+            })
+            .on('mouseout', function () {
+                tooltip.transition()
+                    .duration(500)
+                    .style("opacity", 0);
+            })
+            .on("click", function (d, i) {
+                verify(data[i]);
+            });
             
             var x = this.projection;
             this.svg.append("path")
@@ -99,7 +115,7 @@ function offset(arr,d) {
 function main() {
     currentYear = 2016;
     var file = "data/equipas_VI/teams.json";
-    var file1 = "data/Playoff_Equipas_VI/2016.json";
+    var file1 = "data/Playoff_Equipas_VI/" + currentYear + ".json";
     d3.json(file, function (data) {
         d3.json(file1, function (teams) {
             d3.json("data/us.json", function (error, topology) {
@@ -130,7 +146,6 @@ function selectTeamsToPlayoffs(data, teams) {
 }
 
 function updateVoronoi(year) {
-    console.log("here");
     currentYear = year;
 
     var file = "data/equipas_VI/teams.json";
