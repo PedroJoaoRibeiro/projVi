@@ -53,8 +53,23 @@ class VoronoiMap {
             .append("path")
             .attr("class", "teams-cells")
             .attr("id", function (d, i) { return data[i].abbreviation; })
-            .attr("d", function (d) { return "M" + d.join("L") + "Z"; })
-            .attr("fill", function (d, i) { return data[i].color; })
+            .attr("d", function (d) { return "M" + d.join("L") + "Z"; });
+            
+            var x = this.projection;
+            this.svg.append("path")
+            .datum(topojson.feature(this.topology, this.topology.objects.land))
+            .attr("d", this.path);
+
+            this.svg.selectAll("image1")
+            .data(data)
+            .enter()
+            .append("image")
+            .attr("width", function (d) { return d.iconWidth; })
+            .attr("height", function (d) { return d.iconHeight; })
+            //.attr("xlink:href", "http://cyberpuck.com/images/new/basketball.png")
+            //.attr("xlink:href", function (d) { return "logos/"+league+"/"+d.abbreviation+".png";})
+			.attr("xlink:href", function (d) { return "data/icons/"+d.abbreviation+".png";})		
+            .attr("transform", function (d,i) { return "translate(" + offset(x(d.location),d) + ")"; })
             .on('mouseover', function (d, i) {
                 tooltip.transition()
                     .duration(200)
@@ -71,21 +86,6 @@ class VoronoiMap {
             .on("click", function (d, i) {
                 verify(data[i]);
             });
-            var x = this.projection;
-            this.svg.append("path")
-            .datum(topojson.feature(this.topology, this.topology.objects.land))
-            .attr("d", this.path);
-
-            this.svg.selectAll("image1")
-            .data(data)
-            .enter()
-            .append("image")
-            .attr("width", function (d) { return d.iconWidth; })
-            .attr("height", function (d) { return d.iconHeight; })
-            //.attr("xlink:href", "http://cyberpuck.com/images/new/basketball.png")
-            //.attr("xlink:href", function (d) { return "logos/"+league+"/"+d.abbreviation+".png";})
-			.attr("xlink:href", function (d) { return "data/icons/"+d.abbreviation+".png";})		
-            .attr("transform", function (d,i) { return "translate(" + offset(x(d.location),d) + ")"; });
 		
 	
             
