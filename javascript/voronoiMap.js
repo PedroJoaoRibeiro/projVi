@@ -2,7 +2,7 @@ var currentYear, voronoiMap;
 class VoronoiMap {
     constructor(data, topology) {
 
-        
+
 
         this.topology = topology
         var width = 600,
@@ -42,8 +42,8 @@ class VoronoiMap {
 
         this.svg.selectAll("path")
             .remove();
-              
-	
+
+
 
 
 
@@ -58,9 +58,16 @@ class VoronoiMap {
                 tooltip.transition()
                     .duration(200)
                     .style("opacity", .9);
+
                 tooltip.html(data[i].team + "<br/>")
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 28) + "px");
+                tooltip.append("img")
+                    .attr("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/LosAngeles_Lakers_logo.svg/500px-LosAngeles_Lakers_logo.svg.png")
+
+                    .attr("width", "150px")
+                    .attr("height", "100px");
+                tooltip.style("visibility", "visible");
             })
             .on('mouseout', function () {
                 tooltip.transition()
@@ -70,13 +77,13 @@ class VoronoiMap {
             .on("click", function (d, i) {
                 verify(data[i]);
             });
-            
-            var x = this.projection;
-            this.svg.append("path")
+
+        var x = this.projection;
+        this.svg.append("path")
             .datum(topojson.feature(this.topology, this.topology.objects.land))
             .attr("d", this.path);
 
-            this.svg.selectAll("image1")
+        this.svg.selectAll("image1")
             .data(data)
             .enter()
             .append("image")
@@ -84,8 +91,8 @@ class VoronoiMap {
             .attr("height", function (d) { return d.iconHeight; })
             //.attr("xlink:href", "http://cyberpuck.com/images/new/basketball.png")
             //.attr("xlink:href", function (d) { return "logos/"+league+"/"+d.abbreviation+".png";})
-			.attr("xlink:href", function (d) { return "data/icons/"+d.abbreviation+".png";})		
-            .attr("transform", function (d,i) { return "translate(" + offset(x(d.location),d) + ")"; })
+            .attr("xlink:href", function (d) { return "data/icons/" + d.abbreviation + ".png"; })
+            .attr("transform", function (d, i) { return "translate(" + offset(x(d.location), d) + ")"; })
             .on('mouseover', function (d, i) {
                 tooltip.transition()
                     .duration(200)
@@ -102,15 +109,15 @@ class VoronoiMap {
             .on("click", function (d, i) {
                 verify(data[i]);
             });
-		
-	
-            
+
+
+
 
     }
 }
-function offset(arr,d) {
-      return [arr[0] - (d.iconWidth/2), arr[1] - (d.iconHeight/2)];
-}   
+function offset(arr, d) {
+    return [arr[0] - (d.iconWidth / 2), arr[1] - (d.iconHeight / 2)];
+}
 
 function main() {
     currentYear = 2016;
