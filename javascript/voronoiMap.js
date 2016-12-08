@@ -59,10 +59,10 @@ class VoronoiMap {
                     .duration(200)
                     .style("opacity", .9);
 
-                tooltip.html(data[i].team + "<br/>")
+                tooltip.html(data[i].team + "<br/>" + "classificação final: " + data[i].Rk + "º" + "<br/>")
                     .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-                tooltip.append("img")
+                    .style("top", (d3.event.pageY - 28) + "px")
+                    .append("img")
                     .attr("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/LosAngeles_Lakers_logo.svg/500px-LosAngeles_Lakers_logo.svg.png")
 
                     .attr("width", "150px")
