@@ -142,6 +142,8 @@ function selectTeamsToPlayoffs(data, teams) {
     for (var i = 0; i < data.length; i++) {
         for (var j = 0; j < teams.length; j++) {
             if (data[i].team == teams[j].Team) {
+                data[i].Rk = teams[j].Rk;
+                data[i].Overall = teams[j].Overall;
                 array.push(data[i]);
                 break;
             }
