@@ -21,6 +21,9 @@ class VoronoiMap {
             .attr("width", width)
             .attr("height", height);
 
+        this.g = this.svg.append("g")
+            .attr("clip-path", "url(#myClip)")
+
         this.update(data);
 
     }
@@ -47,7 +50,7 @@ class VoronoiMap {
 
 
 
-        this.svg.selectAll("path")
+        this.g.selectAll("path")
             .data(voronoi(projectedPoints))
             .enter()
             .append("path")
@@ -83,6 +86,13 @@ class VoronoiMap {
             .datum(topojson.feature(this.topology, this.topology.objects.land))
             .attr("d", this.path);
 
+
+        this.svg.append("clipPath")
+        .attr("id", "myClip")
+            .append("path")
+            .datum(topojson.feature(this.topology, this.topology.objects.land))
+            .attr("d", this.path);
+
         this.svg.selectAll("image1")
             .data(data)
             .enter()
@@ -109,7 +119,6 @@ class VoronoiMap {
             .on("click", function (d, i) {
                 verify(data[i]);
             });
-
 
 
 
