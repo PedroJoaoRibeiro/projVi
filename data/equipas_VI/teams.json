@@ -79,8 +79,8 @@
     "iconWidth": 42,
     "iconHeight": 21,
     "location": [
-      -73.9841,
-      40.7166
+      -73.975225,
+      40.682661
     ]
   },
   {
@@ -236,7 +236,7 @@
     "iconHeight": 21,
     "location": [
       -118.267222222222,
-      34.0430555555556
+      34.0430555655556
     ]
   },
   {
@@ -357,18 +357,6 @@
     "location": [
       -79.3791666666667,
       43.6433333333333
-    ]
-  },
-  {
-    "team": "Charlotte Bobcats",
-    "abbreviation": "CHA",
-    "stadium": "Time Warner Cable Arena",
-    "color": "#d0103a",
-    "iconWidth": 21,
-    "iconHeight": 21,
-    "location": [
-      -80.839167,
-      35.225
     ]
   }
 ]
