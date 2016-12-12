@@ -12,7 +12,7 @@ function doScatterPlot() {
 }
 
 class ScatterPlot {
-    constructor(data) {
+    constructor(data, team) {
         var w = 500,
             h = 400,
             pad = 20,
@@ -23,7 +23,7 @@ class ScatterPlot {
             .attr("width", w)
             .attr("height", h);
 
-        this.update(data);
+        this.update(data, team);
 
     }
 
@@ -37,7 +37,7 @@ class ScatterPlot {
         return average / cont;
     }
 
-    update(data) {
+    update(data, team) {
         var w = 500,
             h = 400,
             pad = 20,
@@ -46,12 +46,16 @@ class ScatterPlot {
         this.remove();
 
         var maxValue = d3.max(data.map(function (d) { return d.MP; }));
-        var team = d3.max(data.map(function (d) { return d.Tm; }));
         var x = d3.scale.linear().domain([0, maxValue]).range([left_pad, w - pad]);
         var y = d3.scale.linear().domain([1.5, 0]).range([pad, h - pad * 2]);
 
         var xAxis = d3.svg.axis().orient("bottom").scale(x);
         var yAxis = d3.svg.axis().orient("left").scale(y);
+
+        //Textos
+        this.svg.append("text").attr("x", 50).attr("y", 23).style("font-size", "30px").text(team);
+        this.svg.append("text").attr("x", 400).attr("y", 370).style("text-anchor", "middle").text("Minutes Played");
+        this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("x", -50).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
 
         this.svg.append("g")
             .attr("class", "axis")
@@ -122,7 +126,7 @@ class ScatterPlot {
                 var data = [
                     [//Lebron
                         { axis: "Points", value: d.PTS },
-                        { axis: "Assits", value: d.AST },
+                        { axis: "Assists", value: d.AST },
                         { axis: "Blocks", value: d.BLK },
                         { axis: "Steals", value: d.STL },
                         { axis: "Dribles", value: d.DRB },
@@ -144,11 +148,7 @@ class ScatterPlot {
                     .style("opacity", 0);
             });
 
-        this.svg.append("text").attr("x", 50).attr("y", 23).style("font-size", "30px").text(team);
-
-        this.svg.append("text").attr("x", 400).attr("y", 370).style("text-anchor", "middle").text("Minutes Played");
-
-        this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("x", -50).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
+        
 
     }
     remove(){
@@ -184,9 +184,9 @@ function verify(obj) {
         var aux = selectFromData(data, "Tm", obj.abbreviation);
 
         if (scatterPlot == null)
-            scatterPlot = new ScatterPlot(aux);
+            scatterPlot = new ScatterPlot(aux, obj.team);
         else
-            scatterPlot.update(aux);
+            scatterPlot.update(aux, obj.team);
     });
 }
 
