@@ -1,5 +1,7 @@
+var radar;
 class RadarChart {
   constructor(id, data, options) {
+    this.id = id;
     var cfg = {
       w: 600,				//Width of the circle
       h: 600,				//Height of the circle
@@ -264,6 +266,10 @@ class RadarChart {
     }//wrap
 
   }//RadarChart
+
+  remove(){
+    d3.select(this.id).select("svg").remove();
+  }
 }
 
 var comparator = 0;
@@ -364,5 +370,11 @@ function drawRadarChart(D) {
     color: color
   };
   //Call function to draw the Radar chart
-  var radar = new RadarChart(".radarChart", data, radarChartOptions);
+  radar = new RadarChart(".radarChart", data, radarChartOptions);
+}
+
+
+function removeRadar(){
+  radar.remove();
+  radar = null;
 }

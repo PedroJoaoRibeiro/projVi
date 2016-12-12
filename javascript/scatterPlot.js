@@ -43,16 +43,7 @@ class ScatterPlot {
             pad = 20,
             left_pad = 50;
 
-        this.svg.selectAll("g")
-            .remove();
-        this.svg.selectAll("path")
-            .remove();
-        this.svg.selectAll("line")
-            .remove();
-        this.svg.selectAll("image")
-            .remove();
-
-        this.svg.selectAll("text").remove();
+        this.remove();
 
         var maxValue = d3.max(data.map(function (d) { return d.MP; }));
         var team = d3.max(data.map(function (d) { return d.Tm; }));
@@ -160,6 +151,18 @@ class ScatterPlot {
         this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("x", -50).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
 
     }
+    remove(){
+        this.svg.selectAll("g")
+            .remove();
+        this.svg.selectAll("path")
+            .remove();
+        this.svg.selectAll("line")
+            .remove();
+        this.svg.selectAll("image")
+            .remove();
+        this.svg.selectAll("text")
+            .remove();
+    }
 
 }
 
@@ -185,4 +188,10 @@ function verify(obj) {
         else
             scatterPlot.update(aux);
     });
+}
+
+
+function removeScatter(){
+    scatterPlot.remove();
+    scatterPlot = null;
 }
