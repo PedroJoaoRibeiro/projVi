@@ -137,7 +137,7 @@ function main() {
             d3.json("data/us.json", function (error, topology) {
                 if (error) throw error;
                 var array = selectTeamsToPlayoffs(data, teams);
-                voronoiMap = new VoronoiMap(data, topology);
+                voronoiMap = new VoronoiMap(array, topology);
 
             });
 
