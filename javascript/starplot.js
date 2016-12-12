@@ -49,7 +49,7 @@ class RadarChart {
       .attr("width", cfg.w + cfg.margin.left + cfg.margin.right)
       .attr("height", cfg.h + cfg.margin.top + cfg.margin.bottom)
       .attr("class", "radar" + id);
-    //Append a g element		
+    //Append a g element
     var g = svg.append("g")
       .attr("transform", "translate(" + (cfg.w / 2 + cfg.margin.left) + "," + (cfg.h / 2 + cfg.margin.top) + ")");
 
@@ -140,13 +140,13 @@ class RadarChart {
       radarLine.interpolate("cardinal-closed");
     }
 
-    //Create a wrapper for the blobs	
+    //Create a wrapper for the blobs
     var blobWrapper = g.selectAll(".radarWrapper")
       .data(data)
       .enter().append("g")
       .attr("class", "radarWrapper");
 
-    //Append the backgrounds	
+    //Append the backgrounds
     blobWrapper
       .append("path")
       .attr("class", "radarArea")
@@ -170,7 +170,7 @@ class RadarChart {
           .style("fill-opacity", cfg.opacityArea);
       });
 
-    //Create the outlines	
+    //Create the outlines
     blobWrapper.append("path")
       .attr("class", "radarStroke")
       .attr("d", function (d, i) { return radarLine(d); })
@@ -236,7 +236,7 @@ class RadarChart {
     /////////////////////////////////////////////////////////
 
     //Taken from http://bl.ocks.org/mbostock/7555321
-    //Wraps SVG text	
+    //Wraps SVG text
     function wrap(text, width) {
       text.each(function () {
         var text = d3.select(this),
@@ -261,7 +261,7 @@ class RadarChart {
           }
         }
       });
-    }//wrap	
+    }//wrap
 
   }//RadarChart
 }
@@ -297,7 +297,7 @@ function drawRadarChart(D) {
       { axis: "Blocos", value: 27 },
       { axis: "Roubos", value: 49 },
       { axis: "Dribles", value: 158 },
-      
+
     ]/*, [//Samsung
       { axis: "Battery Life", value: 0.27 },
       { axis: "Brand", value: 0.16 },
@@ -306,7 +306,7 @@ function drawRadarChart(D) {
       { axis: "Have Internet Connectivity", value: 0.20 },
       { axis: "Large Screen", value: 0.13 },
       { axis: "Price Of Device", value: 0.35 },
-      
+
     ], [//Nokia Smartphone
       { axis: "Battery Life", value: 0.26 },
       { axis: "Brand", value: 0.10 },
@@ -315,7 +315,7 @@ function drawRadarChart(D) {
       { axis: "Have Internet Connectivity", value: 0.22 },
       { axis: "Large Screen", value: 0.04 },
       { axis: "Price Of Device", value: 0.41 },
-      
+
     ]
     ];
   }
@@ -328,14 +328,14 @@ function drawRadarChart(D) {
       { axis: "Blocos", value: 27 },
       { axis: "Roubos", value: 49 },
       { axis: "Dribles", value: 158 },
-      
+
     ],     [//Curry
       { axis: "Pontos", value: 161 },
       { axis: "Assistencias", value: 59 },
       { axis: "Blocos", value: 1 },
       { axis: "Roubos", value: 12 },
       { axis: "Dribles", value: 21 },
-      
+
     ],/* [//Nokia Smartphone
       { axis: "Battery Life", value: 0.26 },
       { axis: "Brand", value: 0.10 },
@@ -344,7 +344,7 @@ function drawRadarChart(D) {
       { axis: "Have Internet Connectivity", value: 0.22 },
       { axis: "Large Screen", value: 0.04 },
       { axis: "Price Of Device", value: 0.41 },
-      
+
     ]
     ];
   }*/
@@ -355,10 +355,10 @@ function drawRadarChart(D) {
     .range(["#EDC951", "#CC333F", "#00A0B0"]);
 
   var radarChartOptions = {
-    w: 350,
-    h: 350,
+    w: 300,
+    h: 300,
     margin: margin,
-    maxValue: 0.5,
+    maxValue: 1,
     levels: 5,
     roundStrokes: true,
     color: color

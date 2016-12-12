@@ -130,10 +130,10 @@ class ScatterPlot {
 
                 var data = [
                     [//Lebron
-                        { axis: "Pontos", value: d.PTS },
-                        { axis: "Assistencias", value: d.AST },
-                        { axis: "Blocos", value: d.BLK },
-                        { axis: "Roubos", value: d.STL },
+                        { axis: "Points", value: d.PTS },
+                        { axis: "Assits", value: d.AST },
+                        { axis: "Blocks", value: d.BLK },
+                        { axis: "Steals", value: d.STL },
                         { axis: "Dribles", value: d.DRB },
 
                 ]];
