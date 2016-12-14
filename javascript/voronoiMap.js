@@ -9,7 +9,7 @@ class VoronoiMap {
 
 
         this.projection = d3.geo.albers()
-            .scale(850).translate([350, 200]);
+            .scale(850).translate([450, 200]);
 
         this.path = d3.geo.path()
             .projection(this.projection)
