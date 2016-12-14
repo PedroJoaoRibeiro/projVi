@@ -1,3 +1,4 @@
+
 h1 { 
    font-size: 18pt;
    font-family: calibri, arial, sans serif;
@@ -125,7 +126,9 @@ image1 {
       pointer-events: none;
   }
 
-
+.remove-all-margin{
+    margin:0 ! important;
+}
 
 
 

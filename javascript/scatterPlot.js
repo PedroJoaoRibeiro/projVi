@@ -5,9 +5,8 @@ class ScatterPlot {
             pad = 20,
             left_pad = 50;
 
-        this.svg = d3.select("#the_scatterPlot")
-            .attr("width", w)
-            .attr("height", h);
+        this.svg = d3.select("#the_scatterPlot");
+        w =this.svg.style("width").replace("px", "");
 
         this.update(data, team);
 
@@ -24,7 +23,7 @@ class ScatterPlot {
     }
 
     update(data, team) {
-        var w = 390,
+        var w = this.svg.style("width").replace("px", ""),
             h = 400,
             pad = 20,
             left_pad = 50;
@@ -32,7 +31,7 @@ class ScatterPlot {
         this.remove();
 
         var maxValue = d3.max(data.map(function (d) { return d.MP; }));
-        var x = d3.scale.linear().domain([0, maxValue]).range([left_pad, w - pad]);
+        var x = d3.scale.linear().domain([0, maxValue]).range([left_pad, w - left_pad]);
         var y = d3.scale.linear().domain([1.5, 0]).range([pad, h - pad * 2]);
 
         var xAxis = d3.svg.axis().orient("bottom").scale(x);
