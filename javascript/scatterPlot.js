@@ -1,6 +1,6 @@
 class ScatterPlot {
     constructor(data, team) {
-        var w = 250,
+        var w = 390,
             h = 400,
             pad = 20,
             left_pad = 50;
@@ -24,8 +24,8 @@ class ScatterPlot {
     }
 
     update(data, team) {
-        var w = 250,
-            h = 200,
+        var w = 390,
+            h = 400,
             pad = 20,
             left_pad = 50;
 
@@ -40,7 +40,7 @@ class ScatterPlot {
 
         //Textos
         this.svg.append("text").attr("x", 50).attr("y", 23).style("font-size", "30px").text(team);
-        this.svg.append("text").attr("x", 400).attr("y", 370).style("text-anchor", "middle").text("Minutes Played");
+        this.svg.append("text").attr("x", 320).attr("y", 370).style("text-anchor", "middle").text("Minutes Played");
         this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("x", -50).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
 
         this.svg.append("g")
