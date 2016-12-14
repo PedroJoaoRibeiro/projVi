@@ -7,6 +7,7 @@
 	<title>NBA STATS</title>
 	<link rel="stylesheet" href="css/scatterPlot.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/slider.css" />
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -18,13 +19,13 @@
 	<script src="library/d3.v3.min.js" charset="utf-8"></script>
 	<script src="library/topojson.v1.min.js"></script>
 	<script src="library/dropdown.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
 
 	<script src="javascript/main.js"></script>
 	<script src="javascript/scatterPlot.js"></script>
 	<script src="javascript/voronoiMap.js"></script>
 	<script src="javascript/starplot.js"></script>
-
-
+	<script src="javascript/slider.js"></script>
 
 
 </head>
@@ -49,6 +50,11 @@
 		</div>
 	</div>
 
+	<h2>Year</h2>
+	    <div style="width: 90%; position: relative;
+    left: 50px;" id="slider1"></div>
+
+
 
 
 	<!-- <div id="the_starPlot" class="radarChart" style="margin-left: 750px; position:absolute; left:0; right:0;"> </div>
@@ -69,8 +75,12 @@
 	</div>
 	<script>
       main();
-	  
 
+			updateVoronoi(2016);
+
+			d3.select('#slider1').call(d3.slider().axis(true).min(1950).max(2016).step(1).value(2016).on("slide", function(evt, value) {
+				updateVoronoi(value);
+			}));
 
 	  $(function () {
   	  	d3.json("data/Jogadores_VI/playersNames.json", function (players) {
