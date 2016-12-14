@@ -6,31 +6,41 @@
 <head>
 	<title>NBA STATS</title>
 	<link rel="stylesheet" href="css/scatterPlot.css">
+	<link rel="stylesheet" href="css/style.css">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+	<script type="text/javascript" src="library/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="library/jquery.autocomplete.min.js"></script>
 	<script src="library/d3.v3.min.js" charset="utf-8"></script>
 	<script src="library/topojson.v1.min.js"></script>
+	<script src="library/dropdown.js"></script>
+
 
 	<script src="javascript/scatterPlot.js"></script>
 	<script src="javascript/voronoiMap.js"></script>
 	<script src="javascript/starplot.js"></script>
 
-	<script src="library/dropdown.js"></script>
+
 
 
 </head>
 
 <body>
-	<div class="container" >
+	<div id="searchfield">
+		<form><input type="text" name="currency" class="biginput" id="autocomplete"></form>
+	</div>
+	<div class="container">
 		<div class="row-eq-height">
 			<div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4"></div>
 			<div id="the_VoronoiMap"> </div>
 
 		</div>
 		<div class="row">
-			<div id="the_scatterPlot" class="col-sm-4  col-md-4 col-lg-4" ></div>
+			<div id="the_scatterPlot" class="col-sm-4  col-md-4 col-lg-4"></div>
 
 			<div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4 ">
 
@@ -46,21 +56,35 @@
 	<button onclick="Comparator()" class="btn btn-danger btn-lg" style="position: fixed; bottom: 0px; left: 100px;">Comparator</button>
 	<div class="dropdown">
 		<button onclick="myFunction()" class="dropbtn" style="position: fixed; bottom: 0px; left: 0px;">Search</button>
-  		<div id="myDropdown " class="dropdown-content " style="position: fixed; bottom: 45px; left: 0px; ">
-    		<input type="text " placeholder="Search.. " id="myInput " onkeyup="filterFunction() ">
-    		<a href="#2016 " onclick="updateVoronoi(2016) ">2016</a>
-    		<a href="#2015 " onclick="updateVoronoi(2015) ">2015</a>
-    		<a href="#2014 " onclick="updateVoronoi(2014) ">2014</a>
-    		<a href="#2013 " onclick="updateVoronoi(2013) ">2013</a>
-    		<a href="#2012 " onclick="updateVoronoi(2012) ">2012</a>
-    		<a href="#2011 " onclick="updateVoronoi(2011) ">2011</a>
-    		<a href="#2010 " onclick="updateVoronoi(2010) ">2010</a>
-  		</div>
+		<div id="myDropdown " class="dropdown-content " style="position: fixed; bottom: 45px; left: 0px; ">
+			<input type="text " placeholder="Search.. " id="myInput " onkeyup="filterFunction() ">
+			<a href="#2016 " onclick="updateVoronoi(2016) ">2016</a>
+			<a href="#2015 " onclick="updateVoronoi(2015) ">2015</a>
+			<a href="#2014 " onclick="updateVoronoi(2014) ">2014</a>
+			<a href="#2013 " onclick="updateVoronoi(2013) ">2013</a>
+			<a href="#2012 " onclick="updateVoronoi(2012) ">2012</a>
+			<a href="#2011 " onclick="updateVoronoi(2011) ">2011</a>
+			<a href="#2010 " onclick="updateVoronoi(2010) ">2010</a>
+		</div>
 	</div>
 	<script>
       main();
-	  //drawRadarChart();
+	  
 
+
+	  $(function () {
+  	  	d3.json("data/Jogadores_VI/playersNames.json", function (players) {
+    		d3.json("data/equipas_VI/teamsNames.json", function (teams) {
+				var array = players.concat(teams);
+				$('#autocomplete').autocomplete({
+					lookup: array,
+					onSelect: function (suggestion) {
+						console.log(suggestion.value);
+					}
+				});
+  			});
+  		});
+	});
   </script>
 </body>
 
