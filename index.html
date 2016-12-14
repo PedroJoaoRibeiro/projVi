@@ -19,7 +19,7 @@
 	<script src="library/topojson.v1.min.js"></script>
 	<script src="library/dropdown.js"></script>
 
-
+	<script src="javascript/main.js"></script>
 	<script src="javascript/scatterPlot.js"></script>
 	<script src="javascript/voronoiMap.js"></script>
 	<script src="javascript/starplot.js"></script>
@@ -31,7 +31,7 @@
 
 <body>
 	<div id="searchfield">
-		<form><input type="text" name="currency" class="biginput" id="autocomplete"></form>
+		<input type="search" value="Insert a Player or Team" class="biginput" id="autocomplete">
 	</div>
 	<div class="container">
 		<div class="row-eq-height">
@@ -79,7 +79,7 @@
 				$('#autocomplete').autocomplete({
 					lookup: array,
 					onSelect: function (suggestion) {
-						console.log(suggestion.value);
+						updateSearchBar(suggestion);
 					}
 				});
   			});

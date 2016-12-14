@@ -1,16 +1,3 @@
-var dataSet, scatterPlot, barChart;
-
-//BUTTONS
-
-function doScatterPlot() {
-    var file = "data/Jogadores_VI/playoffs/2016.json";
-    d3.json(file, function (data) {
-        var aux = selectFromData(data, "Tm", "OKC");
-        scatterPlot = new ScatterPlot(aux);
-    });
-
-}
-
 class ScatterPlot {
     constructor(data, team) {
         var w = 500,
@@ -166,32 +153,3 @@ class ScatterPlot {
 
 }
 
-//Aux Methods
-
-function selectFromData(data, type, value) {
-    var array = [];
-    for (i = 0; i < data.length; i++) {
-        if (data[i][type] == value) {
-            array.push(data[i]);
-        }
-    }
-    return array;
-}
-
-function verify(obj) {
-    var file = "data/Jogadores_VI/playoffs/" + currentYear + ".json";
-    d3.json(file, function (data) {
-        var aux = selectFromData(data, "Tm", obj.abbreviation);
-
-        if (scatterPlot == null)
-            scatterPlot = new ScatterPlot(aux, obj.team);
-        else
-            scatterPlot.update(aux, obj.team);
-    });
-}
-
-
-function removeScatter(){
-    scatterPlot.remove();
-    scatterPlot = null;
-}
