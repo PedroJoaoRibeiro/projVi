@@ -1,8 +1,5 @@
 class VoronoiMap {
     constructor(data, topology) {
-
-
-
         this.topology = topology
         var width = 780,
             height = 400;
@@ -18,9 +15,6 @@ class VoronoiMap {
 
         this.svg = d3.select("#the_VoronoiMap")
             .attr("height", height);
-
-        this.g = this.svg.append("g")
-            .attr("clip-path", "url(#myClip)")
 
         this.update(data);
 
@@ -43,9 +37,15 @@ class VoronoiMap {
 
         this.svg.selectAll("path")
             .remove();
+        this.svg.selectAll("g")
+            .remove();
+        this.svg.selectAll("image1")
+            .remove();
+        this.svg.selectAll("image")
+            .remove();
 
-
-
+        this.g = this.svg.append("g")
+            .attr("clip-path", "url(#myClip)");
 
 
         this.g.selectAll("path")
