@@ -1,12 +1,11 @@
 class ScatterPlot {
     constructor(data, team) {
-        var w = 500,
+        var w = 250,
             h = 400,
             pad = 20,
             left_pad = 50;
 
         this.svg = d3.select("#the_scatterPlot")
-            .append("svg")
             .attr("width", w)
             .attr("height", h);
 
@@ -25,8 +24,8 @@ class ScatterPlot {
     }
 
     update(data, team) {
-        var w = 500,
-            h = 400,
+        var w = 250,
+            h = 200,
             pad = 20,
             left_pad = 50;
 

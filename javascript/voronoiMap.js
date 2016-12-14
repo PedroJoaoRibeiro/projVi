@@ -16,8 +16,7 @@ class VoronoiMap {
             .pointRadius(2.5);
 
 
-        this.svg = d3.select("#the_VoronoiMap").append("svg")
-            .attr("width", width)
+        this.svg = d3.select("#the_VoronoiMap")
             .attr("height", height);
 
         this.g = this.svg.append("g")
@@ -37,7 +36,7 @@ class VoronoiMap {
             projectedPoints.push(this.projection(data[i].location));
         }
 
-        var tooltip = d3.select("#the_scatterPlot")
+        var tooltip = d3.select("#the_VoronoiMap")
             .append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);
