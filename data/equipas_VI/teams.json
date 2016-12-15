@@ -217,7 +217,7 @@
   },
   {
     "team": "Los Angeles Lakers",
-    "abbreviation": "LALLAC",
+    "abbreviation": "LAL",
     "stadium": "Staples Center",
     "color": "url(#LALLAC)",
     "iconWidth": 42,
@@ -236,7 +236,7 @@
     "iconHeight": 21,
     "location": [
       -118.267222222222,
-      34.0430555655556
+      34.1430555555556
     ]
   },
   {
@@ -288,6 +288,18 @@
     ]
   },
   {
+    "team": "Charlotte Bobcats",
+    "abbreviation": "CHA",
+    "stadium": "Time Warner Cable Arena",
+    "color": "#d0103a",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -80.839167,
+      35.225
+    ]
+  },
+  {
     "team": "Houston Rockets",
     "abbreviation": "HOU",
     "stadium": "Toyota Center",
@@ -313,7 +325,7 @@
   },
   {
     "team": "Phoenix Suns",
-    "abbreviation": "PHX",
+    "abbreviation": "PHO",
     "stadium": "US Airways Center",
     "color": "#ff8800",
     "iconWidth": 21,

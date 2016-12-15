@@ -1,5 +1,5 @@
 var currentYear, voronoiMap;
-var dataSet, scatterPlot, barChart;
+var dataSet, scatterPlot, barChart, scatterObj ;
 
 // LOGICA
 
@@ -61,11 +61,13 @@ function updateVoronoi(year) {
     d3.json(file, function (data) {
         d3.json(file1, function (teams) {
             var array = selectTeamsToPlayoffs(data, teams);
-            console.log(array);
             voronoiMap.update(array);
 
         });
     });
+    if(scatterPlot){
+        verify(scatterObj);
+    }
 }
 
 
@@ -86,7 +88,9 @@ function selectFromData(data, type, value) {
     return array;
 }
 
+// da update ao scatterPlot se nao existir cria recebe um objecto que contem o abreviation e nome de equipa
 function verify(obj) {
+    scatterObj = obj;
     var file = "data/Jogadores_VI/playoffs/" + currentYear + ".json";
     d3.json(file, function (data) {
         var aux = selectFromData(data, "Tm", obj.abbreviation);

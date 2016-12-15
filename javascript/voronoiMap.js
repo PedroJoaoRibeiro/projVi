@@ -35,7 +35,7 @@ class VoronoiMap {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
-        
+
         this.svg.selectAll("g")
             .remove();
         this.svg.selectAll("image1")
@@ -78,14 +78,14 @@ class VoronoiMap {
                 verify(data[i]);
             });
 
-        var x = this.projection;
+
         this.svg.append("path")
             .datum(topojson.feature(this.topology, this.topology.objects.land))
             .attr("d", this.path);
 
 
         this.svg.append("clipPath")
-        .attr("id", "myClip")
+            .attr("id", "myClip")
             .append("path")
             .datum(topojson.feature(this.topology, this.topology.objects.land))
             .attr("d", this.path);
@@ -99,7 +99,7 @@ class VoronoiMap {
             //.attr("xlink:href", "http://cyberpuck.com/images/new/basketball.png")
             //.attr("xlink:href", function (d) { return "logos/"+league+"/"+d.abbreviation+".png";})
             .attr("xlink:href", function (d) { return "data/icons/" + d.abbreviation + ".png"; })
-            .attr("transform", function (d, i) { return "translate(" + offset(x(d.location), d) + ")"; })
+            .attr("transform", function (d, i) { return "translate(" + projectedPoints[i] + ")"; })
             .on('mouseover', function (d, i) {
                 tooltip.transition()
                     .duration(200)

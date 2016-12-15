@@ -31,13 +31,16 @@ class ScatterPlot {
         this.remove();
 
         var maxValue = d3.max(data.map(function (d) { return d.MP; }));
+        var maxImpact = d3.max(data.map(function (d) { return d.Impact; }));
         var x = d3.scale.linear().domain([0, maxValue]).range([left_pad, w - left_pad]);
-        var y = d3.scale.linear().domain([1.5, 0]).range([pad, h - pad * 2]);
+        var y = d3.scale.linear().domain([maxImpact +0.5, 0]).range([pad, h - pad * 2]);
 
         var xAxis = d3.svg.axis().orient("bottom").scale(x);
         var yAxis = d3.svg.axis().orient("left").scale(y);
 
         //Textos
+        if(data.length == 0)
+            this.svg.append("text").attr("x", 60).attr("y", 200).style("font-size", "20px").text("Team didn't get to playoffs this year");
         this.svg.append("text").attr("x", 50).attr("y", 23).style("font-size", "30px").text(team);
         this.svg.append("text").attr("x", 320).attr("y", 370).style("text-anchor", "middle").text("Minutes Played");
         this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("x", -50).attr("dy", "1em").style("text-anchor", "middle").text("Impact");

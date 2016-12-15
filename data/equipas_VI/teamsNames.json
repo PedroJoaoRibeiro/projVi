@@ -1,122 +1,122 @@
 [
     {
         "value": "Atlanta Hawks",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Boston Celtics",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Brooklyn Nets",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Charlotte Hornets",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Chicago Bulls",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Cleveland Cavaliers",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Dallas Mavericks",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Denver Nuggets",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Detroit Pistons",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Golden State Warriors",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Houston Rockets",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Indiana Pacers",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Los Angeles Clippers",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Los Angeles Lakers",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Memphis Grizzlies",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Miami Heat",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Milwaukee Bucks",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Minnesota Timberwolves",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "New Orleans Pelicans",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "New York Knicks",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Oklahoma City Thunder",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Orlando Magic",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Philadelphia 76ers",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Phoenix Suns",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Portland Trail Blazers",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Sacramento Kings",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "San Antonio Spurs",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Toronto Raptors",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Utah Jazz",
-        "data": "player"
+        "data": "team"
     },
     {
         "value": "Washington Wizards",
-        "data": "player"
+        "data": "team"
     }
 ]
