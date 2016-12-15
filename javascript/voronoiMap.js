@@ -35,8 +35,7 @@ class VoronoiMap {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
-        this.svg.selectAll("path")
-            .remove();
+        
         this.svg.selectAll("g")
             .remove();
         this.svg.selectAll("image1")
