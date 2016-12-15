@@ -30,7 +30,7 @@ class VoronoiMap {
             projectedPoints.push(this.projection(data[i].location));
         }
 
-        var tooltip = d3.select("#the_VoronoiMap")
+        var tooltip = d3.select("body")
             .append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);
@@ -73,7 +73,7 @@ class VoronoiMap {
             .on('mouseout', function () {
                 tooltip.transition()
                     .duration(500)
-                    .style("opacity", 0);
+                    .style("visibility", "hidden");
             })
             .on("click", function (d, i) {
                 verify(data[i]);

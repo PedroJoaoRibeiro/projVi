@@ -52,7 +52,7 @@ class ScatterPlot {
             .attr("transform", "translate(0, " + (h - pad) + ")")
             .call(xAxis);
 
-        var tooltip = d3.select("#the_scatterPlot")
+        var tooltip = d3.select("body")
             .append("div")
             .attr("class", "tooltip")
             .style("opacity", 0);
