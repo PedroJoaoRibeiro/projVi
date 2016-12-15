@@ -3,7 +3,7 @@ class ScatterPlot {
         var w = 390,
             h = 400,
             pad = 20,
-            left_pad = 50;
+            left_pad = 80;
 
         this.svg = d3.select("#the_scatterPlot");
         w =this.svg.style("width").replace("px", "");
@@ -26,7 +26,7 @@ class ScatterPlot {
         var w = this.svg.style("width").replace("px", ""),
             h = 400,
             pad = 20,
-            left_pad = 50;
+            left_pad = 80;
 
         this.remove();
 
