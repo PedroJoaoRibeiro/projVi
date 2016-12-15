@@ -295,65 +295,7 @@ function drawRadarChart(D) {
   }
 
 
-  /*if (placeholder == "LeBron"){
-    var data = [
-    [//Lebron
-      { axis: "Pontos", value: 552 },
-      { axis: "Assistencias", value: 160 },
-      { axis: "Blocos", value: 27 },
-      { axis: "Roubos", value: 49 },
-      { axis: "Dribles", value: 158 },
-
-    ]/*, [//Samsung
-      { axis: "Battery Life", value: 0.27 },
-      { axis: "Brand", value: 0.16 },
-      { axis: "Contract Cost", value: 0.35 },
-      { axis: "Design And Quality", value: 0.13 },
-      { axis: "Have Internet Connectivity", value: 0.20 },
-      { axis: "Large Screen", value: 0.13 },
-      { axis: "Price Of Device", value: 0.35 },
-
-    ], [//Nokia Smartphone
-      { axis: "Battery Life", value: 0.26 },
-      { axis: "Brand", value: 0.10 },
-      { axis: "Contract Cost", value: 0.30 },
-      { axis: "Design And Quality", value: 0.14 },
-      { axis: "Have Internet Connectivity", value: 0.22 },
-      { axis: "Large Screen", value: 0.04 },
-      { axis: "Price Of Device", value: 0.41 },
-
-    ]
-    ];
-  }
-
-  else if (placeholder == "Curry"){
-    var data = [
-    [//Lebron
-      { axis: "Pontos", value: 552 },
-      { axis: "Assistencias", value: 160 },
-      { axis: "Blocos", value: 27 },
-      { axis: "Roubos", value: 49 },
-      { axis: "Dribles", value: 158 },
-
-    ],     [//Curry
-      { axis: "Pontos", value: 161 },
-      { axis: "Assistencias", value: 59 },
-      { axis: "Blocos", value: 1 },
-      { axis: "Roubos", value: 12 },
-      { axis: "Dribles", value: 21 },
-
-    ],/* [//Nokia Smartphone
-      { axis: "Battery Life", value: 0.26 },
-      { axis: "Brand", value: 0.10 },
-      { axis: "Contract Cost", value: 0.30 },
-      { axis: "Design And Quality", value: 0.14 },
-      { axis: "Have Internet Connectivity", value: 0.22 },
-      { axis: "Large Screen", value: 0.04 },
-      { axis: "Price Of Device", value: 0.41 },
-
-    ]
-    ];
-  }*/
+ 
 
 
 

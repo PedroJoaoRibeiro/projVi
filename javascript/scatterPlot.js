@@ -121,6 +121,7 @@ class ScatterPlot {
                 ]];
                 info.updatePlayerName(d.Player.split("\\")[0]);
                 drawRadarChart(data);
+                doLineChart(d.Player);
             })
 
             .on("mouseout", function (d) {
