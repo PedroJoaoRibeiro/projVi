@@ -1,8 +1,10 @@
-function req(array, year, jogador) {
-   
-     var file = "";
-    if (year >= 2017){
-       
+var chart;
+class linechart {
+    constructor(jogador){
+         this.svg = d3.select("#the_linechart");
+         this.doLineChart(jogador);
+    }
+    draw(array, year, jogador){
         var margin = {
             top: 30,
             right: 20,
@@ -11,7 +13,7 @@ function req(array, year, jogador) {
         };
         var width = 600 - margin.left - margin.right;
         var height = 270 - margin.top - margin.bottom;
-   
+
 
 
 
@@ -32,7 +34,7 @@ function req(array, year, jogador) {
             return y(d.PTS);
             });
 
-        var svg = d3.select("body")
+        var svg = d3.select("#the_linechart")
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
@@ -68,7 +70,7 @@ function req(array, year, jogador) {
         svg.append("g") // Add the Y Axis
             .attr("class", "y axis")
             .call(yAxis);
-           /* .append("text")                           Legenda do eixo
+        /* .append("text")                           Legenda do eixo
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
                 .attr("dy", ".71em")
@@ -107,7 +109,25 @@ function req(array, year, jogador) {
                                         focus.select("circle.y")                      
                                             .attr("transform","translate(" + x(d.year) + "," + y(d.PTS) + ")"); 
                                         focus.select("text").text( formatCurrentValue(d.PTS));      
-                                 });  
+                                });  
+    }
+
+    doLineChart(jogador) {
+        var array = [];
+        var year = 1950; 
+        
+        req (array,year, jogador, this);
+
+    }
+}
+
+
+function req(array, year, jogador, obj) {
+
+    var file = "";
+    if (year >= 2017){
+    
+        obj.draw (array, year, jogador);
 
 
 
@@ -121,19 +141,24 @@ function req(array, year, jogador) {
                     array.push(data[j]);
                 }  
             }
-            req(array, year + 1, jogador); 
+            req(array, year + 1, jogador, obj); 
         });
     }
 }
 
-                                                   
+                                                    
 
 
 
-function doLineChart(jogador) {
-    var array = [];
-    var year = 1950; 
-    
-     req (array,year, jogador);
 
+
+
+function lineC(jogador){
+    if (chart == null){
+        chart = new linechart(jogador);
+    }
+    else{
+        console.log("aqui");
+        chart.doLineChart(jogador);
+    }
 }
