@@ -41,9 +41,11 @@
 
 				<svg id="the_VoronoiMap" class="col-sm-6"></svg>
 
-				<div class="col-sm-3">
-					
-				</div>
+				<svg id="info" class="col-sm-3" height="400">
+					<text id="infoYear" x="20" y="50" font-family="sans-serif" font-size="20px" >Selected year: 2016</text>
+					<text id="infoTeam" x="20" y="80" font-family="sans-serif" font-size="20px" ></text>
+					<text id="infoPlayer" x="20" y="110" font-family="sans-serif" font-size="20px"></text>
+				</svg>
 			</div>
 		</div>
 		<div class="row">
@@ -87,7 +89,7 @@
 	
 	<script>
       main();
-
+	  info = new Info();
 
 		d3.select('#slider1').call(d3.slider().axis(true).min(1950).max(2016).step(1).value(2016).on("slide", function(evt, value) {
 			updateVoronoi(value);

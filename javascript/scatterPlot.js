@@ -40,10 +40,10 @@ class ScatterPlot {
 
         //Textos
         if(data.length == 0)
-            this.svg.append("text").attr("x", 60).attr("y", 200).style("font-size", "20px").text("Team didn't get to playoffs this year");
-        this.svg.append("text").attr("x", 50).attr("y", 23).style("font-size", "30px").text(team);
-        this.svg.append("text").attr("x", 320).attr("y", 370).style("text-anchor", "middle").text("Minutes Played");
-        this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 30).attr("x", -50).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
+            this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't get to playoffs this year");
+        this.svg.append("text").attr("x", 200).attr("y", 23).style("font-size", "30px").text("Impact Of Players");
+        this.svg.append("text").attr("x", 500).attr("y", 370).style("text-anchor", "middle").text("Minutes Played");
+        this.svg.append("text").attr("transform", "rotate(-90)").attr("y", 60).attr("x", -50).attr("dy", "1em").style("text-anchor", "middle").text("Impact");
 
         this.svg.append("g")
             .attr("class", "axis")
@@ -110,9 +110,8 @@ class ScatterPlot {
             })
 
             .on("click", function (d) {
-
                 var data = [
-                    [//Lebron
+                    [
                         { axis: "Points", value: d.PTS },
                         { axis: "Assists", value: d.AST },
                         { axis: "Blocks", value: d.BLK },
@@ -120,14 +119,8 @@ class ScatterPlot {
                         { axis: "Dribles", value: d.DRB },
 
                 ]];
+                info.updatePlayerName(d.Player.split("\\")[0]);
                 drawRadarChart(data);
-
-               /* if (d.Player.split("\\")[0] == "LeBron James") {
-                    drawRadarChart("LeBron");
-                }
-                else if (d.Player.split("\\")[0] == "Stephen Curry") {
-                    drawRadarChart("Curry");
-                }*/
             })
 
             .on("mouseout", function (d) {

@@ -1,4 +1,4 @@
-var currentYear, voronoiMap;
+var currentYear, voronoiMap, info;
 var dataSet, scatterPlot, barChart, scatterObj ;
 
 // LOGICA
@@ -55,6 +55,7 @@ function selectTeamsToPlayoffs(data, teams) {
 
 function updateVoronoi(year) {
     currentYear = year;
+    info.updateYear();
 
     var file = "data/equipas_VI/teams.json";
     var file1 = "data/Playoff_Equipas_VI/" + currentYear + ".json";
@@ -91,6 +92,7 @@ function selectFromData(data, type, value) {
 // da update ao scatterPlot se nao existir cria recebe um objecto que contem o abreviation e nome de equipa
 function verify(obj) {
     scatterObj = obj;
+    info.updateTeamSelected(obj.team);
     var file = "data/Jogadores_VI/playoffs/" + currentYear + ".json";
     d3.json(file, function (data) {
         var aux = selectFromData(data, "Tm", obj.abbreviation);
@@ -107,3 +109,25 @@ function removeScatter(){
     scatterPlot.remove();
     scatterPlot = null;
 }
+
+
+class Info {
+    constructor(){
+        this.svg = document.getElementById('info');
+        this.year = document.getElementById('infoYear');
+        this.team = document.getElementById('infoTeam');
+        this.player = document.getElementById('infoPlayer');
+    }
+    updateYear(){
+        this.year.innerHTML = "Selected year: " +currentYear;
+    }
+    updateTeamSelected(teamName){
+        this.team.innerHTML = "Team: " + teamName;
+        this.player.innerHTML = ""; 
+    }
+    updatePlayerName(player){
+        this.player.innerHTML = "Player: " + player;
+    }
+}
+
+
