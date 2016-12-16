@@ -102,7 +102,12 @@ class VoronoiMap {
             //.attr("xlink:href", "http://cyberpuck.com/images/new/basketball.png")
             //.attr("xlink:href", function (d) { return "logos/"+league+"/"+d.abbreviation+".png";})
             .attr("xlink:href", function (d) { return "data/icons/" + d.abbreviation + ".png"; })
-            .attr("transform", function (d, i) { return "translate(" + projectedPoints[i] + ")"; });
+            .attr("transform", function (d, i) { return "translate(" + projectedPoints[i] + ")"; })
+            .attr("transform", function (d, i) { return "translate(" + projectedPoints[i] + ")"; })
+            .on("click", function (d, i) {
+                highlightElement(data[i].abbreviation);
+                verify(data[i]);
+            });
         
         if(this.elementSelected){
             element = d3.select("#"+ voronoiMap.elementSelected);
