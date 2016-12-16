@@ -29,6 +29,7 @@ function updateSearchBar(suggestion){
 
 function setRegularSeason(){
     regularSeason = !regularSeason;
+    updateAllData(currentYear);
 }
 
 function getTeamsData(year){

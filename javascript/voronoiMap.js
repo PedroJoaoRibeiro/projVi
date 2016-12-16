@@ -1,3 +1,4 @@
+var elementSelected;
 class VoronoiMap {
     constructor(data, topology) {
         this.topology = topology
@@ -75,6 +76,7 @@ class VoronoiMap {
                     .style("visibility", "hidden");
             })
             .on("click", function (d, i) {
+                highlightElement(data[i].abbreviation);
                 verify(data[i]);
             });
 
@@ -94,35 +96,33 @@ class VoronoiMap {
             .data(data)
             .enter()
             .append("image")
+            .attr("id", function (d, i) { return data[i].team; })
             .attr("width", function (d) { return d.iconWidth; })
             .attr("height", function (d) { return d.iconHeight; })
             //.attr("xlink:href", "http://cyberpuck.com/images/new/basketball.png")
             //.attr("xlink:href", function (d) { return "logos/"+league+"/"+d.abbreviation+".png";})
             .attr("xlink:href", function (d) { return "data/icons/" + d.abbreviation + ".png"; })
-            .attr("transform", function (d, i) { return "translate(" + projectedPoints[i] + ")"; })
-            .on('mouseover', function (d, i) {
-                tooltip.transition()
-                    .duration(200)
-                    .style("opacity", .9);
-                tooltip.html(data[i].team + "<br/>")
-                    .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
-            })
-            .on('mouseout', function () {
-                tooltip.transition()
-                    .duration(500)
-                    .style("opacity", 0);
-            })
-            .on("click", function (d, i) {
-                verify(data[i]);
-            });
-
-
-
+            .attr("transform", function (d, i) { return "translate(" + projectedPoints[i] + ")"; });
+        
+        if(this.elementSelected){
+            element = d3.select("#"+ voronoiMap.elementSelected);
+            element.attr("fill", "#006bb7");
+        }
     }
 }
 function offset(arr, d) {
     return [arr[0] - (d.iconWidth / 2), arr[1] - (d.iconHeight / 2)];
 }
 
+function highlightElement(team) {
+    if(voronoiMap.elementSelected){
+        element = d3.select("#"+ voronoiMap.elementSelected);
+        element.attr("fill", "none");
+    }
+        
+    voronoiMap.elementSelected = team;
+    element = d3.select("#"+team);
+    element.attr("fill", "#006bb7");
+    
+}
 
