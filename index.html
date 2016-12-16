@@ -69,6 +69,7 @@
 	
 	<div id="searchfield">
 		<h2>Year</h2>
+		<div id="theYear"> 2016 </div>
 		<div style="width: 90%; position: relative; left: 50px;" id="slider1"></div>
 	</div>
 
@@ -92,6 +93,7 @@
 	  info = new Info();
 
 		d3.select('#slider1').call(d3.slider().axis(true).min(1950).max(2016).step(1).value(2016).on("slide", function(evt, value) {
+			document.getElementById("theYear").innerHTML=value;
 			updateAllData(value);
 		}));
 
