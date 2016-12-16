@@ -138,10 +138,6 @@ path {
 }
 
 
-image1 {
-      pointer-events: none;
-  }
-
 .remove-all-margin{
     margin:0 ! important;
 }

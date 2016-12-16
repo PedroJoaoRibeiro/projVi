@@ -76,7 +76,7 @@ class VoronoiMap {
                     .style("visibility", "hidden");
             })
             .on("click", function (d, i) {
-                highlightElement(data[i].abbreviation);
+                highlightMap(data[i].abbreviation);
                 verify(data[i]);
             });
 
@@ -105,7 +105,7 @@ class VoronoiMap {
             .attr("transform", function (d, i) { return "translate(" + projectedPoints[i] + ")"; })
             .attr("transform", function (d, i) { return "translate(" + projectedPoints[i] + ")"; })
             .on("click", function (d, i) {
-                highlightElement(data[i].abbreviation);
+                highlightMap(data[i].abbreviation);
                 verify(data[i]);
             });
         
@@ -119,7 +119,7 @@ function offset(arr, d) {
     return [arr[0] - (d.iconWidth / 2), arr[1] - (d.iconHeight / 2)];
 }
 
-function highlightElement(team) {
+function highlightMap(team) {
     if(voronoiMap.elementSelected){
         element = d3.select("#"+ voronoiMap.elementSelected);
         element.attr("fill", "none");
