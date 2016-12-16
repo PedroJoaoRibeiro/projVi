@@ -93,7 +93,8 @@ class ScatterPlot {
                 .enter()
                 .append("image")
                 //.attr("class", "circle")
-                .attr("xlink:href", "http://cyberpuck.com/images/new/basketball.png")
+                .attr("id", function (d) { return d.Player.split("\\")[0].split('.').join(""); })
+                .attr("xlink:href", "data/icons/basketball.png")
                 .attr("width", 16)
                 .attr("height", 16)
                 .attr("x", function (d) {
@@ -102,8 +103,6 @@ class ScatterPlot {
                 .attr("y", function (d) {
                     return y(d.Impact);
                 })
-
-
                 .on("mouseover", function (d) {
                     tooltip.transition()
                         .duration(200)
@@ -123,6 +122,7 @@ class ScatterPlot {
                             { axis: "Dribles", value: d.DRB },
 
                         ]];
+                    higlightScatter(d.Player.split("\\")[0].split('.').join(""));
                     info.updatePlayerName(d.Player.split("\\")[0]);
                     drawRadarChart(data);
                     lineC(d.Player);
@@ -134,9 +134,6 @@ class ScatterPlot {
                         .style("opacity", 0);
                 });
         }
-
-
-
     }
     remove() {
         this.svg.selectAll("g")
@@ -151,5 +148,15 @@ class ScatterPlot {
             .remove();
     }
 
+}
+//fix me
+function higlightScatter(player) {
+    if (scatterPlot.elementSelected) {
+        element = d3.select("#" + scatterPlot.elementSelected);
+        element.attr("xlink:href", "data/icons/basketball.png");
+    }
+    scatterPlot.elementSelected = player;
+    element = d3.select("#" + player);
+    element.attr("xlink:href", "data/icons/ATL.png")
 }
 
