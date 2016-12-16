@@ -12,7 +12,7 @@ class linechart {
             left: 50
         };
         var width = 600 - margin.left - margin.right;
-        var height = 270 - margin.top - margin.bottom;
+        var height = 400 - margin.top - margin.bottom;
 
 
 
@@ -33,9 +33,11 @@ class linechart {
             .y(function (d) {
             return y(d.PTS);
             });
+        
+        this.svg.selectAll("g")
+            .remove();
 
         var svg = d3.select("#the_linechart")
-            .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
@@ -126,7 +128,7 @@ function req(array, year, jogador, obj) {
 
     var file = "";
     if (year >= 2017){
-    
+        console.log(array);
         obj.draw (array, year, jogador);
 
 
