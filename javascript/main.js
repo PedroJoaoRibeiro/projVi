@@ -27,6 +27,10 @@ function updateSearchBar(suggestion){
     // ver se a data e team entao carregar dados equipa se nao carregar dados do player 
 }
 
+function setRegularSeason(){
+    regularSeason = !regularSeason;
+}
+
 function getTeamsData(year){
     if(regularSeason){
         return "fixMe";
@@ -45,12 +49,34 @@ function getPlayersData(year){
     }
 }
 
+function updateAllData(year){
+    currentYear = year;
+    info.updateYear();
 
+    updateVoronoi(currentYear);
+
+    if(scatterPlot){
+        verify(scatterObj);
+    }
+}
 
 
 
 
 //Aux Methods voronoiMap
+
+function updateVoronoi(year) {
+    var file = "data/equipas_VI/teams.json";
+    var file1 = getTeamsData(currentYear);
+    d3.json(file, function (data) {
+        d3.json(file1, function (teams) {
+            var array = selectTeamsToPlayoffs(data, teams);
+            voronoiMap.update(array);
+
+        });
+    });
+    
+}
 
 function selectTeamsToPlayoffs(data, teams) {
     var array = [];
@@ -68,29 +94,6 @@ function selectTeamsToPlayoffs(data, teams) {
         console.log("ver nomes de equipas mal");
     return array;
 }
-
-function updateVoronoi(year) {
-    currentYear = year;
-    info.updateYear();
-
-    var file = "data/equipas_VI/teams.json";
-    var file1 = getTeamsData(currentYear);
-    d3.json(file, function (data) {
-        d3.json(file1, function (teams) {
-            var array = selectTeamsToPlayoffs(data, teams);
-            voronoiMap.update(array);
-
-        });
-    });
-    if(scatterPlot){
-        verify(scatterObj);
-    }
-}
-
-
-
-
-
 
 
 //Aux Methods ScatterPlot
