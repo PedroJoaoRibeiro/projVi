@@ -1,5 +1,6 @@
 var currentYear, voronoiMap, info;
 var dataSet, scatterPlot, barChart, scatterObj ;
+var regularSeason = false;
 
 // LOGICA
 
@@ -26,8 +27,23 @@ function updateSearchBar(suggestion){
     // ver se a data e team entao carregar dados equipa se nao carregar dados do player 
 }
 
+function getTeamsData(year){
+    if(regularSeason){
+        return "fixMe";
+    }
+    else{
+        return "data/equipas_VI/playOffsData/" + year + ".json";
+    }
+}
 
-
+function getPlayersData(year){
+    if(regularSeason){
+        return "fixMe";
+    }
+    else{
+        return "data/Jogadores_VI/playoffs/" + year + ".json";
+    }
+}
 
 
 
@@ -58,7 +74,7 @@ function updateVoronoi(year) {
     info.updateYear();
 
     var file = "data/equipas_VI/teams.json";
-    var file1 = "data/Playoff_Equipas_VI/" + currentYear + ".json";
+    var file1 = getTeamsData(currentYear);
     d3.json(file, function (data) {
         d3.json(file1, function (teams) {
             var array = selectTeamsToPlayoffs(data, teams);
@@ -93,7 +109,7 @@ function selectFromData(data, type, value) {
 function verify(obj) {
     scatterObj = obj;
     info.updateTeamSelected(obj.team);
-    var file = "data/Jogadores_VI/playoffs/" + currentYear + ".json";
+    var file = getPlayersData(currentYear);
     d3.json(file, function (data) {
         var aux = selectFromData(data, "Tm", obj.abbreviation);
 
