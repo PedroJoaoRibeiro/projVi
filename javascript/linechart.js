@@ -135,7 +135,7 @@ function req(array, year, jogador, obj) {
 
     }
     else{
-        file = "data/Jogadores_VI/playoffs/" + year + ".json";
+        file = getPlayersData(year);
         d3.json(file, function (data) {
             for (var j = 0; j < data.length; j++) {
 
