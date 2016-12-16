@@ -62,7 +62,8 @@ class linechart {
             })]);
 
         svg.append("path") // Add the valueline path.
-            .attr("d", valueline(array));
+            .attr("d", valueline(array))
+            .attr("fill", "none");
 
         svg.append("g") // Add the X Axis
             .attr("class", "x axis")
