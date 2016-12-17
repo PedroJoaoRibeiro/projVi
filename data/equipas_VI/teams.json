@@ -84,6 +84,18 @@
     ]
   },
   {
+    "team": "New York Nets",
+    "abbreviation": "NJN",
+    "stadium": "Barclays Center",
+    "color": "url(#NYKBKL)",
+    "iconWidth": 42,
+    "iconHeight": 21,
+    "location": [
+      -73.975225,
+      40.682661
+    ]
+  },
+  {
     "team": "New Jersey Nets",
     "abbreviation": "NJN",
     "stadium": "Barclays Center",
@@ -194,6 +206,18 @@
   {
     "team": "St. Louis Hawks",
     "abbreviation": "STL",
+    "stadium": "St. Louis Arena",
+    "color": "navy",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -90.282778,
+      38.629167
+    ]
+  },
+  {
+    "team": "St. Louis Bombers",
+    "abbreviation": "STB",
     "stadium": "St. Louis Arena",
     "color": "navy",
     "iconWidth": 21,
@@ -669,6 +693,90 @@
     "location": [
       -77.036389,
       38.895
+    ]
+  },
+  {
+    "team": "Vancouver Grizzlies",
+    "abbreviation": "VAN",
+    "stadium": "Rogers Arena",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -123.108889,
+      49.277778
+    ]
+  },
+  {
+    "team": "San Diego Clippers",
+    "abbreviation": "LAC",
+    "stadium": "Rogers Arena",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -117.146389,
+      32.779444
+    ]
+  },
+  {
+    "team": "New Orleans Jazz",
+    "abbreviation": "UTA",
+    "stadium": "New Orleans Arena",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -90.0819444444444,
+      29.9488888888889
+    ]
+  },
+  {
+    "team": "Chicago Zephyrs",
+    "abbreviation": "WAS",
+    "stadium": "Chicago",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -87.65,
+      41.9
+    ]
+  },
+  {
+    "team": "Chicago Packers",
+    "abbreviation": "WAS",
+    "stadium": "Chicago",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -87.65,
+      41.9
+    ]
+  },
+  {
+    "team": "Milwaukee Hawks",
+    "abbreviation": "MLH",
+    "stadium": "Chicago",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -90.501944,
+      41.490833
+    ]
+  },
+  {
+    "team": "Waterloo Hawks",
+    "abbreviation": "WAT",
+    "stadium": "Waterloo",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -92.346111,
+      42.492222
     ]
   }
 ]
