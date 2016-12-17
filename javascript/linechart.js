@@ -8,7 +8,6 @@ class linechart {
     }
     draw(array, year, jogador, atributo) {
 
-        console.log(atributo);
         
         var auxyear = array[0].year -1;
         
@@ -208,7 +207,6 @@ function req(array, year, jogador, obj, atributo) {
     }
     else {
         file = getGlobalType(year);
-        console.log(jog);
         d3.json(file, function (data) {
             for (var j = 0; j < data.length; j++) {
 
@@ -228,7 +226,7 @@ function req(array, year, jogador, obj, atributo) {
 
 
 
-function lineC(jogador, atributo) {
+function lineC(jogador) {
     var atributo = getAtributo();
     if (chart == null) {
         chart = new linechart(jogador, atributo);

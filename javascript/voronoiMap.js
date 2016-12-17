@@ -79,8 +79,8 @@ class VoronoiMap {
                 highlightMap(data[i].abbreviation);
                 updateScatter(data[i]);
                 setGlobalType("team");
-                updateStarAxes(d);
-                lineC(d.team);
+                updateStarAxes(data[i]);
+                lineC(data[i].team);
             });
 
 
