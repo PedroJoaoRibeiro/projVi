@@ -30,7 +30,7 @@
 	<script src="javascript/main.js"></script>
 	<script src="javascript/scatterPlot.js"></script>
 	<script src="javascript/voronoiMap.js"></script>
-	
+
 	<script src="javascript/slider.js"></script>
 	<script src="javascript/linechart.js"></script>
 
@@ -46,7 +46,8 @@
 			<div class="row-eq-height">
 				<div class="col-sm-3">
 					<input type="search" value="Insert a Player or Team" class="biginput" id="autocomplete">
-					<input id="toggle-Playoffs" checked data-toggle="toggle" data-on="Season" data-off="Playoffs" data-onstyle="success" data-offstyle="primary" type="checkbox">
+					<input id="toggle-Playoffs" checked data-toggle="toggle" data-on="Season" data-off="Playoffs" data-onstyle="success" data-offstyle="primary"
+						type="checkbox">
 				</div>
 
 				<svg id="the_VoronoiMap" class="col-sm-6"></svg>
@@ -61,43 +62,69 @@
 		<div class="row">
 			<div class="row-eq-height">
 				<svg id="the_scatterPlot" class="col-sm-4" height="400"></svg>
-				<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Points" data-off="Points" data-width="100"></input>
-				<input id="toggle-AST" type="checkbox" data-toggle="toggle" data-onstyle="success" data-on="Assists" data-off="Assists" data-width="100"></input>
-				<input id="toggle-TRB" type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Rebounds" data-off="Rebounds" data-width="100"></input>
-				<input id="toggle-DRB" type="checkbox" data-toggle="toggle" data-onstyle="warning" data-on="Dribles" data-off="Dribles" data-width="100"></input>
-				<input id="toggle-STL" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-on="Steals" data-off="Steals" data-width="100"></input>
-<svg id="the_linechart" class="col-sm-4" height="400"></svg>
+				
+				<svg id="the_linechart" class="col-sm-4" height="400"></svg>
 
-<div class="col-sm-4">
-	<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Points" data-off="Points" data-width="100"></input>
-	<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Assists" data-off="Assists" data-width="100"></input>
-	<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Rebounds" data-off="Rebounds" data-width="100"></input>
-	<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="2 Points" data-off="2 Points" data-width="100"></input>
-	<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="3 Points" data-off="3 Points" data-width="100"></input>
-	<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Dribles" data-off="Dribles" data-width="100"></input>
-	<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Steals" data-off="Steals" data-width="100"></input>
-	<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Percent" data-off="Percent" data-width="100"></input>
-	<div id="the_starPlot" class="radarChart"> </div>
-</div>
-</div>
-</div>
-</div>
+				<div class="col-sm-4">
+					<div class="row">
+						<div class="col-sm-8">
+							<div id="the_starPlot" class="radarChart"> </div>
+						</div>
+						<div class="col-sm-4">
+
+							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Points" data-off="Points"
+								data-width="100"></input>
+							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Assists" data-off="Assists"
+								data-width="100"></input>
+							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Rebounds" data-off="Rebounds"
+								data-width="100"></input>
+							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="2 Points" data-off="2 Points"
+								data-width="100"></input>
+							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="3 Points" data-off="3 Points"
+								data-width="100"></input>
+							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Dribles" data-off="Dribles"
+								data-width="100"></input>
+							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Steals" data-off="Steals"
+								data-width="100"></input>
+							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Percent" data-off="Percent"
+								data-width="100"></input>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="row-eq-height">
+				<div class="col-sm-4"></div>
+
+				<div class="col-sm-4">
+					<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Points" data-off="Points"
+					data-width="100"></input>
+					<input id="toggle-AST" type="checkbox" data-toggle="toggle" data-onstyle="success" data-on="Assists" data-off="Assists" data-width="100"></input>
+					<input id="toggle-TRB" type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Rebounds" data-off="Rebounds" data-width="100"></input>
+					<input id="toggle-DRB" type="checkbox" data-toggle="toggle" data-onstyle="warning" data-on="Dribles" data-off="Dribles" data-width="100"></input>
+					<input id="toggle-STL" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-on="Steals" data-off="Steals" data-width="100"></input>
+				</div>
+				<div class="col-sm-4"></div>
+			</div>
+		</div>
+	</div>
 
 
 
 
 
 
-<div id="searchfield">
-	<h2>Year</h2>
-	<div id="theYear"> 2016 </div>
-	<div style="width: 90%; position: relative; left: 50px;" id="slider1"></div>
-</div>
+	<div id="searchfield">
+		<h2>Year</h2>
+		<div id="theYear"> 2016 </div>
+		<div style="width: 90%; position: relative; left: 50px;" id="slider1"></div>
+	</div>
 
-<button onclick="Comparator()" class="btn btn-danger btn-lg" style="position: fixed; bottom: 0px; left: 100px;">Comparator</button>
+	<button onclick="Comparator()" class="btn btn-danger btn-lg" style="position: fixed; bottom: 0px; left: 100px;">Comparator</button>
 
 
-<script>
+	<script>
 						  main();
 						  info = new Info();
 
@@ -214,7 +241,7 @@
 						  })
 
 </script>
-<script src="javascript/starplot.js"></script>
+	<script src="javascript/starplot.js"></script>
 </body>
 
 </html>
