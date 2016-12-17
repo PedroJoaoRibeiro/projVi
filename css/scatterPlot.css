@@ -97,6 +97,13 @@ div.tooltip {
   
 }
 
+#toggle-PTS{
+    position: relative;
+    overflow: hidden;
+    left: 60px;
+
+}
+
 #the_linechart {
   position: static;
 

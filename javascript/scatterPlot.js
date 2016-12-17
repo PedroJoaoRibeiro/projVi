@@ -121,13 +121,15 @@ class ScatterPlot {
                             { axis: "Rebounds", value: d.TRB },
                             { axis: "Steals", value: d.STL },
                             { axis: "Dribles", value: d.DRB },
-                            
+
 
                         ]];
                     higlightScatter(d.Player.split("\\")[0].split('.').join(""));
                     info.updatePlayerName(d.Player.split("\\")[0]);
                     updateStarAxes(d);
+
                     lineC(d.Player, "PTS");
+                    clearToggles();
                 })
 
                 .on("mouseout", function (d) {

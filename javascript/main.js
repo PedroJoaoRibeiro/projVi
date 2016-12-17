@@ -1,5 +1,5 @@
 var currentYear, voronoiMap, info;
-var dataSet, scatterPlot, barChart, scatterObj ;
+var dataSet, scatterPlot, barChart, scatterObj;
 var regularSeason = true;
 
 // LOGICA
@@ -22,41 +22,41 @@ function main() {
 
 }
 
-function updateSearchBar(suggestion){
+function updateSearchBar(suggestion) {
     console.log(suggestion);
     // ver se a data e team entao carregar dados equipa se nao carregar dados do player 
 }
 
-function setRegularSeason(){
+function setRegularSeason() {
     regularSeason = !regularSeason;
     updateAllData(currentYear);
 }
 
-function getTeamsData(year){
-    if(regularSeason){
+function getTeamsData(year) {
+    if (regularSeason) {
         return "data/equipas_VI/regularSeasonData/" + year + ".json";;
     }
-    else{
+    else {
         return "data/equipas_VI/playOffsData/" + year + ".json";
     }
 }
 
-function getPlayersData(year){
-    if(regularSeason){
+function getPlayersData(year) {
+    if (regularSeason) {
         return "data/Jogadores_VI/playoffs/" + year + ".json";
     }
-    else{
+    else {
         return "data/Jogadores_VI/playoffs/" + year + ".json";
     }
 }
 
-function updateAllData(year){
+function updateAllData(year) {
     currentYear = year;
     info.updateYear();
 
     updateVoronoi(currentYear);
 
-    if(scatterPlot){
+    if (scatterPlot) {
         verify(scatterObj);
     }
 }
@@ -76,7 +76,7 @@ function updateVoronoi(year) {
 
         });
     });
-    
+
 }
 
 function selectTeamsToPlayoffs(data, teams) {
@@ -91,14 +91,15 @@ function selectTeamsToPlayoffs(data, teams) {
             }
         }
     }
-    if (array.length < teams.length){
-        array.sort(function(a,b) {
-    var x = a.Rk;
-    var y = b.Rk;
-    return x < y ? -1 : x > y ? 1 : 0;});
+    if (array.length < teams.length) {
+        array.sort(function (a, b) {
+            var x = a.Rk;
+            var y = b.Rk;
+            return x < y ? -1 : x > y ? 1 : 0;
+        });
         console.log(array);
     }
-        
+
     return array;
 }
 
@@ -131,7 +132,7 @@ function verify(obj) {
 }
 
 
-function removeScatter(){
+function removeScatter() {
     scatterPlot.remove();
     scatterPlot = null;
 }
@@ -139,52 +140,52 @@ function removeScatter(){
 var comparator = 0;
 var dataG = [];
 function Comparator() {
-  if (comparator == 0) {
-    comparator = 1;
-  }
-  else {
-    comparator = 0;
-  }
+    if (comparator == 0) {
+        comparator = 1;
+    }
+    else {
+        comparator = 0;
+    }
 }
 
-function addArray(){
+function addArray() {
     var dataT = [];
-    for ( var i = 0; i < dataG.length; i++){
+    for (var i = 0; i < dataG.length; i++) {
         var aux = [];
-        if($('#toggle-PTSs').prop('checked')){
+        if ($('#toggle-PTSs').prop('checked')) {
             aux.push({ axis: "Points", value: dataG[i].PTS })
-            
+
         }
 
-        if($('#toggle-ASTs').prop('checked')){
+        if ($('#toggle-ASTs').prop('checked')) {
             aux.push({ axis: "Assists", value: dataG[i].AST })
-            
+
         }
 
-        if($('#toggle-TRBs').prop('checked')){
+        if ($('#toggle-TRBs').prop('checked')) {
             aux.push({ axis: "Rebounds", value: dataG[i].TRB })
-            
+
         }
 
-        if($('#toggle-STLs').prop('checked')){
+        if ($('#toggle-STLs').prop('checked')) {
             aux.push({ axis: "Steals", value: dataG[i].STL })
-            
-        }  
 
-        if($('#toggle-DRBs').prop('checked')){
+        }
+
+        if ($('#toggle-DRBs').prop('checked')) {
             aux.push({ axis: "Dribles", value: dataG[i].DRB })
-            
+
         }
 
-        if($('#toggle-2PTs').prop('checked')){
+        if ($('#toggle-2PTs').prop('checked')) {
             aux.push({ axis: "2 Point", value: dataG[i]['2P'] })
-            
+
         }
 
-        if($('#toggle-3PTs').prop('checked')){
+        if ($('#toggle-3PTs').prop('checked')) {
             aux.push({ axis: "3 Point", value: dataG[i]['3P'] })
-            
-        }                 
+
+        }
 
         dataT.push(aux);
     }
@@ -193,12 +194,12 @@ function addArray(){
 }
 
 function updateStarAxes(d) {
-    if (comparator){
-        if ( dataG.length < 2){
+    if (comparator) {
+        if (dataG.length < 2) {
             dataG.push(d);
         }
         else {
-            datG[1]=d;
+            datG[1] = d;
         }
     }
     else {
@@ -207,22 +208,30 @@ function updateStarAxes(d) {
     addArray();
 }
 
+function clearToggles() {
+    $('#toggle-AST').bootstrapToggle('off');
+    $('#toggle-TRB').bootstrapToggle('off');
+    $('#toggle-DRB').bootstrapToggle('off');
+    $('#toggle-STL').bootstrapToggle('off');
+    $('#toggle-PTS').bootstrapToggle('on');
+}
+
 
 class Info {
-    constructor(){
+    constructor() {
         this.svg = document.getElementById('info');
         this.year = document.getElementById('infoYear');
         this.team = document.getElementById('infoTeam');
         this.player = document.getElementById('infoPlayer');
     }
-    updateYear(){
-        this.year.innerHTML = "Selected year: " +currentYear;
+    updateYear() {
+        this.year.innerHTML = "Selected year: " + currentYear;
     }
-    updateTeamSelected(teamName){
+    updateTeamSelected(teamName) {
         this.team.innerHTML = "Team: " + teamName;
-        this.player.innerHTML = ""; 
+        this.player.innerHTML = "";
     }
-    updatePlayerName(player){
+    updatePlayerName(player) {
         this.player.innerHTML = "Player: " + player;
     }
 }
