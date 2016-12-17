@@ -125,7 +125,7 @@ class ScatterPlot {
                     higlightScatter(d.Player.split("\\")[0].split('.').join(""));
                     info.updatePlayerName(d.Player.split("\\")[0]);
                     drawRadarChart(data);
-                    lineC(d.Player);
+                    lineC(d.Player, "PTS");
                 })
 
                 .on("mouseout", function (d) {

@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="css/slider.css" />
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -21,6 +23,10 @@
 	<script src="library/dropdown.js"></script>
 	<script src="http://d3js.org/d3.v3.min.js"></script>
 
+	<link href="bootstrap-toggle-master/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<script src="bootstrap-toggle-master/js/bootstrap-toggle.min.js"></script>
+
+
 	<script src="javascript/main.js"></script>
 	<script src="javascript/scatterPlot.js"></script>
 	<script src="javascript/voronoiMap.js"></script>
@@ -29,11 +35,13 @@
 	<script src="javascript/linechart.js"></script>
 
 
+
 </head>
 
 <body>
 
 	<div class="container-fluid remove-all-margin">
+
 		<div class="row">
 			<div class="row-eq-height">
 				<div class="col-sm-3">
@@ -43,8 +51,8 @@
 				<svg id="the_VoronoiMap" class="col-sm-6"></svg>
 
 				<svg id="info" class="col-sm-3" height="400">
-					<text id="infoYear" x="20" y="50" font-family="sans-serif" font-size="20px" >Selected year: 2016</text>
-					<text id="infoTeam" x="20" y="80" font-family="sans-serif" font-size="20px" ></text>
+					<text id="infoYear" x="20" y="50" font-family="sans-serif" font-size="20px">Selected year: 2016</text>
+					<text id="infoTeam" x="20" y="80" font-family="sans-serif" font-size="20px"></text>
 					<text id="infoPlayer" x="20" y="110" font-family="sans-serif" font-size="20px"></text>
 				</svg>
 			</div>
@@ -52,65 +60,155 @@
 		<div class="row">
 			<div class="row-eq-height">
 				<svg id="the_scatterPlot" class="col-sm-4" height="400"></svg>
-	
-				<svg id="the_linechart" class="col-sm-4" height="400">
-					
-				<div class="col-sm-4">
-					<div id="the_starPlot" class="radarChart"> </div>
-				</div>
-			</div>
-		</div>
-	</div>
+				<input id="toggle-PTS" onclick="togglePTS()" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Points" data-off="Points" data-width="100">
+</input>
+<input id="toggle-AST" type="checkbox" data-toggle="toggle" data-onstyle="success" data-on="Assists" data-off="Assists" data-width="100"></input>
+<input id="toggle-TRB" type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Rebounds" data-off="Rebounds" data-width="100"></input>
+<input id="toggle-DRB" type="checkbox" data-toggle="toggle" data-onstyle="warning" data-on="Dribles" data-off="Dribles" data-width="100"></input>
+<input id="toggle-STL" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-on="Steals" data-off="Steals" data-width="100"></input>
+<svg id="the_linechart" class="col-sm-4" height="400"></svg>
+
+<div class="col-sm-4">
+	<div id="the_starPlot" class="radarChart"> </div>
+</div>
+</div>
+</div>
+</div>
 
 
 
 
 
-	
-	<div id="searchfield">
-		<h2>Year</h2>
-		<div id="theYear"> 2016 </div>
-		<div style="width: 90%; position: relative; left: 50px;" id="slider1"></div>
-	</div>
 
-	<button onclick="Comparator()" class="btn btn-danger btn-lg" style="position: fixed; bottom: 0px; left: 100px;">Comparator</button>
-	<div class="dropdown">
-		<button onclick="myFunction()" class="dropbtn" style="position: fixed; bottom: 0px; left: 0px;">Search</button>
-		<div id="myDropdown " class="dropdown-content " style="position: fixed; bottom: 45px; left: 0px; ">
-			<input type="text " placeholder="Search.. " id="myInput " onkeyup="filterFunction() ">
-			<a href="#2016 " onclick="updateVoronoi(2016) ">2016</a>
-			<a href="#2015 " onclick="updateVoronoi(2015) ">2015</a>
-			<a href="#2014 " onclick="updateVoronoi(2014) ">2014</a>
-			<a href="#2013 " onclick="updateVoronoi(2013) ">2013</a>
-			<a href="#2012 " onclick="updateVoronoi(2012) ">2012</a>
-			<a href="#2011 " onclick="updateVoronoi(2011) ">2011</a>
-			<a href="#2010 " onclick="updateVoronoi(2010) ">2010</a>
-		</div>
-	</div>
-	
-	<script>
-      main();
-	  info = new Info();
+<div id="searchfield">
+	<h2>Year</h2>
+	<div id="theYear"> 2016 </div>
+	<div style="width: 90%; position: relative; left: 50px;" id="slider1"></div>
+</div>
 
-		d3.select('#slider1').call(d3.slider().axis(true).min(1950).max(2016).step(1).value(2016).on("slide", function(evt, value) {
-			document.getElementById("theYear").innerHTML=value;
-			updateAllData(value);
-		}));
+<button onclick="Comparator()" class="btn btn-danger btn-lg" style="position: fixed; bottom: 0px; left: 100px;">Comparator</button>
+<div class="dropdown">
+	<button onclick="myFunction()" class="dropbtn" style="position: fixed; bottom: 0px; left: 0px;">Search</button>
+<div id="myDropdown " class="dropdown-content " style="position: fixed; bottom: 45px; left: 0px; ">
+<input type="text " placeholder="Search.. " id="myInput " onkeyup="filterFunction() ">
+<a href="#2016 " onclick="updateVoronoi(2016) ">2016</a>
+<a href="#2015 " onclick="updateVoronoi(2015) ">2015</a>
+<a href="#2014 " onclick="updateVoronoi(2014) ">2014</a>
+<a href="#2013 " onclick="updateVoronoi(2013) ">2013</a>
+<a href="#2012 " onclick="updateVoronoi(2012) ">2012</a>
+<a href="#2011 " onclick="updateVoronoi(2011) ">2011</a>
+<a href="#2010 " onclick="updateVoronoi(2010) ">2010</a>
+</div>
+</div>
 
-	  $(function () {
-  	  	d3.json("data/Jogadores_VI/playersNames.json", function (players) {
-    		d3.json("data/equipas_VI/teamsNames.json", function (teams) {
-				var array = players.concat(teams);
-				$('#autocomplete').autocomplete({
-					lookup: array,
-					onSelect: function (suggestion) {
-						updateSearchBar(suggestion);
-					}
-				});
-  			});
-  		});
-	});
-  </script>
+<script>
+						  main();
+						  info = new Info();
+
+						  d3.select('#slider1').call(d3.slider().axis(true).min(1950).max(2016).step(1).value(2016).on("slide", function (evt, value) {
+							  document.getElementById("theYear").innerHTML = value;
+							  updateAllData(value);
+						  }));
+
+						  $(function () {
+							  d3.json("data/Jogadores_VI/playersNames.json", function (players) {
+								  d3.json("data/equipas_VI/teamsNames.json", function (teams) {
+									  var array = players.concat(teams);
+									  $('#autocomplete').autocomplete({
+										  lookup: array,
+										  onSelect: function (suggestion) {
+											  updateSearchBar(suggestion);
+										  }
+									  });
+								  });
+							  });
+						  });
+
+
+						  $(function () {
+							  $('#toggle-PTS').change(function () {
+								  if ($(this).prop('checked')) {
+									  $('#toggle-AST').bootstrapToggle('enable');
+									  $('#toggle-TRB').bootstrapToggle('enable');
+									  $('#toggle-DRB').bootstrapToggle('enable');
+									  $('#toggle-STL').bootstrapToggle('enable');
+									  console.log("hereerererr");
+									  $('#toggle-AST').bootstrapToggle('off');
+									  $('#toggle-TRB').bootstrapToggle('off');
+									  $('#toggle-DRB').bootstrapToggle('off');
+									  $('#toggle-STL').bootstrapToggle('off');
+									  $('#toggle-PTS').bootstrapToggle('disable');
+									  updateStat("PTS");
+								  }
+							  })
+							  $('#toggle-AST').change(function () {
+								  if ($(this).prop('checked')) {
+									  $('#toggle-PTS').bootstrapToggle('enable');
+									  $('#toggle-TRB').bootstrapToggle('enable');
+									  $('#toggle-DRB').bootstrapToggle('enable');
+									  $('#toggle-STL').bootstrapToggle('enable');
+									  console.log("hereerererr");
+									  $('#toggle-PTS').bootstrapToggle('off');
+									  $('#toggle-TRB').bootstrapToggle('off');
+									  $('#toggle-DRB').bootstrapToggle('off');
+									  $('#toggle-STL').bootstrapToggle('off');
+									  $('#toggle-AST').bootstrapToggle('disable');
+									  updateStat("AST");
+									  // callyourFunction();
+								  }
+							  })
+							  $('#toggle-TRB').change(function () {
+								  if ($(this).prop('checked')) {
+									  $('#toggle-PTS').bootstrapToggle('enable');
+									  $('#toggle-AST').bootstrapToggle('enable');
+									  $('#toggle-DRB').bootstrapToggle('enable');
+									  $('#toggle-STL').bootstrapToggle('enable');
+									  console.log("hereerererr");
+									  $('#toggle-PTS').bootstrapToggle('off');
+									  $('#toggle-AST').bootstrapToggle('off');
+									  $('#toggle-DRB').bootstrapToggle('off');
+									  $('#toggle-STL').bootstrapToggle('off');
+									  $('#toggle-TRB').bootstrapToggle('disable');
+									  updateStat("TRB");
+									  // callyourFunction();
+								  }
+							  })
+							  $('#toggle-DRB').change(function () {
+								  if ($(this).prop('checked')) {
+									  $('#toggle-PTS').bootstrapToggle('enable');
+									  $('#toggle-AST').bootstrapToggle('enable');
+									  $('#toggle-TRB').bootstrapToggle('enable');
+									  $('#toggle-STL').bootstrapToggle('enable');
+									  console.log("hereerererr");
+									  $('#toggle-PTS').bootstrapToggle('off');
+									  $('#toggle-AST').bootstrapToggle('off');
+									  $('#toggle-TRB').bootstrapToggle('off');
+									  $('#toggle-STL').bootstrapToggle('off');
+									  $('#toggle-DRB').bootstrapToggle('disable');
+									  updateStat("DRB");
+									  // callyourFunction();
+								  }
+							  })
+							  $('#toggle-STL').change(function () {
+								  if ($(this).prop('checked')) {
+									  $('#toggle-PTS').bootstrapToggle('enable');
+									  $('#toggle-AST').bootstrapToggle('enable');
+									  $('#toggle-TRB').bootstrapToggle('enable');
+									  $('#toggle-DRB').bootstrapToggle('enable');
+									  console.log("hereerererr");
+									  $('#toggle-PTS').bootstrapToggle('off');
+									  $('#toggle-AST').bootstrapToggle('off');
+									  $('#toggle-TRB').bootstrapToggle('off');
+									  $('#toggle-DRB').bootstrapToggle('off');
+									  $('#toggle-STL').bootstrapToggle('disable');
+									  updateStat("STL");
+									  // callyourFunction();
+								  }
+							  })							  							  
+
+						  })
+
+</script>
 </body>
 
 </html>
