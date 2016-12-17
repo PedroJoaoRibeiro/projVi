@@ -10,7 +10,17 @@ class linechart {
 
         console.log(atributo);
         
+        var auxyear = array[0].year -1;
         
+        var obj = {
+            PTS: 0,
+            AST: 0,
+            TRB: 0,
+            DRB: 0,
+            STL: 0,
+            year: auxyear
+        };
+        array.unshift(obj);
 
 
 
