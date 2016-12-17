@@ -1,13 +1,13 @@
 var currentYear, voronoiMap, info;
 var dataSet, scatterPlot, barChart, scatterObj ;
-var regularSeason = false;
+var regularSeason = true;
 
 // LOGICA
 
 function main() {
     currentYear = 2016;
     var file = "data/equipas_VI/teams.json";
-    var file1 = "data/Playoff_Equipas_VI/" + currentYear + ".json";
+    var file1 = getTeamsData(currentYear);
     d3.json(file, function (data) {
         d3.json(file1, function (teams) {
             d3.json("data/us.json", function (error, topology) {
@@ -34,7 +34,7 @@ function setRegularSeason(){
 
 function getTeamsData(year){
     if(regularSeason){
-        return "fixMe";
+        return "data/equipas_VI/regularSeasonData/" + year + ".json";;
     }
     else{
         return "data/equipas_VI/playOffsData/" + year + ".json";
@@ -43,7 +43,7 @@ function getTeamsData(year){
 
 function getPlayersData(year){
     if(regularSeason){
-        return "fixMe";
+        return "data/Jogadores_VI/playoffs/" + year + ".json";
     }
     else{
         return "data/Jogadores_VI/playoffs/" + year + ".json";
@@ -83,7 +83,7 @@ function selectTeamsToPlayoffs(data, teams) {
     var array = [];
     for (var i = 0; i < data.length; i++) {
         for (var j = 0; j < teams.length; j++) {
-            if (data[i].team == teams[j].Team) {
+            if (data[i].team == teams[j].Team.split('*').join("")) {
                 data[i].Rk = teams[j].Rk;
                 data[i].Overall = teams[j].Overall;
                 array.push(data[i]);
