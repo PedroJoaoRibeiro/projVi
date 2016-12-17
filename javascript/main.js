@@ -91,8 +91,14 @@ function selectTeamsToPlayoffs(data, teams) {
             }
         }
     }
-    if (array.length != 16)
-        console.log("ver nomes de equipas mal");
+    if (array.length != 16){
+        array.sort(function(a,b) {
+    var x = a.Rk;
+    var y = b.Rk;
+    return x < y ? -1 : x > y ? 1 : 0;});
+        console.log(array);
+    }
+        
     return array;
 }
 

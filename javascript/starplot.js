@@ -213,15 +213,12 @@ class RadarChart {
       .style("fill", "none")
       .style("pointer-events", "all")
       .on("mouseover", function (d, i) {
-        newX = parseFloat(d3.select(this).attr('cx')) - 10;
-        newY = parseFloat(d3.select(this).attr('cy')) - 10;
-
-        tooltip
-          .attr('x', newX)
-          .attr('y', newY)
-          .text(Format(d.value))
-          .transition().duration(200)
-          .style('opacity', 1);
+        tooltip.transition()
+          .duration(200)
+          .style("opacity", .9);
+        tooltip.html(d.axis + ": " + d.value)
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY - 28) + "px");
       })
       .on("mouseout", function () {
         tooltip.transition().duration(200)
@@ -229,7 +226,8 @@ class RadarChart {
       });
 
     //Set up the small tooltip for when you hover over a circle
-    var tooltip = g.append("text")
+    var tooltip = d3.select("body")
+      .append("div")
       .attr("class", "tooltip")
       .style("opacity", 0);
 
@@ -267,7 +265,7 @@ class RadarChart {
 
   }//RadarChart
 
-  remove(){
+  remove() {
     d3.select(this.id).select("svg").remove();
   }
 }
@@ -295,7 +293,7 @@ function drawRadarChart(D) {
   }
 
 
- 
+
 
 
 
@@ -316,7 +314,7 @@ function drawRadarChart(D) {
 }
 
 
-function removeRadar(){
+function removeRadar() {
   radar.remove();
   radar = null;
 }

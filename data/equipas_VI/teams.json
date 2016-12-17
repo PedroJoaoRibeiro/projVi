@@ -84,6 +84,18 @@
     ]
   },
   {
+    "team": "New Jersey Nets",
+    "abbreviation": "NJN",
+    "stadium": "Barclays Center",
+    "color": "url(#NYKBKL)",
+    "iconWidth": 42,
+    "iconHeight": 21,
+    "location": [
+      -73.975225,
+      40.682661
+    ]
+  },
+  {
     "team": "Milwaukee Bucks",
     "abbreviation": "MIL",
     "stadium": "BMO Harris Bradley Center",
@@ -180,6 +192,18 @@
     ]
   },
   {
+    "team": "St. Louis Hawks",
+    "abbreviation": "STL",
+    "stadium": "St. Louis Arena",
+    "color": "navy",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -90.282778,
+      38.629167
+    ]
+  },
+  {
     "team": "Cleveland Cavaliers",
     "abbreviation": "CLE",
     "stadium": "Quicken Loans Arena",
@@ -206,6 +230,18 @@
   {
     "team": "Sacramento Kings",
     "abbreviation": "SAC",
+    "stadium": "Sleep Train Arena",
+    "color": "#753bbd",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -121.518055555556,
+      38.6491666666667
+    ]
+  },
+  {
+    "team": "Cincinnati Royals",
+    "abbreviation": "CIN",
     "stadium": "Sleep Train Arena",
     "color": "#753bbd",
     "iconWidth": 21,
@@ -312,6 +348,18 @@
     ]
   },
   {
+    "team": "San Diego Rockets",
+    "abbreviation": "SDR",
+    "stadium": "Toyota Center",
+    "color": "#ce1138",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -95.3622222222222,
+      29.7508333333333
+    ]
+  },
+  {
     "team": "Chicago Bulls",
     "abbreviation": "CHI",
     "stadium": "United Center",
@@ -369,6 +417,114 @@
     "location": [
       -79.3791666666667,
       43.6433333333333
+    ]
+  },
+  {
+    "team": "New Orleans Hornets",
+    "abbreviation": "NOH",
+    "stadium": "New Orleans Arena",
+    "color": "#008fc5",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -90.0819444444444,
+      29.9488888888889
+    ]
+  },
+  {
+    "team": "Seattle Supersonics",
+    "abbreviation": "SEA",
+    "stadium": "KeyArena",
+    "color": "#008fc5",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -122.3541,
+      47.62212
+    ]
+  },
+  {
+    "team": "Washington Bullets",
+    "abbreviation": "WSB",
+    "stadium": "Verizon Center",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -77.0208333333333,
+      38.8980555555556
+    ]
+  },
+  {
+    "team": "Kansas City Kings",
+    "abbreviation": "KCK",
+    "stadium": "Kansas City",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -94.588611,
+      39.109722
+    ]
+  },
+  {
+    "team": "Buffalo Braves",
+    "abbreviation": "BUF",
+    "stadium": "Buffalo Memorial Auditorium",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -78.8775,
+      42.878056
+    ]
+  },
+  {
+    "team": "Kansas City-Omaha Kings",
+    "abbreviation": "KCO",
+    "stadium": "Kansas City",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -94.588611,
+      39.109722
+    ]
+  },
+  {
+    "team": "Capital Bullets",
+    "abbreviation": "CAP",
+    "stadium": "Capital Centre",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -76.846944,
+      38.9025
+    ]
+  },
+  {
+    "team": "Baltimore Bullets",
+    "abbreviation": "BAL",
+    "stadium": "Baltimore Coliseum",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -76.618889,
+      39.288611
+    ]
+  },
+  {
+    "team": "San Francisco Warriors",
+    "abbreviation": "SFW",
+    "stadium": "Oracle Arena",
+    "color": "#ffcc33",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -122.203055555556,
+      37.7502777777778
     ]
   }
 ]
