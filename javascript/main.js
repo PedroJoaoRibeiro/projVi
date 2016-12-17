@@ -137,7 +137,7 @@ function removeScatter(){
 }
 
 var comparator = 0;
-var dataG;
+var dataG = [];
 function Comparator() {
   if (comparator == 0) {
     comparator = 1;
@@ -147,21 +147,64 @@ function Comparator() {
   }
 }
 
+function addArray(){
+    var dataT = [];
+    for ( var i = 0; i < dataG.length; i++){
+        var aux = [];
+        if($('#toggle-PTSs').prop('checked')){
+            aux.push({ axis: "Points", value: dataG[i].PTS })
+            
+        }
+
+        if($('#toggle-ASTs').prop('checked')){
+            aux.push({ axis: "Assists", value: dataG[i].AST })
+            
+        }
+
+        if($('#toggle-TRBs').prop('checked')){
+            aux.push({ axis: "Rebounds", value: dataG[i].TRB })
+            
+        }
+
+        if($('#toggle-STLs').prop('checked')){
+            aux.push({ axis: "Steals", value: dataG[i].STL })
+            
+        }  
+
+        if($('#toggle-DRBs').prop('checked')){
+            aux.push({ axis: "Dribles", value: dataG[i].DRB })
+            
+        }
+
+        if($('#toggle-2PTs').prop('checked')){
+            aux.push({ axis: "2 Point", value: dataG[i]['2P'] })
+            
+        }
+
+        if($('#toggle-3PTs').prop('checked')){
+            aux.push({ axis: "3 Point", value: dataG[i]['3P'] })
+            
+        }                 
+
+        dataT.push(aux);
+    }
+    drawRadarChart(dataT);
+
+}
+
 function updateStarAxes(d) {
     if (comparator){
-        
+        if ( dataG.length < 2){
+            dataG.push(d);
+        }
+        else {
+            datG[1]=d;
+        }
     }
-    if (atrSet == perc) {
-        dataS = [
-            [
-                { axis: "Field Goals", value: d['FG%'] },
-                { axis: "3 points", value: d['3P%'] },
-                { axis: "2 points", value: d['2P%'] },
-                { axis: "Free throws", value: d['FT%'] },
-
-            ]];
+    else {
+        dataG[0] = d;
     }
-    drawRadarChart(dataS);
+    addArray();
 }
 
 

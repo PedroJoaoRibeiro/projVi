@@ -126,7 +126,7 @@ class ScatterPlot {
                         ]];
                     higlightScatter(d.Player.split("\\")[0].split('.').join(""));
                     info.updatePlayerName(d.Player.split("\\")[0]);
-                    drawRadarChart(dataS);
+                    updateStarAxes(d);
                     lineC(d.Player, "PTS");
                 })
 

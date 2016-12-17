@@ -72,21 +72,21 @@
 						</div>
 						<div class="col-sm-4">
 
-							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Points" data-off="Points"
+							<input id="toggle-PTSs" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Points" data-off="Points"
 								data-width="100"></input>
-							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Assists" data-off="Assists"
+							<input id="toggle-ASTs" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Assists" data-off="Assists"
 								data-width="100"></input>
-							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Rebounds" data-off="Rebounds"
+							<input id="toggle-TRBs" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Rebounds" data-off="Rebounds"
 								data-width="100"></input>
-							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="2 Points" data-off="2 Points"
+							<input id="toggle-2PTs" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="2 Points" data-off="2 Points"
 								data-width="100"></input>
-							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="3 Points" data-off="3 Points"
+							<input id="toggle-3PTs" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="3 Points" data-off="3 Points"
 								data-width="100"></input>
-							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Dribles" data-off="Dribles"
+							<input id="toggle-DRBs" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Dribles" data-off="Dribles"
 								data-width="100"></input>
-							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Steals" data-off="Steals"
+							<input id="toggle-STLs" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Steals" data-off="Steals"
 								data-width="100"></input>
-							<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Percent" data-off="Percent"
+							<input id="toggle-PERs" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Percent" data-off="Percent"
 								data-width="100"></input>
 						</div>
 					</div>
@@ -228,6 +228,20 @@
 									  // callyourFunction();
 								  }
 							  })
+
+							  $('#toggle-PERs').change(function () {
+								  if ($(this).prop('checked')) {
+									  $('#toggle-PTSs').bootstrapToggle('off');
+									  $('#toggle-ASTs').bootstrapToggle('off');
+									  $('#toggle-TRBs').bootstrapToggle('off');
+									  $('#toggle-DRBs').bootstrapToggle('off');
+									  $('#toggle-STLs').bootstrapToggle('off');
+								 	  $('#toggle-3PTs').bootstrapToggle('off');
+									  $('#toggle-2PTs').bootstrapToggle('off');
+									  // callyourFunction();
+								  }
+							  })
+
 							  $('#toggle-Playoffs').change(function () {
 								  
 								  if ($(this).prop('checked')== false) {
