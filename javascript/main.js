@@ -137,6 +137,21 @@ function removeScatter(){
 }
 
 
+function updateStarAxes(d) {
+    if (atrSet == perc) {
+        dataS = [
+            [
+                { axis: "Field Goals", value: d['FG%'] },
+                { axis: "3 points", value: d['3P%'] },
+                { axis: "2 points", value: d['2P%'] },
+                { axis: "Free throws", value: d['FT%'] },
+
+            ]];
+    }
+    drawRadarChart(dataS);
+}
+
+
 class Info {
     constructor(){
         this.svg = document.getElementById('info');

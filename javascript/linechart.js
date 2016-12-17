@@ -12,12 +12,6 @@ class linechart {
         
         
 
-        switch (atributo) {
-
-            case "PTS":
-                console.log("here");
-
-        }
 
 
         var margin = {

@@ -163,7 +163,7 @@ function higlightScatter(player) {
 }
 
 // funçao para os vários botões do star
-/*function updateStarAxes(atrSet) {
+/*function updateStarAxes(d) {
     if (atrSet == perc) {
         dataS = [
             [
