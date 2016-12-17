@@ -207,7 +207,8 @@ function req(array, year, jogador, obj, atributo) {
 
     }
     else {
-        file = getPlayersData(year);
+        file = getGlobalType(year);
+        console.log(jog);
         d3.json(file, function (data) {
             for (var j = 0; j < data.length; j++) {
 
@@ -228,7 +229,7 @@ function req(array, year, jogador, obj, atributo) {
 
 
 function lineC(jogador, atributo) {
-
+    var atributo = getAtributo();
     if (chart == null) {
         chart = new linechart(jogador, atributo);
     }
@@ -240,4 +241,31 @@ function lineC(jogador, atributo) {
 
 function updateStat(stat){
     chart.doLineChart(jog, stat);
+}
+
+function getAtributo(){
+    if($('#toggle-PTS').prop('checked')){
+            return "PTS";
+            
+        }
+
+        if($('#toggle-AST').prop('checked')){
+            return "AST";
+            
+        }
+
+        if($('#toggle-TRB').prop('checked')){
+            return "TRB";
+            
+        }
+
+        if($('#toggle-STL').prop('checked')){
+            return "STL";
+            
+        }  
+
+        if($('#toggle-DRB').prop('checked')){
+            return "DRB";
+            
+        }
 }

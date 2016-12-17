@@ -77,7 +77,10 @@ class VoronoiMap {
             })
             .on("click", function (d, i) {
                 highlightMap(data[i].abbreviation);
-                verify(data[i]);
+                updateScatter(data[i]);
+                setGlobalType("team");
+                updateStarAxes(d);
+                lineC(d.team);
             });
 
 
@@ -106,7 +109,7 @@ class VoronoiMap {
             .attr("transform", function (d, i) { return "translate(" + projectedPoints[i] + ")"; })
             .on("click", function (d, i) {
                 highlightMap(data[i].abbreviation);
-                verify(data[i]);
+                updateScatter(data[i]);
             });
         
         if(this.elementSelected){

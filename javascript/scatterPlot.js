@@ -114,20 +114,11 @@ class ScatterPlot {
                 })
 
                 .on("click", function (d) {
-                    dataS = [
-                        [
-                            { axis: "Points", value: d.PTS },
-                            { axis: "Assists", value: d.AST },
-                            { axis: "Rebounds", value: d.TRB },
-                            { axis: "Steals", value: d.STL },
-                            { axis: "Dribles", value: d.DRB },
-                            
-
-                        ]];
                     higlightScatter(d.Player.split("\\")[0].split('.').join(""));
                     info.updatePlayerName(d.Player.split("\\")[0]);
+                    setGlobalType("player");
                     updateStarAxes(d);
-                    lineC(d.Player, "PTS");
+                    lineC(d.Player);
                 })
 
                 .on("mouseout", function (d) {

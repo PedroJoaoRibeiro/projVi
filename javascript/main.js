@@ -1,4 +1,4 @@
-var currentYear, voronoiMap, info;
+var currentYear, voronoiMap, info, globalType;
 var dataSet, scatterPlot, barChart, scatterObj ;
 var regularSeason = true;
 
@@ -57,8 +57,19 @@ function updateAllData(year){
     updateVoronoi(currentYear);
 
     if(scatterPlot){
-        verify(scatterObj);
+        updateScatter(scatterObj);
     }
+}
+
+function getGlobalType(year){
+    if(globalType == "team")
+        return getTeamsData(year);
+    else
+        return getPlayersData(year);
+}
+
+function setGlobalType(type){
+    globalType = type;
 }
 
 
@@ -116,7 +127,7 @@ function selectFromData(data, type, value) {
 }
 
 // da update ao scatterPlot se nao existir cria recebe um objecto que contem o abreviation e nome de equipa
-function verify(obj) {
+function updateScatter(obj) {
     scatterObj = obj;
     info.updateTeamSelected(obj.team);
     var file = getPlayersData(currentYear);
@@ -146,6 +157,9 @@ function Comparator() {
     comparator = 0;
   }
 }
+
+
+//starPlot Methods
 
 function addArray(){
     var dataT = [];
