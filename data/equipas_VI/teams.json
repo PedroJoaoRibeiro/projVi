@@ -432,6 +432,18 @@
     ]
   },
   {
+    "team": "New Orleans/Oklahoma City Hornets",
+    "abbreviation": "NOK",
+    "stadium": "New Orleans Arena",
+    "color": "#008fc5",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -90.0819444444444,
+      29.9488888888889
+    ]
+  },
+  {
     "team": "Seattle Supersonics",
     "abbreviation": "SEA",
     "stadium": "KeyArena",
