@@ -136,8 +136,21 @@ function removeScatter(){
     scatterPlot = null;
 }
 
+var comparator = 0;
+var dataG;
+function Comparator() {
+  if (comparator == 0) {
+    comparator = 1;
+  }
+  else {
+    comparator = 0;
+  }
+}
 
 function updateStarAxes(d) {
+    if (comparator){
+        
+    }
     if (atrSet == perc) {
         dataS = [
             [
