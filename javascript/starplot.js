@@ -3,19 +3,19 @@ class RadarChart {
   constructor(id, data, options) {
     this.id = id;
     var cfg = {
-      w: 600,				//Width of the circle
-      h: 600,				//Height of the circle
-      margin: { top: 20, right: 20, bottom: 20, left: 20 }, //The margins of the SVG
-      levels: 3,				//How many levels or inner circles should there be drawn
-      maxValue: 0, 			//What is the value that the biggest circle will represent
+      w: 250,
+      h: 250,
+      margin: { top: 80, right: 80, bottom: 80, left: 80 },
+      maxValue: 1,
+      levels: 5,
+      roundStrokes: true,
+      color: d3.scale.ordinal().range(["#EDC951", "#CC333F", "#00A0B0"]),
       labelFactor: 1.25, 	//How much farther than the radius of the outer circle should the labels be placed
       wrapWidth: 60, 		//The number of pixels after which a label needs to be given a new line
       opacityArea: 0.35, 	//The opacity of the area of the blob
       dotRadius: 4, 			//The size of the colored circles of each blog
       opacityCircles: 0.1, 	//The opacity of the circles of each blob
-      strokeWidth: 2, 		//The width of the stroke around each blob
-      roundStrokes: false,	//If true the area and stroke will follow a round path (cardinal-closed)
-      color: d3.scale.category10()	//Color function
+      strokeWidth: 2		//The width of the stroke around each blob
     };
 
     //Put all of the options into a variable called cfg
@@ -285,26 +285,12 @@ function drawRadarChart(D) {
   var margin = { top: 50, right: 50, bottom: 50, left: 50 },
     width = Math.min(700, window.innerWidth - 10) - margin.left - margin.right,
     height = Math.min(width, window.innerHeight - margin.top - margin.bottom - 20);
-    data = D;
+  data = D;
 
 
 
-
-
-  var color = d3.scale.ordinal()
-    .range(["#EDC951", "#CC333F", "#00A0B0"]);
-
-  var radarChartOptions = {
-    w: 300,
-    h: 300,
-    margin: margin,
-    maxValue: 1,
-    levels: 5,
-    roundStrokes: true,
-    color: color
-  };
   //Call function to draw the Radar chart
-  radar = new RadarChart(".radarChart", data, radarChartOptions);
+  radar = new RadarChart(".radarChart", data, null);
 }
 
 
