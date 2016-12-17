@@ -64,7 +64,7 @@ class VoronoiMap {
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 28) + "px")
                     .append("img")
-                    .attr("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/LosAngeles_Lakers_logo.svg/500px-LosAngeles_Lakers_logo.svg.png")
+                    .attr("src", "data/logos/" + data[i].abbreviation + ".png")
 
                     .attr("width", "150px")
                     .attr("height", "100px");
