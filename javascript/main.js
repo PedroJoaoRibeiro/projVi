@@ -61,6 +61,9 @@ function updateAllData(year) {
     if(scatterPlot){
         updateScatter(scatterObj);
     }
+    if(chart){
+        lineC(chart.player);
+    }
 }
 
 function getGlobalType(year){
