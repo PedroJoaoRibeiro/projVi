@@ -58,13 +58,8 @@ function updateAllData(year) {
 
     updateVoronoi(currentYear);
 
-<<<<<<< HEAD
     if(scatterPlot){
         updateScatter(scatterObj);
-=======
-    if (scatterPlot) {
-        verify(scatterObj);
->>>>>>> origin/master
     }
 }
 
@@ -166,14 +161,9 @@ function Comparator() {
     }
 }
 
-<<<<<<< HEAD
-
 //starPlot Methods
 
 function addArray(){
-=======
-function addArray() {
->>>>>>> origin/master
     var dataT = [];
     for (var i = 0; i < dataG.length; i++) {
         var aux = [];

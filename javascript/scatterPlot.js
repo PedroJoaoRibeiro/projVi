@@ -120,6 +120,7 @@ class ScatterPlot {
                     updateStarAxes(d);
                     lineC(d.Player);
                     clearToggles();
+                })
 
                 .on("mouseout", function (d) {
                     tooltip.transition()
