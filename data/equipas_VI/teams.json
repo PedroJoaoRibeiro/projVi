@@ -526,5 +526,137 @@
       -122.203055555556,
       37.7502777777778
     ]
+  },
+  {
+    "team": "Syracuse Nationals",
+    "abbreviation": "SYR",
+    "stadium": "New York",
+    "color": "#ffcc33",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -73.9385,
+      40.6643
+    ]
+  },
+  {
+    "team": "Philadelphia Warriors",
+    "abbreviation": "PHW",
+    "stadium": "Philadelphia",
+    "color": "#ffcc33",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -75.1637900,
+      39.9523300
+    ]
+  },
+  {
+    "team": "Minneapolis Lakers",
+    "abbreviation": "MNL",
+    "stadium": "Minneapolis",
+    "color": "#ffcc33",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -93.266111,
+      44.976944
+    ]
+  },
+  {
+    "team": "Fort Wayne Pistons",
+    "abbreviation": "FTW",
+    "stadium": "Indiana",
+    "color": "#ffcc33",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+       -86.134903,
+      40.267193
+    ]
+  },
+  {
+    "team": "Rochester Royals",
+    "abbreviation": "ROC",
+    "stadium": "Kansas City",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -94.588611,
+      39.109722
+    ]
+  },
+  {
+    "team": "Indianapolis Olympians",
+    "abbreviation": "INO",
+    "stadium": "Hinkle Fieldhouse",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -86.167222,
+      39.84361
+    ]
+  },
+  {
+    "team": "Anderson Packers",
+    "abbreviation": "AND",
+    "stadium": "Anderson",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -85.681389,
+      40.1
+    ]
+  },
+  {
+    "team": "Sheboygan Red Skins",
+    "abbreviation": "SHE",
+    "stadium": "Sheboygan",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -87.725,
+      43.749444
+    ]
+  },
+  {
+    "team": "Tri-Cities Blackhawks",
+    "abbreviation": "TRI",
+    "stadium": "Wharton Field House",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -90.510607,
+      41.491832
+    ]
+  },
+  {
+    "team": "Chicago Stags",
+    "abbreviation": "CHS",
+    "stadium": "Chicago",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -87.65,
+      41.9
+    ]
+  },
+  {
+    "team": "Washington Capitols",
+    "abbreviation": "WSC",
+    "stadium": "Washington",
+    "color": "white",
+    "iconWidth": 21,
+    "iconHeight": 21,
+    "location": [
+      -77.036389,
+      38.895
+    ]
   }
 ]

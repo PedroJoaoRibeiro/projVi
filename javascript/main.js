@@ -91,7 +91,7 @@ function selectTeamsToPlayoffs(data, teams) {
             }
         }
     }
-    if (array.length != 16){
+    if (array.length < teams.length){
         array.sort(function(a,b) {
     var x = a.Rk;
     var y = b.Rk;
