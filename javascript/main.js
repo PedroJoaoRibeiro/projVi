@@ -1,5 +1,5 @@
 var currentYear, voronoiMap, info, globalType;
-var dataSet, scatterPlot, barChart, scatterObj ;
+var dataSet, scatterPlot, barChart, scatterObj;
 
 var regularSeason = true;
 
@@ -43,8 +43,8 @@ function getTeamsData(year) {
 }
 
 
-function getPlayersData(year){
-    if(regularSeason){
+function getPlayersData(year) {
+    if (regularSeason) {
         return "data/Jogadores_VI/regularSeason/" + year + ".json";
     }
     else {
@@ -58,22 +58,22 @@ function updateAllData(year) {
 
     updateVoronoi(currentYear);
 
-    if(scatterPlot){
+    if (scatterPlot) {
         updateScatter(scatterObj);
     }
-    if(chart){
+    if (chart) {
         lineC(chart.player);
     }
 }
 
-function getGlobalType(year){
-    if(globalType == "team")
+function getGlobalType(year) {
+    if (globalType == "team")
         return getTeamsData(year);
     else
         return getPlayersData(year);
 }
 
-function setGlobalType(type){
+function setGlobalType(type) {
     globalType = type;
 }
 
@@ -166,7 +166,7 @@ function Comparator() {
 
 //starPlot Methods
 
-function addArray(){
+function addArray() {
     var dataT = [];
     for (var i = 0; i < dataG.length; i++) {
         var aux = [];
@@ -217,10 +217,11 @@ function updateStarAxes(d) {
             dataG.push(d);
         }
         else {
-            datG[1] = d;
+           dataG[1]=d; 
         }
     }
     else {
+        dataG = [];
         dataG[0] = d;
     }
     addArray();
