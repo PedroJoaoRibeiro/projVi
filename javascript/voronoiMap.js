@@ -81,6 +81,7 @@ class VoronoiMap {
                 setGlobalType("team");
                 updateStarAxes(data[i]);
                 lineC(data[i].team);
+                clearToggles();
             });
 
 
@@ -113,6 +114,8 @@ class VoronoiMap {
                 setGlobalType("team");
                 updateStarAxes(data[i]);
                 lineC(data[i].team);
+                clearToggles();
+                
             });
         
         if(this.elementSelected){
