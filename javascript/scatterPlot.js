@@ -1,3 +1,4 @@
+var dataS;
 class ScatterPlot {
     constructor(data, team) {
         var w = 390,
@@ -113,18 +114,19 @@ class ScatterPlot {
                 })
 
                 .on("click", function (d) {
-                    var data = [
+                    dataS = [
                         [
                             { axis: "Points", value: d.PTS },
                             { axis: "Assists", value: d.AST },
-                            { axis: "Blocks", value: d.BLK },
+                            { axis: "Rebounds", value: d.TRB },
                             { axis: "Steals", value: d.STL },
                             { axis: "Dribles", value: d.DRB },
+                            
 
                         ]];
                     higlightScatter(d.Player.split("\\")[0].split('.').join(""));
                     info.updatePlayerName(d.Player.split("\\")[0]);
-                    drawRadarChart(data);
+                    drawRadarChart(dataS);
                     lineC(d.Player, "PTS");
                 })
 
@@ -160,3 +162,18 @@ function higlightScatter(player) {
     element.attr("xlink:href", "data/icons/ATL.png")
 }
 
+// funçao para os vários botões do star
+/*function updateStarAxes(atrSet) {
+    if (atrSet == perc) {
+        dataS = [
+            [
+                { axis: "Field Goals", value: d.FG% },
+                { axis: "3 points", value: d.3P% },
+                { axis: "2 points", value: d.2P% },
+                { axis: "Free throws", value: d.FT% },
+
+            ]];
+    }
+    drawRadarChart(dataS);
+}
+*/
