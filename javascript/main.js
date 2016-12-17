@@ -43,7 +43,7 @@ function getTeamsData(year){
 
 function getPlayersData(year){
     if(regularSeason){
-        return "data/Jogadores_VI/playoffs/" + year + ".json";
+        return "data/Jogadores_VI/regularSeason/" + year + ".json";
     }
     else{
         return "data/Jogadores_VI/playoffs/" + year + ".json";
