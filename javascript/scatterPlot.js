@@ -149,8 +149,8 @@ function higlightScatter(player) {
         element = d3.select("#" + scatterPlot.elementSelected);
         element.attr("xlink:href", "data/icons/basketball.png");
     }
-    scatterPlot.elementSelected = player;
-    element = d3.select("#" + player);
+    scatterPlot.elementSelected = player.split('*').join("");
+    element = d3.select("#" + scatterPlot.elementSelected);
     element.attr("xlink:href", "data/icons/ATL.png")
 }
 
