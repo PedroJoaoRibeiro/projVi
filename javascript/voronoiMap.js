@@ -149,7 +149,6 @@ function offset(arr, d) {
 }
 
 function highlightMap(team) {
-    console.log(team);
     if(voronoiMap.elementSelected){
         element = d3.select("#"+ voronoiMap.elementSelected.abbreviation);
         element.attr("fill", "none");
