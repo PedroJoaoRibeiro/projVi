@@ -62,8 +62,10 @@ class ScatterPlot {
             .attr("class", "tooltip")
             .style("opacity", 0);
 
-        if (data.length == 0)
-            this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't get to playoffs this year");
+        if (data.length == 0 && !regularSeason)
+                this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't get to playoffs this year");
+        else if(data.length == 0 && regularSeason)
+                this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't Played in this year");
         else {
             var average = this.calculateAverage(data);
 
