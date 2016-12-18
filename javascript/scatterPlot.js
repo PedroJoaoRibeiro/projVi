@@ -63,9 +63,9 @@ class ScatterPlot {
             .style("opacity", 0);
 
         if (data.length == 0 && !regularSeason)
-                this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't get to playoffs this year");
-        else if(data.length == 0 && regularSeason)
-                this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't Played in this year");
+            this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't get to playoffs this year");
+        else if (data.length == 0 && regularSeason)
+            this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't Played in this year");
         else {
             var average = this.calculateAverage(data);
 
@@ -147,13 +147,31 @@ class ScatterPlot {
 }
 //fix me
 function higlightScatter(player) {
-    if (scatterPlot.elementSelected) {
-        var element = d3.select("#" + scatterPlot.elementSelected);
-        element.attr("xlink:href", "data/icons/basketball.png");
+    if (comparator) {
+        if (scatterPlot.elementSelected2) {
+            var element = d3.select("#" + scatterPlot.elementSelected2);
+            element.attr("xlink:href", "data/icons/basketball.png");
+        }
+        var element = d3.select("#" + player);
+        element.attr("xlink:href", "data/icons/basVermelha.png");
+        scatterPlot.elementSelected2 = player;
+
     }
-    var element = d3.select("#" + player);
-    element.attr("xlink:href", "data/icons/ATL.png")
-    scatterPlot.elementSelected = player;
+    else {
+        if (scatterPlot.elementSelected2) {
+            var element = d3.select("#" + scatterPlot.elementSelected2);
+            element.attr("xlink:href", "data/icons/basketball.png");
+        }
+        if (scatterPlot.elementSelected) {
+            var element = d3.select("#" + scatterPlot.elementSelected);
+            element.attr("xlink:href", "data/icons/basketball.png");
+        }
+        var element = d3.select("#" + player);
+        element.attr("xlink:href", "data/icons/basAmarela.png");
+        scatterPlot.elementSelected = player;
+    }
+
+
 }
 
 // funçao para os vários botões do star
