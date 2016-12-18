@@ -2,19 +2,19 @@ var chart;
 var jog;
 class linechart {
     constructor(jogador, atributo) {
-        $( "#toglesLine" ).removeClass( "hidden" );
+        $("#toglesLine").removeClass("hidden");
 
         this.svg = d3.select("#the_linechart");
         this.doLineChart(jogador, atributo);
     }
     draw(array, year, jogador, atributo) {
         this.player = jogador;
-        var auxyear = array[0].year -1;
+        var auxyear = array[0].year - 1;
 
-        if(globalType == "player"){
+        if (globalType == "player") {
             info.updatePlayerName(jogador.split("\\")[0]);
         }
-        
+
         var obj = {
             PTS: 0,
             AST: 0,
@@ -61,9 +61,9 @@ class linechart {
                     case "TRB":
                         return y(d.TRB);
                     case "DRB":
-                        return y(d.DRB);   
+                        return y(d.DRB);
                     case "STL":
-                        return y(d.STL);                                                
+                        return y(d.STL);
                 }
 
             });
@@ -84,13 +84,14 @@ class linechart {
             formatValue = d3.format("g"),
             formatCurrentValue = function (d) {
                 var aux;
-                if(globalType == "team"){
+                if (globalType == "team") {
                     aux = atributo + " In Average Per game";
                 }
-                else{
+                else {
                     aux = atributo;
                 }
-                return formatValue(d) + " " + aux; };
+                return formatValue(d) + " " + aux;
+            };
 
         var anoMin = d3.min(array, function (d) {
             return d.year;
@@ -113,7 +114,7 @@ class linechart {
                     return d.STL;
             }
 
-        })*1.25 ]);
+        }) * 1.25]);
 
         svg.append("path") // Add the valueline path.
             .attr("d", valueline(array))
@@ -137,11 +138,11 @@ class linechart {
 
 
         // append the circle at the intersection               
-        focus.append("circle")
-            .attr("class", "y")
-            .style("fill", "none")
-            .style("stroke", "blue")
-            .attr("r", 4);
+        focus.append("image")
+            .attr("position", "center")
+            .attr("xlink:href", "data/icons/basketball.png")
+            .attr("width", 16)
+            .attr("height", 16);
 
         focus.append("text")
             .attr("x", 9)
@@ -164,34 +165,34 @@ class linechart {
 
                 switch (atributo) {
                     case "PTS":
-                        focus.select("circle.y")
-                            .attr("transform", "translate(" + x(d.year) + "," + y(d.PTS) + ")");
+                        focus.select("image")
+                            .attr("transform", "translate(" + x(d.year)  + "," + y(d.PTS)  + ")");
                         focus.select("text").text(formatCurrentValue(d.PTS));
                         break;
                     case "AST":
-                        console.log("estou aqui"); 
-                        focus.select("circle.y")
-                            .attr("transform", "translate(" + x(d.year) + "," + y(d.AST) + ")");
+                        console.log("estou aqui");
+                        focus.select("image")
+                            .attr("transform", "translate(" + x(d.year)  + "," + y(d.AST) + ")");
                         focus.select("text").text(formatCurrentValue(d.AST));
-                        break;     
+                        break;
                     case "TRB":
-                        console.log("estou aqui"); 
-                        focus.select("circle.y")
+                        console.log("estou aqui");
+                        focus.select("image")
                             .attr("transform", "translate(" + x(d.year) + "," + y(d.TRB) + ")");
                         focus.select("text").text(formatCurrentValue(d.TRB));
                         break;
                     case "DRB":
-                        console.log("estou aqui"); 
-                        focus.select("circle.y")
+                        console.log("estou aqui");
+                        focus.select("image")
                             .attr("transform", "translate(" + x(d.year) + "," + y(d.DRB) + ")");
                         focus.select("text").text(formatCurrentValue(d.DRB));
                         break;
                     case "STL":
-                        console.log("estou aqui"); 
-                        focus.select("circle.y")
+                        console.log("estou aqui");
+                        focus.select("image")
                             .attr("transform", "translate(" + x(d.year) + "," + y(d.STL) + ")");
                         focus.select("text").text(formatCurrentValue(d.STL));
-                        break;                                                                                        
+                        break;
                 }
 
             });
@@ -246,33 +247,33 @@ function lineC(jogador) {
     }
 }
 
-function updateStat(stat){
+function updateStat(stat) {
     chart.doLineChart(jog, stat);
 }
 
-function getAtributo(){
-    if($('#toggle-PTS').prop('checked')){
-            return "PTS";
-            
-        }
+function getAtributo() {
+    if ($('#toggle-PTS').prop('checked')) {
+        return "PTS";
 
-        if($('#toggle-AST').prop('checked')){
-            return "AST";
-            
-        }
+    }
 
-        if($('#toggle-TRB').prop('checked')){
-            return "TRB";
-            
-        }
+    if ($('#toggle-AST').prop('checked')) {
+        return "AST";
 
-        if($('#toggle-STL').prop('checked')){
-            return "STL";
-            
-        }  
+    }
 
-        if($('#toggle-DRB').prop('checked')){
-            return "DRB";
-            
-        }
+    if ($('#toggle-TRB').prop('checked')) {
+        return "TRB";
+
+    }
+
+    if ($('#toggle-STL').prop('checked')) {
+        return "STL";
+
+    }
+
+    if ($('#toggle-DRB').prop('checked')) {
+        return "DRB";
+
+    }
 }
