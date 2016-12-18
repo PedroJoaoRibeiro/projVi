@@ -26,23 +26,33 @@ function main() {
 function updateSearchBar(suggestion) {
     if(suggestion.data == "player"){
         setGlobalType("player");
-        
+        getLastTeamYear(suggestion.value, false, 2016);
+        lineC(suggestion.value);
     }
     else {
         setGlobalType("team");
         getLastTeamYear(suggestion.value, false, 2016);
-        lineC(suggestion.value);
     }
 }
 
 function updateAfterCalculus(player, year, d){
-    fixDataInD(d);
     currentYear = year;
     info.updateYear();
-    updateVoronoi(currentYear);
     changeSliderToYear(currentYear);
-    
+    updateVoronoi(currentYear);
+    fixDataInD(d);
 }
+
+function updateAfterCalculusPlayer(player, year, data){
+    currentYear = year;
+    changeSliderToYear(currentYear);
+    updateVoronoi(currentYear);
+    highlightMap(data[0].Tm);
+    updateScatterPlayer(data[0]);
+    lineC(data[0].Player);
+    updateStarAxes(data[0]);
+}
+
 function fixDataInD(d){
     d3.json("data/equipas_VI/teams.json", function (data) {
             var array = selectTeamsToPlayoffs(data, d);
@@ -110,7 +120,10 @@ function changeSliderToYear(year){
 
 function getLastTeamYear(player, bool, year, data){
     if(bool){
-        updateAfterCalculus(player, year, data);
+        if(globalType == "team")
+            updateAfterCalculus(player, year, data);
+        else
+            updateAfterCalculusPlayer(player, year, data);
     }
     else{
         d3.json(getGlobalType(year), function (data) {
@@ -176,7 +189,7 @@ function selectTeamsToPlayoffs(data, teams) {
 function selectFromData(data, type, value) {
     var array = [];
     for (i = 0; i < data.length; i++) {
-        if (data[i][type] == value) {
+        if (data[i][type].split("\\")[0] == value) {
             array.push(data[i]);
         }
     }
@@ -196,6 +209,30 @@ function updateScatter(obj) {
         else
             scatterPlot.update(aux, obj.team);
     });
+}
+function updateScatterPlayer(player){
+    var file = "data/equipas_VI/teams.json";
+    d3.json(file, function (data) {
+        for(var i = 0; i < data.length; i++){
+            if(data[i].abbreviation == player.Tm){
+                fixDataScatter(data[i]);
+            }
+        }
+        
+    });
+}
+
+function fixDataScatter(data){
+    d3.json(getTeamsData(currentYear), function (team) {
+            for(var j = 0; j< team.length; j++){
+                if (data.team == team[j].Team.split('*').join("")) {
+                    team[j].team = data.team;
+                    team[j].location = data.location;
+                    team[j].abbreviation = data.abbreviation;
+                    updateScatter(team[j]);
+                }
+            }
+        });
 }
 
 
