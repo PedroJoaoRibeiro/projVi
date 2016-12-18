@@ -8,8 +8,11 @@ class linechart {
     }
     draw(array, year, jogador, atributo) {
         this.player = jogador;
-        info.updatePlayerName(jogador.split("\\")[0]);
         var auxyear = array[0].year -1;
+
+        if(globalType == "player"){
+            info.updatePlayerName(jogador.split("\\")[0]);
+        }
         
         var obj = {
             PTS: 0,
@@ -232,6 +235,7 @@ function req(array, year, jogador, obj, atributo) {
 
 function lineC(jogador) {
     var atributo = getAtributo();
+
     if (chart == null) {
         chart = new linechart(jogador, atributo);
     }
