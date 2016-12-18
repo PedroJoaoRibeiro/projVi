@@ -82,7 +82,7 @@ class linechart {
 
         var bisectDate = d3.bisector(function (d) { return d.year; }).left,
             formatValue = d3.format("g"),
-            formatCurrentValue = function (d) {
+            formatCurrentValue = function (d, t) {
                 var aux;
                 if (globalType == "team") {
                     aux = atributo + " In Average Per game";
@@ -90,7 +90,7 @@ class linechart {
                 else {
                     aux = atributo;
                 }
-                return formatValue(d) + " " + aux;
+                return "Year: " + formatValue(t) + "\n" + formatValue(d) + " " + aux;
             };
 
         var anoMin = d3.min(array, function (d) {
@@ -168,30 +168,30 @@ class linechart {
                     case "PTS":
                         focus.select("image")
                             .attr("transform", "translate(" + x(d.year)  + "," + y(d.PTS)  + ")");
-                        focus.select("text").text(formatCurrentValue(d.PTS));
+                        focus.select("text").text(formatCurrentValue(d.PTS, d.year));
                         break;
                     case "AST":
                         console.log("estou aqui");
                         focus.select("image")
-                            .attr("transform", "translate(" + x(d.year)  + "," + y(d.AST) + ")");
+                            .attr("transform", "translate(" + x(d.year)  + "," + y(d.AST, d.year) + ")");
                         focus.select("text").text(formatCurrentValue(d.AST));
                         break;
                     case "TRB":
                         console.log("estou aqui");
                         focus.select("image")
-                            .attr("transform", "translate(" + x(d.year) + "," + y(d.TRB) + ")");
+                            .attr("transform", "translate(" + x(d.year) + "," + y(d.TRB, d.year) + ")");
                         focus.select("text").text(formatCurrentValue(d.TRB));
                         break;
                     case "DRB":
                         console.log("estou aqui");
                         focus.select("image")
-                            .attr("transform", "translate(" + x(d.year) + "," + y(d.DRB) + ")");
+                            .attr("transform", "translate(" + x(d.year) + "," + y(d.DRB, d.year) + ")");
                         focus.select("text").text(formatCurrentValue(d.DRB));
                         break;
                     case "STL":
                         console.log("estou aqui");
                         focus.select("image")
-                            .attr("transform", "translate(" + x(d.year) + "," + y(d.STL) + ")");
+                            .attr("transform", "translate(" + x(d.year) + "," + y(d.STL, d.year) + ")");
                         focus.select("text").text(formatCurrentValue(d.STL));
                         break;
                 }
