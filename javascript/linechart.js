@@ -298,5 +298,5 @@ function fixDataArray(array, year, jogador, atributo, obj){
         }
     }
     obj.draw(arrayAux, year, jogador, atributo);
->>>>>>> a41471fa74497b9c6c5c2402d4df7651450a8f18
+
 }
