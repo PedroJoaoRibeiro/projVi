@@ -151,9 +151,13 @@ function higlightScatter(player) {
         if (scatterPlot.elementSelected2) {
             var element = d3.select("#" + scatterPlot.elementSelected2);
             element.attr("xlink:href", "data/icons/basketball.png");
+            element.attr("width", 16);
+            element.attr("height", 16);
         }
         var element = d3.select("#" + player);
         element.attr("xlink:href", "data/icons/basVermelha.png");
+        element.attr("width", 23);
+        element.attr("height", 23);
         scatterPlot.elementSelected2 = player;
 
     }
@@ -161,13 +165,19 @@ function higlightScatter(player) {
         if (scatterPlot.elementSelected2) {
             var element = d3.select("#" + scatterPlot.elementSelected2);
             element.attr("xlink:href", "data/icons/basketball.png");
+            element.attr("width", 16);
+            element.attr("height", 16);
         }
         if (scatterPlot.elementSelected) {
             var element = d3.select("#" + scatterPlot.elementSelected);
             element.attr("xlink:href", "data/icons/basketball.png");
+            element.attr("width", 16);
+            element.attr("height", 16);
         }
         var element = d3.select("#" + player);
         element.attr("xlink:href", "data/icons/basAmarela.png");
+        element.attr("width", 23);
+        element.attr("height", 23);
         scatterPlot.elementSelected = player;
     }
 
