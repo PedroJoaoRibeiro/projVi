@@ -139,10 +139,11 @@ class linechart {
 
         // append the circle at the intersection               
         focus.append("image")
-            .attr("position", "center")
+            .attr("x", -5)
+            .attr("y", -5)
             .attr("xlink:href", "data/icons/basketball.png")
-            .attr("width", 16)
-            .attr("height", 16);
+            .attr("width", 10)
+            .attr("height", 10);
 
         focus.append("text")
             .attr("x", 9)
