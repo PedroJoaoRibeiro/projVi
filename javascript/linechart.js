@@ -7,7 +7,7 @@ class linechart {
         this.svg = d3.select("#the_linechart");
         this.doLineChart(jogador, atributo);
     }
-    draw(array, year, jogador, atributo) {
+    draw(array, jogador, atributo) {
         this.player = jogador;
         var auxyear = array[0].year - 1;
 
@@ -298,6 +298,6 @@ function fixDataArray(array, year, jogador, atributo, obj){
             objAux = array[i];
         }
     }
-    obj.draw(arrayAux, year, jogador, atributo);
+    obj.draw(arrayAux, jogador, atributo);
 
 }
