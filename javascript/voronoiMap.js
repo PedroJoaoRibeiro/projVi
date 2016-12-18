@@ -66,8 +66,8 @@ class VoronoiMap {
                     .append("img")
                     .attr("src", "data/logos/" + data[i].abbreviation + ".png")
 
-                    .attr("width", "150px")
-                    .attr("height", "100px");
+                    .attr("width", "200px")
+                    .attr("height", "200px");
                 tooltip.style("visibility", "visible");
             })
             .on('mouseout', function () {
