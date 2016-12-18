@@ -211,7 +211,7 @@ function req(array, year, jogador, obj, atributo) {
     jog = jogador;
     var file = "";
     if (year >= 2017) {
-        obj.draw(array, year, jogador, atributo);
+        fixDataArray(array, year, jogador, atributo, obj);
     }
     else {
         file = getGlobalType(year);
@@ -275,4 +275,24 @@ function getAtributo(){
             return "DRB";
             
         }
+}
+
+
+function fixDataArray(array, year, jogador, atributo, obj){
+    var objAux = array[0];
+    var arrayAux= [];
+    for (var i = 1; i<array.length; i++ ){
+        if(objAux.year == array[i].year && objAux.Tm != array[i].Tm){
+            objAux.PTS += array[i].PTS;
+            objAux.DRB += array[i].DRB;
+            objAux.STL += array[i].STL;
+            objAux.AST += array[i].AST;
+            objAux.TRB += array[i].TRB;
+        }
+        else{
+            arrayAux.push(objAux);
+            objAux = array[i];
+        }
+    }
+    obj.draw(arrayAux, year, jogador, atributo);
 }
