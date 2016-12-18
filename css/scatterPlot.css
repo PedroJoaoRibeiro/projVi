@@ -1,7 +1,15 @@
+@font-face {
+        font-family: Roboto;
+        src: url(../library/Roboto/Roboto-Medium.ttf);
+}
+* {
+    font-family: Roboto;
+}
+
 
 h1 { 
    font-size: 18pt;
-   font-family: sans serif;
+   font-family: Roboto;
 }
 
 body {
@@ -72,7 +80,7 @@ div.tooltip {
     width: auto;			
     height: auto;					
     padding: 2px;				
-    font: 12px sans-serif;		
+    font: 12px Roboto;		
     background: lightsteelblue;	
     border: 0px;		
     border-radius: 8px;			
@@ -110,12 +118,12 @@ div.tooltip {
 }
  
 .axis text {
-    font-family: sans-serif;
+    font-family: Roboto;
     font-size: 11px;
 }
  
 .loading {
-    font-family: sans-serif;
+    font-family: Roboto;
     font-size: 15px;
 }
  
