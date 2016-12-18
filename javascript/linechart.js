@@ -8,6 +8,7 @@ class linechart {
     }
     draw(array, year, jogador, atributo) {
         this.player = jogador;
+        info.updatePlayerName(jogador.split("\\")[0]);
         var auxyear = array[0].year -1;
         
         var obj = {

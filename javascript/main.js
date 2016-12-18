@@ -44,6 +44,7 @@ function updateAfterCalculus(player, year, d){
 
 function updateAfterCalculusPlayer(player, year, data){
     currentYear = year;
+    info.updateYear();
     changeSliderToYear(currentYear);
     updateVoronoi(currentYear);
     highlightMap(data[0].Tm);
