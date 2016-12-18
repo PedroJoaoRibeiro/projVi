@@ -77,8 +77,16 @@ class linechart {
             .style("display", "none");
 
         var bisectDate = d3.bisector(function (d) { return d.year; }).left,
-            formatValue = d3.format("d"),
-            formatCurrentValue = function (d) { return formatValue(d) + " " + atributo; };
+            formatValue = d3.format("g"),
+            formatCurrentValue = function (d) {
+                var aux;
+                if(globalType == "team"){
+                    aux = atributo + " In Average Per game";
+                }
+                else{
+                    aux = atributo;
+                }
+                return formatValue(d) + " " + aux; };
 
         var anoMin = d3.min(array, function (d) {
             return d.year;
@@ -199,7 +207,6 @@ function req(array, year, jogador, obj, atributo) {
     jog = jogador;
     var file = "";
     if (year >= 2017) {
-        console.log(array);
         obj.draw(array, year, jogador, atributo);
 
 
