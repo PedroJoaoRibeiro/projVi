@@ -2,6 +2,7 @@ var chart;
 var jog;
 class linechart {
     constructor(jogador, atributo) {
+        $( "#toglesLine" ).removeClass( "hidden" );
 
         this.svg = d3.select("#the_linechart");
         this.doLineChart(jogador, atributo);
