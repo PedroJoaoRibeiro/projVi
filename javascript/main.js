@@ -205,6 +205,20 @@ function addArray() {
 
         }
 
+        if ($('#toggle-PERs').prop('checked')) {
+            aux = [
+            
+                { axis: "Field Goals", value: dataG[i]['FG%'] },
+                { axis: "3 points", value: dataG[i]['3P%'] },
+                { axis: "2 points", value: dataG[i]['2P%'] },
+                { axis: "Free throws", value: dataG[i]['FT%'] },
+            ];
+
+        }
+
+        if (aux.length < 3){
+            return false;
+        }
         dataT.push(aux);
     }
     drawRadarChart(dataT);

@@ -229,18 +229,6 @@
 								  }
 							  })
 
-							  $('#toggle-PERs').change(function () {
-								  if ($(this).prop('checked')) {
-									  $('#toggle-PTSs').bootstrapToggle('off');
-									  $('#toggle-ASTs').bootstrapToggle('off');
-									  $('#toggle-TRBs').bootstrapToggle('off');
-									  $('#toggle-DRBs').bootstrapToggle('off');
-									  $('#toggle-STLs').bootstrapToggle('off');
-								 	  $('#toggle-3PTs').bootstrapToggle('off');
-									  $('#toggle-2PTs').bootstrapToggle('off');
-									  // callyourFunction();
-								  }
-							  })
 
 							  $('#toggle-Playoffs').change(function () {
 								  
@@ -251,6 +239,122 @@
 									setRegularSeason();
 								  }
 							  })							  							  							  
+
+							  $('#toggle-PTSs').change(function () {
+								  
+								  if ($(this).prop('checked')== false) {
+									if(addArray() == false){
+										$(this).bootstrapToggle('on');
+									}
+									
+								  }
+								  else if ($(this).prop('checked')){
+									addArray();
+								  }
+							  })
+
+							  $('#toggle-ASTs').change(function () {
+								  
+								  if ($(this).prop('checked')== false) {
+									if(addArray() == false){
+										$(this).bootstrapToggle('on');
+									}
+									
+								  }
+								  else if ($(this).prop('checked')){
+									addArray();
+								  }
+							  })
+
+							  $('#toggle-TRBs').change(function () {
+								  
+								  if ($(this).prop('checked')== false) {
+									if(addArray() == false){
+										$(this).bootstrapToggle('on');
+									}
+									
+								  }
+								  else if ($(this).prop('checked')){
+									addArray();
+								  }
+							  })
+
+							  $('#toggle-DRBs').change(function () {
+								  
+								  if ($(this).prop('checked')== false) {
+									if(addArray() == false){
+										$(this).bootstrapToggle('on');
+									}
+									
+								  }
+								  else if ($(this).prop('checked')){
+									addArray();
+								  }
+							  })
+
+							  $('#toggle-STLs').change(function () {
+								  
+								  if ($(this).prop('checked')== false) {
+									if(addArray() == false){
+										$(this).bootstrapToggle('on');
+									}
+									
+								  }
+								  else if ($(this).prop('checked')){
+									addArray();
+								  }
+							  })
+
+							  $('#toggle-3PTs').change(function () {
+								  
+								  if ($(this).prop('checked')== false) {
+									if(addArray() == false){
+										$(this).bootstrapToggle('on');
+									}
+									
+								  }
+								  else if ($(this).prop('checked')){
+									addArray();
+								  }
+							  })
+
+							  $('#toggle-2PTs').change(function () {
+								  
+								  if ($(this).prop('checked')== false) {
+									if(addArray() == false){
+										$(this).bootstrapToggle('on');
+									}
+									
+								  }
+								  else if ($(this).prop('checked')){
+									addArray();
+								  }
+							  })
+
+							  $('#toggle-PERs').change(function () {
+								  
+								  if ($(this).prop('checked')== false) {
+									  addArray();
+									  $('#toggle-PTSs').bootstrapToggle('enable');
+									  $('#toggle-ASTs').bootstrapToggle('enable');
+									  $('#toggle-TRBs').bootstrapToggle('enable');
+									  $('#toggle-DRBs').bootstrapToggle('enable');
+									  $('#toggle-STLs').bootstrapToggle('enable');
+								 	  $('#toggle-3PTs').bootstrapToggle('enable');
+									  $('#toggle-2PTs').bootstrapToggle('enable');
+									
+								  }
+								  else if ($(this).prop('checked')){
+									  addArray();
+									  $('#toggle-PTSs').bootstrapToggle('disable');
+									  $('#toggle-ASTs').bootstrapToggle('disable');
+									  $('#toggle-TRBs').bootstrapToggle('disable');
+									  $('#toggle-DRBs').bootstrapToggle('disable');
+									  $('#toggle-STLs').bootstrapToggle('disable');
+								 	  $('#toggle-3PTs').bootstrapToggle('disable');
+									  $('#toggle-2PTs').bootstrapToggle('disable');									
+								  }
+							  })							  							  							  							  							  							  							  
 
 						  })
 
