@@ -100,9 +100,12 @@ function selectTeamsToPlayoffs(data, teams) {
     for (var i = 0; i < data.length; i++) {
         for (var j = 0; j < teams.length; j++) {
             if (data[i].team == teams[j].Team.split('*').join("")) {
-                data[i].Rk = teams[j].Rk;
-                data[i].Overall = teams[j].Overall;
-                array.push(data[i]);
+                teams[j].team = data[i].team;
+                teams[j].location = data[i].location;
+                teams[j].abbreviation = data[i].abbreviation;
+                teams[j].iconWidth = data[i].iconWidth;
+                teams[j].iconHeight = data[i].iconHeight;
+                array.push(teams[j]);
                 break;
             }
         }

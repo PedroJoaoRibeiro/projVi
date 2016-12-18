@@ -108,6 +108,26 @@ class VoronoiMap {
             .attr("xlink:href", function (d) { return "data/icons/" + d.abbreviation + ".png"; })
             .attr("transform", function (d, i) { return "translate(" + projectedPoints[i] + ")"; })
             .attr("transform", function (d, i) { return "translate(" + projectedPoints[i] + ")"; })
+            .on('mouseover', function (d, i) {
+                tooltip.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+
+                tooltip.html(data[i].team + "<br/>" + "classificação final: " + data[i].Rk + "º" + "<br/>")
+                    .style("left", (d3.event.pageX) + "px")
+                    .style("top", (d3.event.pageY - 28) + "px")
+                    .append("img")
+                    .attr("src", "data/logos/" + data[i].abbreviation + ".png")
+
+                    .attr("width", "200px")
+                    .attr("height", "200px");
+                tooltip.style("visibility", "visible");
+            })
+            .on('mouseout', function () {
+                tooltip.transition()
+                    .duration(500)
+                    .style("visibility", "hidden");
+            })
             .on("click", function (d, i) {
                 highlightMap(data[i].abbreviation);
                 updateScatter(data[i]);
