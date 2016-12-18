@@ -1,4 +1,5 @@
 var radar;
+var format = 'f';
 class RadarChart {
   constructor(id, data, options) {
     this.id = id;
@@ -31,7 +32,7 @@ class RadarChart {
     var allAxis = (data[0].map(function (i, j) { return i.axis })),	//Names of each axis
       total = allAxis.length,					//The number of different axes
       radius = Math.min(cfg.w / 2, cfg.h / 2), 	//Radius of the outermost circle
-      Format = d3.format('r'),			 	//Percentage formatting
+      Format = d3.format(format),			 	//Percentage formatting
       angleSlice = Math.PI * 2 / total;		//The width in radians of each "slice"
 
     //Scale for the radius
@@ -297,4 +298,13 @@ function drawRadarChart(D) {
 function removeRadar() {
   radar.remove();
   radar = null;
+}
+
+function formatN(){
+  if (format == 'f'){
+    format = '%';
+  }
+  else {
+    format = 'f';
+  }
 }

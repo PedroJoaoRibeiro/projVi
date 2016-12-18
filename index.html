@@ -334,6 +334,7 @@
 							  $('#toggle-PERs').change(function () {
 								  
 								  if ($(this).prop('checked')== false) {
+									  formatN();
 									  addArray();
 									  $('#toggle-PTSs').bootstrapToggle('enable');
 									  $('#toggle-ASTs').bootstrapToggle('enable');
@@ -345,6 +346,7 @@
 									
 								  }
 								  else if ($(this).prop('checked')){
+									  formatN();
 									  addArray();
 									  $('#toggle-PTSs').bootstrapToggle('disable');
 									  $('#toggle-ASTs').bootstrapToggle('disable');
