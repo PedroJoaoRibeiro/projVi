@@ -63,9 +63,9 @@ class ScatterPlot {
             .style("opacity", 0);
 
         if (data.length == 0 && !regularSeason)
-                this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't get to playoffs this year");
-        else if(data.length == 0 && regularSeason)
-                this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't Played in this year");
+            this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't get to playoffs this year");
+        else if (data.length == 0 && regularSeason)
+            this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Team didn't Played in this year");
         else {
             var average = this.calculateAverage(data);
 
@@ -116,7 +116,6 @@ class ScatterPlot {
                 })
 
                 .on("click", function (d) {
-                    higlightScatter(d.Player.split("\\")[0].split('.').join(""));
                     info.updatePlayerName(d.Player.split("\\")[0]);
                     setGlobalType("player");
                     updateStarAxes(d);
@@ -128,6 +127,19 @@ class ScatterPlot {
                     tooltip.transition()
                         .duration(500)
                         .style("opacity", 0);
+                });
+
+            this.svg.selectAll("image")
+                .data(data)
+                .append('circle')
+                .attr('class', 'highlight-circle')
+                .attr('r', 80) // slightly larger than our points
+                .style('fill', 'blue')
+                .attr("cx", function (d) {
+                    return x(d.MP);
+                })
+                .attr("cy", function (d) {
+                    return y(d.Impact);
                 });
         }
     }
@@ -146,15 +158,7 @@ class ScatterPlot {
 
 }
 //fix me
-function higlightScatter(player) {
-    if (scatterPlot.elementSelected) {
-        element = d3.select("#" + scatterPlot.elementSelected);
-        element.attr("xlink:href", "data/icons/basketball.png");
-    }
-    scatterPlot.elementSelected = player.split('*').join("");
-    element = d3.select("#" + scatterPlot.elementSelected);
-    element.attr("xlink:href", "data/icons/ATL.png")
-}
+
 
 // funçao para os vários botões do star
 /*function updateStarAxes(d) {
