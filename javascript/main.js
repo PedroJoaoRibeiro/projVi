@@ -47,7 +47,6 @@ function updateAfterCalculusPlayer(player, year, data){
     info.updateYear();
     changeSliderToYear(currentYear);
     updateVoronoi(currentYear);
-    highlightMap(data[0]);
     updateScatterPlayer(data[0]);
     lineC(data[0].Player);
     updateStarAxes(data[0]);
@@ -230,6 +229,8 @@ function fixDataScatter(data){
                     team[j].team = data.team;
                     team[j].location = data.location;
                     team[j].abbreviation = data.abbreviation;
+                    team[j].color = data.color;
+                    highlightMap(team[j]);
                     updateScatter(team[j]);
                 }
             }
