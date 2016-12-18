@@ -36,7 +36,7 @@ class ScatterPlot {
         var x = d3.scale.linear().domain([0, maxValue]).range([left_pad, w - left_pad]);
         var y = d3.scale.linear().domain([maxImpact + 0.5, 0]).range([pad, h - pad * 2]);
 
-        var xAxis = d3.svg.axis().orient("bottom").scale(x);
+        var xAxis = d3.svg.axis().orient("bottom").tickFormat(d3.format("d")).scale(x);
         var yAxis = d3.svg.axis().orient("left").scale(y);
 
         //Textos

@@ -43,7 +43,7 @@ class linechart {
         var y = d3.scale.linear().range([height, 0]);
 
         var xAxis = d3.svg.axis().scale(x)
-            .orient("bottom").ticks(5).tickFormat(d3.format("d"));
+            .orient("bottom").tickFormat(d3.format("d"));
 
         var yAxis = d3.svg.axis().scale(y)
             .orient("left").ticks(5);
