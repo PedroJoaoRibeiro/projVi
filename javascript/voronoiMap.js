@@ -60,7 +60,7 @@ class VoronoiMap {
                     .duration(200)
                     .style("opacity", .9);
 
-                tooltip.html(data[i].team + "<br/>" + "classificação final: " + data[i].Rk + "º" + "<br/>")
+                tooltip.html(data[i].team + "<br/>" + "Final classification: " + data[i].Rk + "º" + "<br/>")
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY - 28) + "px")
                     .append("img")
