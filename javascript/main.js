@@ -24,8 +24,32 @@ function main() {
 }
 
 function updateSearchBar(suggestion) {
-    console.log(suggestion);
-    // ver se a data e team entao carregar dados equipa se nao carregar dados do player 
+    if(suggestion.data == "player"){
+        setGlobalType("player");
+        
+    }
+    else {
+        setGlobalType("team");
+        getLastTeamYear(suggestion.value, false, 2016);
+        lineC(suggestion.value);
+    }
+}
+
+function updateAfterCalculus(player, year, d){
+    fixDataInD(d);
+    currentYear = year;
+    info.updateYear();
+    updateVoronoi(currentYear);
+    changeSliderToYear(currentYear);
+    
+}
+function fixDataInD(d){
+    d3.json("data/equipas_VI/teams.json", function (data) {
+            var array = selectTeamsToPlayoffs(data, d);
+            highlightMap(array[0].abbreviation);
+            updateScatter(array[0]);
+            updateStarAxes(array[0]);
+        });
 }
 
 function setRegularSeason() {
@@ -79,6 +103,27 @@ function getGlobalType(year) {
 function setGlobalType(type) {
     globalType = type;
 }
+
+function changeSliderToYear(year){
+
+}
+
+function getLastTeamYear(player, bool, year, data){
+    if(bool){
+        updateAfterCalculus(player, year, data);
+    }
+    else{
+        d3.json(getGlobalType(year), function (data) {
+            var array = selectFromData(data, "Player", player);
+            if(array.length > 0)
+                getLastTeamYear(player, true, year, array);
+            else
+                getLastTeamYear(player, false, year-1, data);
+        });
+    }
+}
+
+
 
 
 

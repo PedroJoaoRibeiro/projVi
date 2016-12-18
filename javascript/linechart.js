@@ -208,9 +208,6 @@ function req(array, year, jogador, obj, atributo) {
     var file = "";
     if (year >= 2017) {
         obj.draw(array, year, jogador, atributo);
-
-
-
     }
     else {
         file = getGlobalType(year);

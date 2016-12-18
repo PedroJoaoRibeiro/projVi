@@ -130,6 +130,7 @@ class VoronoiMap {
             })
             .on("click", function (d, i) {
                 highlightMap(data[i].abbreviation);
+                console.log(data[i]);
                 updateScatter(data[i]);
                 setGlobalType("team");
                 updateStarAxes(data[i]);
