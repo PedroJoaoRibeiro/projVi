@@ -90,7 +90,7 @@ class linechart {
                 else {
                     aux = atributo;
                 }
-                return "Year: " + formatValue(t) + "\n" + formatValue(d) + " " + aux;
+                return  formatValue(d) + " " + aux + " in " + formatValue(t);
             };
 
         var anoMin = d3.min(array, function (d) {
