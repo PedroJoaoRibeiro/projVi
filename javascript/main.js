@@ -27,7 +27,6 @@ function updateSearchBar(suggestion) {
     if(suggestion.data == "player"){
         setGlobalType("player");
         getLastTeamYear(suggestion.value, false, 2016);
-        lineC(suggestion.value);
     }
     else {
         setGlobalType("team");
