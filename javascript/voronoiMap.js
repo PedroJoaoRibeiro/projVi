@@ -76,7 +76,7 @@ class VoronoiMap {
                     .style("visibility", "hidden");
             })
             .on("click", function (d, i) {
-                highlightMap(data[i].abbreviation);
+                highlightMap(data[i]);
                 updateScatter(data[i]);
                 setGlobalType("team");
                 updateStarAxes(data[i]);
@@ -129,7 +129,7 @@ class VoronoiMap {
                     .style("visibility", "hidden");
             })
             .on("click", function (d, i) {
-                highlightMap(data[i].abbreviation);
+                highlightMap(data[i]);
                 updateScatter(data[i]);
                 setGlobalType("team");
                 updateStarAxes(data[i]);
@@ -139,8 +139,8 @@ class VoronoiMap {
             });
         
         if(this.elementSelected){
-            element = d3.select("#"+ voronoiMap.elementSelected);
-            element.attr("fill", "#006bb7");
+            element = d3.select("#"+ voronoiMap.elementSelected.abbreviation);
+            element.attr("fill", voronoiMap.elementSelected.color);
         }
     }
 }
@@ -149,14 +149,15 @@ function offset(arr, d) {
 }
 
 function highlightMap(team) {
+    console.log(team);
     if(voronoiMap.elementSelected){
-        element = d3.select("#"+ voronoiMap.elementSelected);
+        element = d3.select("#"+ voronoiMap.elementSelected.abbreviation);
         element.attr("fill", "none");
     }
         
     voronoiMap.elementSelected = team;
-    element = d3.select("#"+team);
-    element.attr("fill", "#006bb7");
+    element = d3.select("#"+team.abbreviation);
+    element.attr("fill", team.color);
     
 }
 

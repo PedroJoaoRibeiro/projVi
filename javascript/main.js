@@ -47,7 +47,7 @@ function updateAfterCalculusPlayer(player, year, data){
     info.updateYear();
     changeSliderToYear(currentYear);
     updateVoronoi(currentYear);
-    highlightMap(data[0].Tm);
+    highlightMap(data[0]);
     updateScatterPlayer(data[0]);
     lineC(data[0].Player);
     updateStarAxes(data[0]);
@@ -56,7 +56,7 @@ function updateAfterCalculusPlayer(player, year, data){
 function fixDataInD(d){
     d3.json("data/equipas_VI/teams.json", function (data) {
             var array = selectTeamsToPlayoffs(data, d);
-            highlightMap(array[0].abbreviation);
+            highlightMap(array[0]);
             updateScatter(array[0]);
             updateStarAxes(array[0]);
         });
@@ -166,6 +166,7 @@ function selectTeamsToPlayoffs(data, teams) {
                 teams[j].abbreviation = data[i].abbreviation;
                 teams[j].iconWidth = data[i].iconWidth;
                 teams[j].iconHeight = data[i].iconHeight;
+                teams[j].color = data[i].color;
                 array.push(teams[j]);
                 break;
             }

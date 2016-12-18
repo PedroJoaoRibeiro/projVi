@@ -1,7 +1,15 @@
+@font-face {
+        font-family: Roboto;
+        src: url(../library/Roboto/Roboto-Medium.ttf);
+}
+* {
+    font-family: Roboto;
+}
+
 
 h1 { 
    font-size: 18pt;
-   font-family: calibri, arial, sans serif;
+   font-family: Roboto;
 }
 
 body {
@@ -10,17 +18,6 @@ body {
   background-attachment: fixed;
 }
 
-.dropbtn {
-    background-color: #006bb7;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    position:relative;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #006bb7;
-}
 #myInput {
     border-box: box-sizing;
     background-position: 14px 12px;
@@ -83,7 +80,7 @@ div.tooltip {
     width: auto;			
     height: auto;					
     padding: 2px;				
-    font: 12px sans-serif;		
+    font: 12px Roboto;		
     background: lightsteelblue;	
     border: 0px;		
     border-radius: 8px;			
@@ -121,12 +118,12 @@ div.tooltip {
 }
  
 .axis text {
-    font-family: sans-serif;
+    font-family: Roboto;
     font-size: 11px;
 }
  
 .loading {
-    font-family: sans-serif;
+    font-family: Roboto;
     font-size: 15px;
 }
  
