@@ -4,6 +4,7 @@ class RadarChart {
   constructor(id, data, options) {
     $( "#toglesStar" ).removeClass( "hidden" );
     $( "#toglesStarBottom" ).removeClass( "hidden" );
+    $( "#toglesStarBottom1" ).removeClass( "hidden" );
     
     this.id = id;
     var cfg = {

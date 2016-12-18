@@ -51,8 +51,8 @@
 							<input type="search" value="Insert a Player or Team" class="biginput" id="autocomplete">
 						</div>
 						<div class="row">
-							<input id="toggle-Playoffs" checked data-toggle="toggle" data-width="180" data-height="50" data-on="Season" data-off="Playoffs" data-onstyle="success" data-offstyle="primary"
-								type="checkbox">
+							<input id="toggle-Playoffs" checked data-toggle="toggle" data-width="180" data-height="50" data-on="Season" data-off="Playoffs"
+								data-onstyle="success" data-offstyle="primary" type="checkbox">
 						</div>
 					</div>
 				</div>
@@ -115,10 +115,16 @@
 					</div>
 				</div>
 				<div class="col-sm-4 offset-sm-4 ">
-					<div id="toglesStarBottom" class="col-sm-4 hidden">
-					<input id="toggle-Comparator" type="checkbox" data-toggle="toggle" data-onstyle="warning" data-on="Comparator on" data-off="Comparator off"
-						data-width="130"></input>
+					<div style="left:30px" id="toglesStarBottom" class="col-sm-4 hidden">
+						<input id="toggle-Comparator" type="checkbox" data-toggle="toggle" data-onstyle="success" data-on="Comparator on" data-off="Comparator off"
+							data-width="130"></input>
 					</div>
+					<div style="top:-35px; left: 20px;" id="toglesStarBottom1" class="col-sm-4 hidden">
+						<input id="toggle-Red" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-on="Red item" data-off="Red item" data-width="285"></input>
+						<input id="toggle-Yellow" type="checkbox" data-toggle="toggle" data-onstyle="warning" data-on="Yellow item" data-off="Yellow item" data-width="285"></input>
+					</div>
+					
+
 				</div>
 				<div class="col-sm-4"></div>
 			</div>
@@ -131,8 +137,8 @@
 
 
 	<div id="searchfield">
-		<h2>Year</h2>
-		<div id="theYear"> 2016 </div>
+		<h2 style="margin-top:0px">Year</h2>
+		<div style="margin-top: -12px;" id="theYear"> 2016 </div>
 		<div style="width: 90%; position: relative; left: 50px;" id="slider1"></div>
 </div>
 
@@ -163,15 +169,15 @@
 		});
 	});
 
-		$('#toggle-Comparator').change(function () {
+	$('#toggle-Comparator').change(function () {
 
-			if ($(this).prop('checked') == false) {
-				Comparator();
-			}
-			else if ($(this).prop('checked')) {
-				Comparator();
-			}
-		})
+		if ($(this).prop('checked') == false) {
+			Comparator();
+		}
+		else if ($(this).prop('checked')) {
+			Comparator();
+		}
+	})
 
 	$(function () {
 		$('#toggle-PTS').change(function () {
