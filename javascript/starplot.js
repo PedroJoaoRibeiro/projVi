@@ -3,6 +3,8 @@ var format = 'f';
 class RadarChart {
   constructor(id, data, options) {
     $( "#toglesStar" ).removeClass( "hidden" );
+    $( "#toglesStarBottom" ).removeClass( "hidden" );
+    
     this.id = id;
     var cfg = {
       w: 250,

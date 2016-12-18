@@ -69,13 +69,14 @@
 		<div class="row">
 			<div class="row-eq-height">
 				<svg id="the_scatterPlot" class="col-sm-4" height="400"></svg>
-				
+
 				<svg id="the_linechart" class="col-sm-4" height="400"></svg>
 
 				<div class="col-sm-4">
 					<div class="row">
 						<div class="col-sm-8">
 							<div id="the_starPlot" class="radarChart"> </div>
+
 						</div>
 						<div id="toglesStar" class="col-sm-4 hidden">
 							<svg class="col-sm-12" height="60"></svg>
@@ -85,16 +86,14 @@
 								data-width="100"></input>
 							<input id="toggle-TRBs" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Rebounds" data-off="Rebounds"
 								data-width="100"></input>
-							<input id="toggle-2PTs" type="checkbox"  data-toggle="toggle" data-onstyle="primary" data-on="2 Points" data-off="2 Points"
+							<input id="toggle-2PTs" type="checkbox" data-toggle="toggle" data-onstyle="primary" data-on="2 Points" data-off="2 Points"
 								data-width="100"></input>
-							<input id="toggle-3PTs" type="checkbox"  data-toggle="toggle" data-onstyle="primary" data-on="3 Points" data-off="3 Points"
+							<input id="toggle-3PTs" type="checkbox" data-toggle="toggle" data-onstyle="primary" data-on="3 Points" data-off="3 Points"
 								data-width="100"></input>
-							<input id="toggle-DRBs" type="checkbox"  data-toggle="toggle" data-onstyle="primary" data-on="Dribles" data-off="Dribles"
+							<input id="toggle-DRBs" type="checkbox" data-toggle="toggle" data-onstyle="primary" data-on="Dribles" data-off="Dribles"
 								data-width="100"></input>
-							<input id="toggle-STLs" type="checkbox"  data-toggle="toggle" data-onstyle="primary" data-on="Steals" data-off="Steals"
-								data-width="100"></input>
-							<input id="toggle-PERs" type="checkbox"  data-toggle="toggle" data-onstyle="danger" data-on="Percent" data-off="Percent"
-								data-width="100"></input>
+							<input id="toggle-STLs" type="checkbox" data-toggle="toggle" data-onstyle="primary" data-on="Steals" data-off="Steals" data-width="100"></input>
+							<input id="toggle-PERs" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-on="Percent" data-off="Percent" data-width="100"></input>
 						</div>
 					</div>
 				</div>
@@ -105,14 +104,20 @@
 				<div class="col-sm-4"></div>
 
 				<div class="col-sm-4 offset-sm-4 ">
-					<div class = "col-sm-1"></div>
-					<div id="toglesLine" class="col-sm-11 hidden"> 
+					<div class="col-sm-1"></div>
+					<div id="toglesLine" class="col-sm-11 hidden">
 						<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Points" data-off="Points"
-						data-width="100"></input>
+							data-width="100"></input>
 						<input id="toggle-AST" type="checkbox" data-toggle="toggle" data-onstyle="success" data-on="Assists" data-off="Assists" data-width="100"></input>
-						<input id="toggle-TRB" type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Rebounds" data-off="Rebounds" data-width="100"  ></input>
-						<input id="toggle-DRB" type="checkbox" data-toggle="toggle" data-onstyle="warning" data-on="Dribles" data-off="Dribles" data-width="100"  ></input>
-						<input id="toggle-STL" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-on="Steals" data-off="Steals" data-width="100"  ></input>
+						<input id="toggle-TRB" type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Rebounds" data-off="Rebounds" data-width="100"></input>
+						<input id="toggle-DRB" type="checkbox" data-toggle="toggle" data-onstyle="warning" data-on="Dribles" data-off="Dribles" data-width="100"></input>
+						<input id="toggle-STL" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-on="Steals" data-off="Steals" data-width="100"></input>
+					</div>
+				</div>
+				<div class="col-sm-4 offset-sm-4 ">
+					<div id="toglesStarBottom" class="col-sm-4 hidden">
+					<input id="toggle-Comparator" type="checkbox" data-toggle="toggle" data-onstyle="warning" data-on="Comparator on" data-off="Comparator off"
+						data-width="130"></input>
 					</div>
 				</div>
 				<div class="col-sm-4"></div>
@@ -129,250 +134,260 @@
 		<h2>Year</h2>
 		<div id="theYear"> 2016 </div>
 		<div style="width: 90%; position: relative; left: 50px;" id="slider1"></div>
-	</div>
-
-	<button onclick="Comparator()" class="btn btn-danger btn-lg" style="position: fixed; bottom: 0px; left: 100px;">Comparator</button>
+</div>
 
 
-	<script>
-						  main();
-						  info = new Info();
-
-						  d3.select('#slider1').call(d3.slider().axis(true).min(1950).max(2016).step(1).value(2016).on("slide", function (evt, value) {
-							  document.getElementById("theYear").innerHTML = value;
-							  updateAllData(value);
-						  }));
-
-						  $(function () {
-							  d3.json("data/Jogadores_VI/playersNames.json", function (players) {
-								  d3.json("data/equipas_VI/teamsNames.json", function (teams) {
-									  var array = players.concat(teams);
-									  $('#autocomplete').autocomplete({
-										  lookup: array,
-										  onSelect: function (suggestion) {
-											  updateSearchBar(suggestion);
-										  }
-									  });
-								  });
-							  });
-						  });
 
 
-						  $(function () {
-							  $('#toggle-PTS').change(function () {
-								  if ($(this).prop('checked')) {
-									  $('#toggle-AST').bootstrapToggle('enable');
-									  $('#toggle-TRB').bootstrapToggle('enable');
-									  $('#toggle-DRB').bootstrapToggle('enable');
-									  $('#toggle-STL').bootstrapToggle('enable');
-									  console.log("hereerererr");
-									  $('#toggle-AST').bootstrapToggle('off');
-									  $('#toggle-TRB').bootstrapToggle('off');
-									  $('#toggle-DRB').bootstrapToggle('off');
-									  $('#toggle-STL').bootstrapToggle('off');
-									  $('#toggle-PTS').bootstrapToggle('disable');
-									  updateStat("PTS");
-								  }
-							  })
-							  $('#toggle-AST').change(function () {
-								  if ($(this).prop('checked')) {
-									  $('#toggle-PTS').bootstrapToggle('enable');
-									  $('#toggle-TRB').bootstrapToggle('enable');
-									  $('#toggle-DRB').bootstrapToggle('enable');
-									  $('#toggle-STL').bootstrapToggle('enable');
-									  console.log("hereerererr");
-									  $('#toggle-PTS').bootstrapToggle('off');
-									  $('#toggle-TRB').bootstrapToggle('off');
-									  $('#toggle-DRB').bootstrapToggle('off');
-									  $('#toggle-STL').bootstrapToggle('off');
-									  $('#toggle-AST').bootstrapToggle('disable');
-									  updateStat("AST");
-									  // callyourFunction();
-								  }
-							  })
-							  $('#toggle-TRB').change(function () {
-								  if ($(this).prop('checked')) {
-									  $('#toggle-PTS').bootstrapToggle('enable');
-									  $('#toggle-AST').bootstrapToggle('enable');
-									  $('#toggle-DRB').bootstrapToggle('enable');
-									  $('#toggle-STL').bootstrapToggle('enable');
-									  console.log("hereerererr");
-									  $('#toggle-PTS').bootstrapToggle('off');
-									  $('#toggle-AST').bootstrapToggle('off');
-									  $('#toggle-DRB').bootstrapToggle('off');
-									  $('#toggle-STL').bootstrapToggle('off');
-									  $('#toggle-TRB').bootstrapToggle('disable');
-									  updateStat("TRB");
-									  // callyourFunction();
-								  }
-							  })
-							  $('#toggle-DRB').change(function () {
-								  if ($(this).prop('checked')) {
-									  $('#toggle-PTS').bootstrapToggle('enable');
-									  $('#toggle-AST').bootstrapToggle('enable');
-									  $('#toggle-TRB').bootstrapToggle('enable');
-									  $('#toggle-STL').bootstrapToggle('enable');
-									  console.log("hereerererr");
-									  $('#toggle-PTS').bootstrapToggle('off');
-									  $('#toggle-AST').bootstrapToggle('off');
-									  $('#toggle-TRB').bootstrapToggle('off');
-									  $('#toggle-STL').bootstrapToggle('off');
-									  $('#toggle-DRB').bootstrapToggle('disable');
-									  updateStat("DRB");
-									  // callyourFunction();
-								  }
-							  })
-							  $('#toggle-STL').change(function () {
-								  if ($(this).prop('checked')) {
-									  $('#toggle-PTS').bootstrapToggle('enable');
-									  $('#toggle-AST').bootstrapToggle('enable');
-									  $('#toggle-TRB').bootstrapToggle('enable');
-									  $('#toggle-DRB').bootstrapToggle('enable');
-									  console.log("hereerererr");
-									  $('#toggle-PTS').bootstrapToggle('off');
-									  $('#toggle-AST').bootstrapToggle('off');
-									  $('#toggle-TRB').bootstrapToggle('off');
-									  $('#toggle-DRB').bootstrapToggle('off');
-									  $('#toggle-STL').bootstrapToggle('disable');
-									  updateStat("STL");
-									  // callyourFunction();
-								  }
-							  })
+
+<script>
+	main();
+	info = new Info();
+
+	d3.select('#slider1').call(d3.slider().axis(true).min(1950).max(2016).step(1).value(2016).on("slide", function (evt, value) {
+		document.getElementById("theYear").innerHTML = value;
+		updateAllData(value);
+	}));
+
+	$(function () {
+		d3.json("data/Jogadores_VI/playersNames.json", function (players) {
+			d3.json("data/equipas_VI/teamsNames.json", function (teams) {
+				var array = players.concat(teams);
+				$('#autocomplete').autocomplete({
+					lookup: array,
+					onSelect: function (suggestion) {
+						updateSearchBar(suggestion);
+					}
+				});
+			});
+		});
+	});
+
+		$('#toggle-Comparator').change(function () {
+
+			if ($(this).prop('checked') == false) {
+				Comparator();
+			}
+			else if ($(this).prop('checked')) {
+				Comparator();
+			}
+		})
+
+	$(function () {
+		$('#toggle-PTS').change(function () {
+			if ($(this).prop('checked')) {
+				$('#toggle-AST').bootstrapToggle('enable');
+				$('#toggle-TRB').bootstrapToggle('enable');
+				$('#toggle-DRB').bootstrapToggle('enable');
+				$('#toggle-STL').bootstrapToggle('enable');
+				console.log("hereerererr");
+				$('#toggle-AST').bootstrapToggle('off');
+				$('#toggle-TRB').bootstrapToggle('off');
+				$('#toggle-DRB').bootstrapToggle('off');
+				$('#toggle-STL').bootstrapToggle('off');
+				$('#toggle-PTS').bootstrapToggle('disable');
+				updateStat("PTS");
+			}
+		})
+		$('#toggle-AST').change(function () {
+			if ($(this).prop('checked')) {
+				$('#toggle-PTS').bootstrapToggle('enable');
+				$('#toggle-TRB').bootstrapToggle('enable');
+				$('#toggle-DRB').bootstrapToggle('enable');
+				$('#toggle-STL').bootstrapToggle('enable');
+				console.log("hereerererr");
+				$('#toggle-PTS').bootstrapToggle('off');
+				$('#toggle-TRB').bootstrapToggle('off');
+				$('#toggle-DRB').bootstrapToggle('off');
+				$('#toggle-STL').bootstrapToggle('off');
+				$('#toggle-AST').bootstrapToggle('disable');
+				updateStat("AST");
+				// callyourFunction();
+			}
+		})
+		$('#toggle-TRB').change(function () {
+			if ($(this).prop('checked')) {
+				$('#toggle-PTS').bootstrapToggle('enable');
+				$('#toggle-AST').bootstrapToggle('enable');
+				$('#toggle-DRB').bootstrapToggle('enable');
+				$('#toggle-STL').bootstrapToggle('enable');
+				console.log("hereerererr");
+				$('#toggle-PTS').bootstrapToggle('off');
+				$('#toggle-AST').bootstrapToggle('off');
+				$('#toggle-DRB').bootstrapToggle('off');
+				$('#toggle-STL').bootstrapToggle('off');
+				$('#toggle-TRB').bootstrapToggle('disable');
+				updateStat("TRB");
+				// callyourFunction();
+			}
+		})
+		$('#toggle-DRB').change(function () {
+			if ($(this).prop('checked')) {
+				$('#toggle-PTS').bootstrapToggle('enable');
+				$('#toggle-AST').bootstrapToggle('enable');
+				$('#toggle-TRB').bootstrapToggle('enable');
+				$('#toggle-STL').bootstrapToggle('enable');
+				console.log("hereerererr");
+				$('#toggle-PTS').bootstrapToggle('off');
+				$('#toggle-AST').bootstrapToggle('off');
+				$('#toggle-TRB').bootstrapToggle('off');
+				$('#toggle-STL').bootstrapToggle('off');
+				$('#toggle-DRB').bootstrapToggle('disable');
+				updateStat("DRB");
+				// callyourFunction();
+			}
+		})
+		$('#toggle-STL').change(function () {
+			if ($(this).prop('checked')) {
+				$('#toggle-PTS').bootstrapToggle('enable');
+				$('#toggle-AST').bootstrapToggle('enable');
+				$('#toggle-TRB').bootstrapToggle('enable');
+				$('#toggle-DRB').bootstrapToggle('enable');
+				console.log("hereerererr");
+				$('#toggle-PTS').bootstrapToggle('off');
+				$('#toggle-AST').bootstrapToggle('off');
+				$('#toggle-TRB').bootstrapToggle('off');
+				$('#toggle-DRB').bootstrapToggle('off');
+				$('#toggle-STL').bootstrapToggle('disable');
+				updateStat("STL");
+				// callyourFunction();
+			}
+		})
 
 
-							  $('#toggle-Playoffs').change(function () {
-								  
-								  if ($(this).prop('checked')== false) {
-									setRegularSeason();
-								  }
-								  else if ($(this).prop('checked')){
-									setRegularSeason();
-								  }
-							  })							  							  							  
+		$('#toggle-Playoffs').change(function () {
 
-							  $('#toggle-PTSs').change(function () {
-								  
-								  if ($(this).prop('checked')== false) {
-									if(addArray() == false){
-										$(this).bootstrapToggle('on');
-									}
-									
-								  }
-								  else if ($(this).prop('checked')){
-									addArray();
-								  }
-							  })
+			if ($(this).prop('checked') == false) {
+				setRegularSeason();
+			}
+			else if ($(this).prop('checked')) {
+				setRegularSeason();
+			}
+		})
 
-							  $('#toggle-ASTs').change(function () {
-								  
-								  if ($(this).prop('checked')== false) {
-									if(addArray() == false){
-										$(this).bootstrapToggle('on');
-									}
-									
-								  }
-								  else if ($(this).prop('checked')){
-									addArray();
-								  }
-							  })
+		$('#toggle-PTSs').change(function () {
 
-							  $('#toggle-TRBs').change(function () {
-								  
-								  if ($(this).prop('checked')== false) {
-									if(addArray() == false){
-										$(this).bootstrapToggle('on');
-									}
-									
-								  }
-								  else if ($(this).prop('checked')){
-									addArray();
-								  }
-							  })
+			if ($(this).prop('checked') == false) {
+				if (addArray() == false) {
+					$(this).bootstrapToggle('on');
+				}
 
-							  $('#toggle-DRBs').change(function () {
-								  
-								  if ($(this).prop('checked')== false) {
-									if(addArray() == false){
-										$(this).bootstrapToggle('on');
-									}
-									
-								  }
-								  else if ($(this).prop('checked')){
-									addArray();
-								  }
-							  })
+			}
+			else if ($(this).prop('checked')) {
+				addArray();
+			}
+		})
 
-							  $('#toggle-STLs').change(function () {
-								  
-								  if ($(this).prop('checked')== false) {
-									if(addArray() == false){
-										$(this).bootstrapToggle('on');
-									}
-									
-								  }
-								  else if ($(this).prop('checked')){
-									addArray();
-								  }
-							  })
+		$('#toggle-ASTs').change(function () {
 
-							  $('#toggle-3PTs').change(function () {
-								  
-								  if ($(this).prop('checked')== false) {
-									if(addArray() == false){
-										$(this).bootstrapToggle('on');
-									}
-									
-								  }
-								  else if ($(this).prop('checked')){
-									addArray();
-								  }
-							  })
+			if ($(this).prop('checked') == false) {
+				if (addArray() == false) {
+					$(this).bootstrapToggle('on');
+				}
 
-							  $('#toggle-2PTs').change(function () {
-								  
-								  if ($(this).prop('checked')== false) {
-									if(addArray() == false){
-										$(this).bootstrapToggle('on');
-									}
-									
-								  }
-								  else if ($(this).prop('checked')){
-									addArray();
-								  }
-							  })
+			}
+			else if ($(this).prop('checked')) {
+				addArray();
+			}
+		})
 
-							  $('#toggle-PERs').change(function () {
-								  
-								  if ($(this).prop('checked')== false) {
-									  formatN();
-									  addArray();
-									  $('#toggle-PTSs').bootstrapToggle('enable');
-									  $('#toggle-ASTs').bootstrapToggle('enable');
-									  $('#toggle-TRBs').bootstrapToggle('enable');
-									  $('#toggle-DRBs').bootstrapToggle('enable');
-									  $('#toggle-STLs').bootstrapToggle('enable');
-								 	  $('#toggle-3PTs').bootstrapToggle('enable');
-									  $('#toggle-2PTs').bootstrapToggle('enable');
-									
-								  }
-								  else if ($(this).prop('checked')){
-									  formatN();
-									  addArray();
-									  $('#toggle-PTSs').bootstrapToggle('disable');
-									  $('#toggle-ASTs').bootstrapToggle('disable');
-									  $('#toggle-TRBs').bootstrapToggle('disable');
-									  $('#toggle-DRBs').bootstrapToggle('disable');
-									  $('#toggle-STLs').bootstrapToggle('disable');
-								 	  $('#toggle-3PTs').bootstrapToggle('disable');
-									  $('#toggle-2PTs').bootstrapToggle('disable');									
-								  }
-							  })							  							  							  							  							  							  							  
+		$('#toggle-TRBs').change(function () {
 
-						  })
+			if ($(this).prop('checked') == false) {
+				if (addArray() == false) {
+					$(this).bootstrapToggle('on');
+				}
+
+			}
+			else if ($(this).prop('checked')) {
+				addArray();
+			}
+		})
+
+		$('#toggle-DRBs').change(function () {
+
+			if ($(this).prop('checked') == false) {
+				if (addArray() == false) {
+					$(this).bootstrapToggle('on');
+				}
+
+			}
+			else if ($(this).prop('checked')) {
+				addArray();
+			}
+		})
+
+		$('#toggle-STLs').change(function () {
+
+			if ($(this).prop('checked') == false) {
+				if (addArray() == false) {
+					$(this).bootstrapToggle('on');
+				}
+
+			}
+			else if ($(this).prop('checked')) {
+				addArray();
+			}
+		})
+
+		$('#toggle-3PTs').change(function () {
+
+			if ($(this).prop('checked') == false) {
+				if (addArray() == false) {
+					$(this).bootstrapToggle('on');
+				}
+
+			}
+			else if ($(this).prop('checked')) {
+				addArray();
+			}
+		})
+
+		$('#toggle-2PTs').change(function () {
+
+			if ($(this).prop('checked') == false) {
+				if (addArray() == false) {
+					$(this).bootstrapToggle('on');
+				}
+
+			}
+			else if ($(this).prop('checked')) {
+				addArray();
+			}
+		})
+
+		$('#toggle-PERs').change(function () {
+
+			if ($(this).prop('checked') == false) {
+				formatN();
+				addArray();
+				$('#toggle-PTSs').bootstrapToggle('enable');
+				$('#toggle-ASTs').bootstrapToggle('enable');
+				$('#toggle-TRBs').bootstrapToggle('enable');
+				$('#toggle-DRBs').bootstrapToggle('enable');
+				$('#toggle-STLs').bootstrapToggle('enable');
+				$('#toggle-3PTs').bootstrapToggle('enable');
+				$('#toggle-2PTs').bootstrapToggle('enable');
+
+			}
+			else if ($(this).prop('checked')) {
+				formatN();
+				addArray();
+				$('#toggle-PTSs').bootstrapToggle('disable');
+				$('#toggle-ASTs').bootstrapToggle('disable');
+				$('#toggle-TRBs').bootstrapToggle('disable');
+				$('#toggle-DRBs').bootstrapToggle('disable');
+				$('#toggle-STLs').bootstrapToggle('disable');
+				$('#toggle-3PTs').bootstrapToggle('disable');
+				$('#toggle-2PTs').bootstrapToggle('disable');
+			}
+		})
+
+	})
 
 </script>
-	
-	<script src="javascript/scatterPlot.js"></script>
+
+<script src="javascript/scatterPlot.js"></script>
 </body>
 
 </html>
