@@ -45,9 +45,16 @@
 		<div class="row">
 			<div class="row-eq-height">
 				<div class="col-sm-3">
-					<input type="search" value="Insert a Player or Team" class="biginput" id="autocomplete">
-					<input id="toggle-Playoffs" checked data-toggle="toggle" data-on="Season" data-off="Playoffs" data-onstyle="success" data-offstyle="primary"
-						type="checkbox">
+					<div class="col-sm-2">
+						<svg class="col-sm-12" height="150"></svg>
+						<div class="row">
+							<input type="search" value="Insert a Player or Team" class="biginput" id="autocomplete">
+						</div>
+						<div class="row">
+							<input id="toggle-Playoffs" checked data-toggle="toggle" data-on="Season" data-off="Playoffs" data-onstyle="success" data-offstyle="primary"
+								type="checkbox">
+						</div>
+					</div>
 				</div>
 
 				<svg id="the_VoronoiMap" class="col-sm-6"></svg>
@@ -98,12 +105,15 @@
 				<div class="col-sm-4"></div>
 
 				<div class="col-sm-4 offset-sm-4 ">
-					<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Points" data-off="Points"
-					data-width="100"></input>
-					<input id="toggle-AST" type="checkbox" data-toggle="toggle" data-onstyle="success" data-on="Assists" data-off="Assists" data-width="100"></input>
-					<input id="toggle-TRB" type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Rebounds" data-off="Rebounds" data-width="100"  ></input>
-					<input id="toggle-DRB" type="checkbox" data-toggle="toggle" data-onstyle="warning" data-on="Dribles" data-off="Dribles" data-width="100"  ></input>
-					<input id="toggle-STL" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-on="Steals" data-off="Steals" data-width="100"  ></input>
+					<div class = "col-sm-1"></div>
+					<div class="col-sm-11"> 
+						<input id="toggle-PTS" type="checkbox" checked data-toggle="toggle" data-onstyle="primary" data-on="Points" data-off="Points"
+						data-width="100"></input>
+						<input id="toggle-AST" type="checkbox" data-toggle="toggle" data-onstyle="success" data-on="Assists" data-off="Assists" data-width="100"></input>
+						<input id="toggle-TRB" type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Rebounds" data-off="Rebounds" data-width="100"  ></input>
+						<input id="toggle-DRB" type="checkbox" data-toggle="toggle" data-onstyle="warning" data-on="Dribles" data-off="Dribles" data-width="100"  ></input>
+						<input id="toggle-STL" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-on="Steals" data-off="Steals" data-width="100"  ></input>
+					</div>
 				</div>
 				<div class="col-sm-4"></div>
 			</div>
