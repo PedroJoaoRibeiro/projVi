@@ -131,7 +131,7 @@
 							data-width="130"></input>
 					</div>
 					<div style="top:-35px; left: 20px;" id="toglesStarBottom1" class="col-sm-4 hidden">
-						<input id="toggle-Yellow" type="checkbox" data-toggle="toggle" data-onstyle="warning" data-on="Yellow item" data-off="Yellow item" data-width="285"></input>
+						<input id="toggle-Yellow" type="checkbox" checked data-toggle="toggle" data-onstyle="warning" data-on="Yellow item" data-off="Yellow item" data-width="285"></input>
 						<input id="toggle-Red" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-on="Red item" data-off="Red item" data-width="285"></input>
 					</div>
 					
@@ -184,9 +184,13 @@
 
 		if ($(this).prop('checked') == false) {
 			Comparator();
+			$('#toggle-Yellow').bootstrapToggle('disable');
+			$('#toggle-Red').bootstrapToggle('disable');
 		}
 		else if ($(this).prop('checked')) {
 			Comparator();
+			$('#toggle-Yellow').bootstrapToggle('enable');
+			$('#toggle-Red').bootstrapToggle('enable');
 		}
 	})
 
