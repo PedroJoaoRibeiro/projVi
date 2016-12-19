@@ -415,7 +415,7 @@ class Info {
         this.year.innerHTML = "Selected year: " + currentYear;
     }
     updateTeamSelected(teamName) {
-        this.team.innerHTML = "Team: " + teamName;
+        this.team.innerHTML = teamName;
         this.teampic.src = 'data/teams/' + teamName + '.svg#';
         this.player.innerHTML = "";
         this.playerpic.src = "";
