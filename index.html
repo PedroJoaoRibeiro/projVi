@@ -189,7 +189,7 @@
 	main();
 	info = new Info();
 
-	d3.select('#slider1').call(d3.slider().axis(true).min(1950).max(2016).step(1).value(2016).on("slide", function (evt, value) {
+	d3.select('#slider1').call(d3.slider().axis(true).min(1952).max(2016).step(1).value(2016).on("slide", function (evt, value) {
 		document.getElementById("theYear").innerHTML = value;
 		updateAllData(value);
 	}));
