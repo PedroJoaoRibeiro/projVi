@@ -429,20 +429,24 @@ class Info {
             this.teampic.src = 'data/logos/' + abbreviation + '.png';
             this.player.innerHTML = "";
             this.playerpic.src = "";
+            this.playerpic.className ="hidden";
         }
         else {
             this.team2.innerHTML = teamName;
             this.teampic2.src = 'data/logos/' + abbreviation + '.png';
             this.player2.innerHTML = "";
             this.playerpic2.src = "";
+            this.playerpic2.className ="hidden";
         }
 
     }
     updatePlayerName(player) {
         if (!comparator) {
+            this.playerpic.className ="";
             this.player.innerHTML = player;
             this.playerpic.onerror = function () {
-                this.src = 'data/pics/unknown.png'; // place your error.png image instead
+                if(this.src != "")
+                    this.src = 'data/pics/unknown.png'; // place your error.png image instead
             };
 
             this.playerpic.src = 'data/pics/' + player + '.png#';
@@ -450,6 +454,7 @@ class Info {
 
         }
         else {
+            this.playerpic2.className ="";
             this.player2.innerHTML = player;
             this.playerpic2.onerror = function () {
                 this.src = 'data/pics/unknown.png'; // place your error.png image instead
@@ -468,6 +473,7 @@ class Info {
         this.teampic2.src = "";
         this.player2.innerHTML = "";
         this.playerpic2.src = "";
+        this.playerpic2.className ="hidden";
     }
 }
 
