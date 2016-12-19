@@ -69,26 +69,34 @@
 							</div>
 							<div class="row">
 								<div class="col-sm-6">
-									<img id="teamPic" height="150px" weight="">
-									<img id="playerPic" height="150px" weight="">
+										<img id="teamPic" height="150px" weight="">
+									</div>
+									<div class="col-sm-6">
+										<img id="playerPic" height="150px" weight="">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-6">
-									<text id="infoTeam" x="20" y="80" font-family="Roboto" font-size="20px"></text>
-									<text id="infoPlayer" x="20" y="110" font-family="Roboto" font-size="20px">
+										<text id="infoTeam" x="20" y="80" font-family="Roboto" font-size="20px"></text>
+									</div>
+									<div class="col-sm-6">
+										<text id="infoPlayer" x="20" y="110" font-family="Roboto" font-size="20px">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-6">
-								<img id="teamPic2" height="150px" weight="">
-								<img id="playerPic2" height="150px" weight="">
+									<img id="teamPic2" height="150px" weight="">
+								</div>
+								<div class="col-sm-6">
+									<img id="playerPic2" height="150px" weight="">
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-6">
-									<text id="infoTeam2" x="20" y="80" font-family="Roboto" font-size="20px"></text>
-									<text id="infoPlayer2" x="20" y="110" font-family="Roboto" font-size="20px">
+										<text id="infoTeam2" x="20" y="80" font-family="Roboto" font-size="20px"></text>
+									</div>
+									<div class="col-sm-6">
+										<text id="infoPlayer2" x="20" y="110" font-family="Roboto" font-size="20px">
 								</div>
 							</div>
 							</text>
@@ -203,12 +211,14 @@
 	$('#toggle-Comparator').change(function () {
 
 		if ($(this).prop('checked') == false) {
+			info.remove();
 			Comparator();
 			updateStarAxes(dataG[0]);
 			$('#toggle-Yellow').bootstrapToggle('disable');
 			$('#toggle-Red').bootstrapToggle('disable');
 		}
 		else if ($(this).prop('checked')) {
+			info.verifyTeam();
 			Comparator();
 			$('#toggle-Yellow').bootstrapToggle('enable');
 			$('#toggle-Red').bootstrapToggle('enable');

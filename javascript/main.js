@@ -410,19 +410,51 @@ class Info {
         this.player = document.getElementById('infoPlayer');
         this.playerpic = document.getElementById('playerPic');
         this.teampic = document.getElementById('teamPic');
+
+        this.team2 = document.getElementById('infoTeam2');
+        this.player2 = document.getElementById('infoPlayer2');
+        this.playerpic2 = document.getElementById('playerPic2');
+        this.teampic2 = document.getElementById('teamPic2');
     }
     updateYear() {
         this.year.innerHTML = "Selected year: " + currentYear;
     }
     updateTeamSelected(teamName) {
-        this.team.innerHTML = teamName;
-        this.teampic.src = 'data/teams/' + teamName + '.svg#';
-        this.player.innerHTML = "";
-        this.playerpic.src = "";
+        if(!comparator){
+            this.team.innerHTML = teamName;
+            this.teampic.src = 'data/teams/' + teamName + '.svg#';
+            this.player.innerHTML = "";
+            this.playerpic.src = "";
+        }
+        else{
+            this.team2.innerHTML = teamName;
+            this.teampic2.src = 'data/teams/' + teamName + '.svg#';
+            this.player2.innerHTML = "";
+            this.playerpic2.src = "";
+        }
+            
     }
     updatePlayerName(player) {
-        this.player.innerHTML = player;
-        this.playerpic.src = 'data/pics/' + player + '.png#';
+        if(!comparator){
+            this.player.innerHTML = player;
+            this.playerpic.src = 'data/pics/' + player + '.png#';
+        }
+        else{
+            this.player2.innerHTML = player;
+            this.playerpic2.src = 'data/pics/' + player + '.png#';
+        }
+    }
+    verifyTeam(){
+        if(this.team.innerHTML !=""){
+            this.team2.innerHTML = this.team.innerHTML;
+            this.teampic2.src =  this.teampic.src;
+        }
+    }
+    remove(){
+        this.team2.innerHTML ="";
+        this.teampic2.src ="";
+        this.player2.innerHTML = "";
+        this.playerpic2.src = "";
     }
 }
 
