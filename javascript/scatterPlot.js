@@ -96,7 +96,9 @@ class ScatterPlot {
                 .enter()
                 .append("image")
                 //.attr("class", "circle")
-                .attr("id", function (d) { return d.Player.split("\\")[0].split('.').join("").split(' ').join(''); })
+                .attr("id", function (d) { 
+                    var p = d.Player.split("\\")[0].split('.').join("").split(' ').join('');
+                    return  p.split('*').join("")})
                 .attr("xlink:href", "data/icons/basketball.png")
                 .attr("width", 16)
                 .attr("height", 16)
@@ -116,7 +118,8 @@ class ScatterPlot {
                 })
 
                 .on("click", function (d) {
-                    higlightScatter(d.Player.split("\\")[0].split('.').join("").split(' ').join(''));
+                    var p = d.Player.split("\\")[0].split('.').join("").split(' ').join('');
+                    higlightScatter(p.split('*').join(""));
                     info.updatePlayerName(d.Player.split("\\")[0]);
                     setGlobalType("player");
                     updateStarAxes(d);

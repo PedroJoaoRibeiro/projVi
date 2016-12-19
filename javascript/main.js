@@ -366,7 +366,7 @@ class Info {
     constructor() {
         this.svg = document.getElementById('info');
         this.year = document.getElementById('infoYear');
-        this.team = document.getElementById('infoTeam');
+        
         this.player = document.getElementById('infoPlayer');
         this.playerpic = document.getElementById('playerPic');
         this.teampic = document.getElementById('teamPic');
@@ -375,7 +375,7 @@ class Info {
         this.year.innerHTML = "Selected year: " + currentYear;
     }
     updateTeamSelected(teamName) {
-        this.team.innerHTML = "Team: " + teamName;
+        
         this.teampic.src = 'data/teams/' + teamName + '.svg#';
         this.player.innerHTML = "";
         this.playerpic.src = "";
