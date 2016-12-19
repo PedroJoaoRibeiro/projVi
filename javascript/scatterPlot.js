@@ -96,9 +96,10 @@ class ScatterPlot {
                 .enter()
                 .append("image")
                 //.attr("class", "circle")
-                .attr("id", function (d) { 
+                .attr("id", function (d) {
                     var p = d.Player.split("\\")[0].split('.').join("").split(' ').join('');
-                    return  p.split('*').join("")})
+                    return p.split('*').join("")
+                })
                 .attr("xlink:href", "data/icons/basketball.png")
                 .attr("width", 16)
                 .attr("height", 16)
@@ -120,6 +121,15 @@ class ScatterPlot {
                 .on("click", function (d) {
                     var p = d.Player.split("\\")[0].split('.').join("").split(' ').join('');
                     higlightScatter(p.split('*').join(""));
+                    var file = "data/equipas_VI/teams.json";
+                    d3.json(file, function (data) {
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].abbreviation == d.Tm) {
+                                info.updateTeamSelected(data[i].team, d.Tm);
+                            }
+                        }
+
+                    });
                     info.updatePlayerName(d.Player.split("\\")[0]);
                     setGlobalType("player");
                     updateStarAxes(d);
