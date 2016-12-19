@@ -26,7 +26,6 @@ class linechart {
         array.unshift(obj);
 
 
-
         var margin = {
             top: 30,
             right: 20,
@@ -70,6 +69,7 @@ class linechart {
 
         this.svg.selectAll("g")
             .remove();
+        this.svg.selectAll("text").remove();
 
         var svg = d3.select("#the_linechart")
             .attr("width", width + margin.left + margin.right)
@@ -100,7 +100,7 @@ class linechart {
         x.domain([anoMin, d3.max(array, function (d) {
             return d.year;
         })]);
-        y.domain([0, d3.max(array, function (d) {
+        var max = d3.max(array, function (d) {
             switch (atributo) {
                 case "PTS":
                     return d.PTS;
@@ -114,7 +114,12 @@ class linechart {
                     return d.STL;
             }
 
-        }) * 1.25]);
+        });
+        y.domain([0, max * 1.25]);
+
+        if(max == 0){
+            this.svg.append("text").attr("x", 90).attr("y", 200).style("font-size", "20px").text("Sorry there is no data for this Stat this year");
+        }
 
         svg.append("path") // Add the valueline path.
             .attr("d", valueline(array))
