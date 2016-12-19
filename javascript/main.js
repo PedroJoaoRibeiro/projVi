@@ -451,6 +451,9 @@ class Info {
         }
         else {
             this.player2.innerHTML = player;
+            this.playerpic2.onerror = function () {
+                this.src = 'data/pics/unknown.png'; // place your error.png image instead
+            };
             this.playerpic2.src = 'data/pics/' + player + '.png#';
         }
     }
