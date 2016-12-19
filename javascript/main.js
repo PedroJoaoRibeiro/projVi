@@ -443,23 +443,23 @@ class Info {
     updatePlayerName(player) {
         if (!comparator) {
             this.playerpic.className ="";
-            this.player.innerHTML = player;
+            this.player.innerHTML = player.split('*').join("");
             this.playerpic.onerror = function () {
                 if(this.src != "")
                     this.src = 'data/pics/unknown.png'; // place your error.png image instead
             };
 
-            this.playerpic.src = 'data/pics/' + player + '.png#';
+            this.playerpic.src = 'data/pics/' + player.split('*').join("") + '.png#';
 
 
         }
         else {
             this.playerpic2.className ="";
-            this.player2.innerHTML = player;
+            this.player2.innerHTML = player.split('*').join("");
             this.playerpic2.onerror = function () {
                 this.src = 'data/pics/unknown.png'; // place your error.png image instead
             };
-            this.playerpic2.src = 'data/pics/' + player + '.png#';
+            this.playerpic2.src = 'data/pics/' + player.split('*').join("") + '.png#';
         }
     }
     verifyTeam() {
