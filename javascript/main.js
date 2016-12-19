@@ -211,7 +211,7 @@ function selectFromData(data, type, value) {
 // da update ao scatterPlot se nao existir cria recebe um objecto que contem o abreviation e nome de equipa
 function updateScatter(obj) {
     scatterObj = obj;
-    info.updateTeamSelected(obj.team);
+    info.updateTeamSelected(obj.team, obj.abbreviation);
     var file = getPlayersData(currentYear);
     d3.json(file, function (data) {
         var aux = selectFromData(data, "Tm", obj.abbreviation);
@@ -419,16 +419,16 @@ class Info {
     updateYear() {
         this.year.innerHTML = "Selected year: " + currentYear;
     }
-    updateTeamSelected(teamName) {
+    updateTeamSelected(teamName, abbreviation) {
         if(!comparator){
             this.team.innerHTML = teamName;
-            this.teampic.src = 'data/teams/' + teamName + '.svg#';
+            this.teampic.src = 'data/logos/' + abbreviation + '.png';
             this.player.innerHTML = "";
             this.playerpic.src = "";
         }
         else{
             this.team2.innerHTML = teamName;
-            this.teampic2.src = 'data/teams/' + teamName + '.svg#';
+            this.teampic2.src = 'data/logos/' + abbreviation + '.png';
             this.player2.innerHTML = "";
             this.playerpic2.src = "";
         }
