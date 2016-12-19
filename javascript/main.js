@@ -398,6 +398,7 @@ function clearToggles() {
 class Info {
     constructor() {
         this.svg = document.getElementById('info');
+        this.mvp = document.getElementById('mvp');
         this.year = document.getElementById('infoYear');
         this.team = document.getElementById('infoTeam');
         this.player = document.getElementById('infoPlayer');
@@ -411,6 +412,16 @@ class Info {
     }
     updateYear() {
         this.year.innerHTML = "Selected year: " + currentYear;
+        d3.json("data/mvp.json", function (mvp) {
+            var index = 2016-currentYear;
+            if(index <60){
+                var playerName = mvp[index].Player.split('*').join("");
+            info.mvp.innerHTML = "MVP: " + playerName.split("\\")[0];
+            }
+            else{
+                info.mvp.innerHTML = "No MVP this season";
+            }
+        });
     }
     updateTeamSelected(teamName, abbreviation) {
         if(!comparator){
