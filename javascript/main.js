@@ -204,7 +204,7 @@ function selectTeamsToPlayoffs(data, teams) {
 function selectFromData(data, type, value) {
     var array = [];
     for (i = 0; i < data.length; i++) {
-        if (data[i][type].split("\\")[0] == value) {
+        if (data[i][type].split("\\")[0] == value.split("\\")[0]) {
             array.push(data[i]);
         }
     }
@@ -352,6 +352,7 @@ function updateDataForStar(year) {
         d3.json(getGlobalType(year), function (error, data) {
             if (error) throw error;
             var array = selectFromData(data, "Player", player);
+            console.log(array);
             dataG[0] = array[0];
             addArray();
         });
