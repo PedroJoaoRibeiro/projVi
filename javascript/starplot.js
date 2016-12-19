@@ -221,7 +221,7 @@ class RadarChart {
         tooltip.transition()
           .duration(200)
           .style("opacity", .9);
-        tooltip.html(d.axis + ": " + d.value)
+        tooltip.html(d.axis + ": " + Format(d.value))
           .style("left", (d3.event.pageX) + "px")
           .style("top", (d3.event.pageY - 28) + "px");
       })
