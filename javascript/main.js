@@ -109,9 +109,12 @@ function updateAllData(year) {
     if (chart) {
         lineC(chart.player);
     }
-    if(radar){
-        updateDataForStar(year);
+    if(!comparator){
+        if(radar){
+            updateDataForStar(year);
+        }
     }
+    
 }
 
 function getGlobalType(year) {
@@ -350,19 +353,9 @@ function updateDataForStar(year){
                 if (error) throw error;
                 var array = selectFromData(data, "Player", player);
                 dataG[0]=array[0];
-
+                addArray();
             });
     }
-    if(dataG[1]){
-        var player = dataG[1].Player;
-        d3.json(getGlobalType(year), function (error, data) {
-                if (error) throw error;
-                var array = selectFromData(data, "Player", player);
-                dataG[1]=array[0];
-            });
-
-    }
-    addArray();
 }
 
 
