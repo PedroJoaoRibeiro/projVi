@@ -179,25 +179,25 @@ class linechart {
                         console.log("estou aqui");
                         focus.select("image")
                             .attr("transform", "translate(" + x(d.year)  + "," + y(d.AST, d.year) + ")");
-                        focus.select("text").text(formatCurrentValue(d.AST));
+                        focus.select("text").text(formatCurrentValue(d.AST, d.year));
                         break;
                     case "TRB":
                         console.log("estou aqui");
                         focus.select("image")
                             .attr("transform", "translate(" + x(d.year) + "," + y(d.TRB, d.year) + ")");
-                        focus.select("text").text(formatCurrentValue(d.TRB));
+                        focus.select("text").text(formatCurrentValue(d.TRB, d.year));
                         break;
                     case "DRB":
                         console.log("estou aqui");
                         focus.select("image")
                             .attr("transform", "translate(" + x(d.year) + "," + y(d.DRB, d.year) + ")");
-                        focus.select("text").text(formatCurrentValue(d.DRB));
+                        focus.select("text").text(formatCurrentValue(d.DRB, d.year));
                         break;
                     case "STL":
                         console.log("estou aqui");
                         focus.select("image")
                             .attr("transform", "translate(" + x(d.year) + "," + y(d.STL, d.year) + ")");
-                        focus.select("text").text(formatCurrentValue(d.STL));
+                        focus.select("text").text(formatCurrentValue(d.STL, d.year));
                         break;
                 }
 
