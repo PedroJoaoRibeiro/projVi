@@ -1,6 +1,6 @@
 var currentYear, voronoiMap, info, globalType;
 var dataSet, scatterPlot, barChart, scatterObj;
-var yellow,red;
+var yellow, red;
 var regularSeason = true;
 var nullObj = {
     PTS: 0,
@@ -36,7 +36,7 @@ function main() {
 }
 
 function updateSearchBar(suggestion) {
-    if(suggestion.data == "player"){
+    if (suggestion.data == "player") {
         setGlobalType("player");
         getLastTeamYear(suggestion.value, false, 2016);
     }
@@ -46,7 +46,7 @@ function updateSearchBar(suggestion) {
     }
 }
 
-function updateAfterCalculus(player, year, d){
+function updateAfterCalculus(player, year, d) {
     currentYear = year;
     info.updateYear();
     changeSliderToYear(currentYear);
@@ -54,7 +54,7 @@ function updateAfterCalculus(player, year, d){
     fixDataInD(d);
 }
 
-function updateAfterCalculusPlayer(player, year, data){
+function updateAfterCalculusPlayer(player, year, data) {
     currentYear = year;
     info.updateYear();
     changeSliderToYear(currentYear);
@@ -64,13 +64,13 @@ function updateAfterCalculusPlayer(player, year, data){
     updateStarAxes(data[0]);
 }
 
-function fixDataInD(d){
+function fixDataInD(d) {
     d3.json("data/equipas_VI/teams.json", function (data) {
-            var array = selectTeamsToPlayoffs(data, d);
-            highlightMap(array[0]);
-            updateScatter(array[0]);
-            updateStarAxes(array[0]);
-        });
+        var array = selectTeamsToPlayoffs(data, d);
+        highlightMap(array[0]);
+        updateScatter(array[0]);
+        updateStarAxes(array[0]);
+    });
 }
 
 function setRegularSeason() {
@@ -109,12 +109,12 @@ function updateAllData(year) {
     if (chart) {
         lineC(chart.player);
     }
-    if(!comparator){
-        if(radar){
+    if (!comparator) {
+        if (radar) {
             updateDataForStar(year);
         }
     }
-    
+
 }
 
 function getGlobalType(year) {
@@ -128,24 +128,24 @@ function setGlobalType(type) {
     globalType = type;
 }
 
-function changeSliderToYear(year){
+function changeSliderToYear(year) {
 
 }
 
-function getLastTeamYear(player, bool, year, data){
-    if(bool){
-        if(globalType == "team")
+function getLastTeamYear(player, bool, year, data) {
+    if (bool) {
+        if (globalType == "team")
             updateAfterCalculus(player, year, data);
         else
             updateAfterCalculusPlayer(player, year, data);
     }
-    else{
+    else {
         d3.json(getGlobalType(year), function (data) {
             var array = selectFromData(data, "Player", player);
-            if(array.length > 0)
+            if (array.length > 0)
                 getLastTeamYear(player, true, year, array);
             else
-                getLastTeamYear(player, false, year-1, data);
+                getLastTeamYear(player, false, year - 1, data);
         });
     }
 }
@@ -225,31 +225,31 @@ function updateScatter(obj) {
             scatterPlot.update(aux, obj.team);
     });
 }
-function updateScatterPlayer(player){
+function updateScatterPlayer(player) {
     var file = "data/equipas_VI/teams.json";
     d3.json(file, function (data) {
-        for(var i = 0; i < data.length; i++){
-            if(data[i].abbreviation == player.Tm){
+        for (var i = 0; i < data.length; i++) {
+            if (data[i].abbreviation == player.Tm) {
                 fixDataScatter(data[i]);
             }
         }
-        
+
     });
 }
 
-function fixDataScatter(data){
+function fixDataScatter(data) {
     d3.json(getTeamsData(currentYear), function (team) {
-            for(var j = 0; j< team.length; j++){
-                if (data.team == team[j].Team.split('*').join("")) {
-                    team[j].team = data.team;
-                    team[j].location = data.location;
-                    team[j].abbreviation = data.abbreviation;
-                    team[j].color = data.color;
-                    highlightMap(team[j]);
-                    updateScatter(team[j]);
-                }
+        for (var j = 0; j < team.length; j++) {
+            if (data.team == team[j].Team.split('*').join("")) {
+                team[j].team = data.team;
+                team[j].location = data.location;
+                team[j].abbreviation = data.abbreviation;
+                team[j].color = data.color;
+                highlightMap(team[j]);
+                updateScatter(team[j]);
             }
-        });
+        }
+    });
 }
 
 
@@ -312,7 +312,7 @@ function addArray() {
 
         if ($('#toggle-PERs').prop('checked')) {
             aux = [
-            
+
                 { axis: "Field Goals", value: dataG[i]['FG%'] },
                 { axis: "3 points", value: dataG[i]['3P%'] },
                 { axis: "2 points", value: dataG[i]['2P%'] },
@@ -321,7 +321,7 @@ function addArray() {
 
         }
 
-        if (aux.length < 3){
+        if (aux.length < 3) {
             return false;
         }
         dataT.push(aux);
@@ -336,7 +336,7 @@ function updateStarAxes(d) {
             dataG.push(d);
         }
         else {
-           dataG[1]=d; 
+            dataG[1] = d;
         }
     }
     else {
@@ -346,40 +346,40 @@ function updateStarAxes(d) {
     addArray();
 }
 
-function updateDataForStar(year){
-    if(dataG[0]){
+function updateDataForStar(year) {
+    if (dataG[0]) {
         var player = dataG[0].Player;
         d3.json(getGlobalType(year), function (error, data) {
-                if (error) throw error;
-                var array = selectFromData(data, "Player", player);
-                dataG[0]=array[0];
-                addArray();
-            });
+            if (error) throw error;
+            var array = selectFromData(data, "Player", player);
+            dataG[0] = array[0];
+            addArray();
+        });
     }
 }
 
 
-function colapseYellow(bool){
-    if(bool){
-        if(yellow){
+function colapseYellow(bool) {
+    if (bool) {
+        if (yellow) {
             dataG[0] = yellow;
             yellow = null;
         }
     }
-    else{
+    else {
         yellow = dataG[0];
         dataG[0] = nullObj;
     }
     addArray();
 }
-function colapseRed(bool){
-    if(bool){
-        if(red){
+function colapseRed(bool) {
+    if (bool) {
+        if (red) {
             dataG[1] = red;
             red = null;
         }
     }
-    else{
+    else {
         red = dataG[1];
         dataG[1] = nullObj;
     }
@@ -413,50 +413,56 @@ class Info {
     updateYear() {
         this.year.innerHTML = "Selected year: " + currentYear;
         d3.json("data/mvp.json", function (mvp) {
-            var index = 2016-currentYear;
-            if(index <60){
+            var index = 2016 - currentYear;
+            if (index < 60) {
                 var playerName = mvp[index].Player.split('*').join("");
-            info.mvp.innerHTML = "MVP: " + playerName.split("\\")[0];
+                info.mvp.innerHTML = "MVP: " + playerName.split("\\")[0];
             }
-            else{
+            else {
                 info.mvp.innerHTML = "No MVP this season";
             }
         });
     }
     updateTeamSelected(teamName, abbreviation) {
-        if(!comparator){
+        if (!comparator) {
             this.team.innerHTML = teamName;
             this.teampic.src = 'data/logos/' + abbreviation + '.png';
             this.player.innerHTML = "";
             this.playerpic.src = "";
         }
-        else{
+        else {
             this.team2.innerHTML = teamName;
             this.teampic2.src = 'data/logos/' + abbreviation + '.png';
             this.player2.innerHTML = "";
             this.playerpic2.src = "";
         }
-            
+
     }
     updatePlayerName(player) {
-        if(!comparator){
+        if (!comparator) {
             this.player.innerHTML = player;
+            this.playerpic.onerror = function () {
+                this.src = 'data/pics/unknown.png'; // place your error.png image instead
+            };
+
             this.playerpic.src = 'data/pics/' + player + '.png#';
+
+
         }
-        else{
+        else {
             this.player2.innerHTML = player;
             this.playerpic2.src = 'data/pics/' + player + '.png#';
         }
     }
-    verifyTeam(){
-        if(this.team.innerHTML !=""){
+    verifyTeam() {
+        if (this.team.innerHTML != "") {
             this.team2.innerHTML = this.team.innerHTML;
-            this.teampic2.src =  this.teampic.src;
+            this.teampic2.src = this.teampic.src;
         }
     }
-    remove(){
-        this.team2.innerHTML ="";
-        this.teampic2.src ="";
+    remove() {
+        this.team2.innerHTML = "";
+        this.teampic2.src = "";
         this.player2.innerHTML = "";
         this.playerpic2.src = "";
     }
