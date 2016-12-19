@@ -126,11 +126,12 @@ class ScatterPlot {
                         for (var i = 0; i < data.length; i++) {
                             if (data[i].abbreviation == d.Tm) {
                                 info.updateTeamSelected(data[i].team, d.Tm);
+                                info.updatePlayerName(d.Player.split("\\")[0]);
                             }
                         }
 
                     });
-                    info.updatePlayerName(d.Player.split("\\")[0]);
+                    
                     setGlobalType("player");
                     updateStarAxes(d);
                     lineC(d.Player);
