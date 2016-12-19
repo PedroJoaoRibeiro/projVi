@@ -296,7 +296,7 @@ function addArray() {
         }
 
         if ($('#toggle-DRBs').prop('checked')) {
-            aux.push({ axis: "Dribles", value: dataG[i].DRB })
+            aux.push({ axis: "Dribbles", value: dataG[i].DRB })
 
         }
 
