@@ -1,7 +1,19 @@
 var currentYear, voronoiMap, info, globalType;
 var dataSet, scatterPlot, barChart, scatterObj;
-
+var yellow,red;
 var regularSeason = true;
+var nullObj = {
+    PTS: 0,
+    STL: 0,
+    TRB: 0,
+    AST: 0,
+    "2P": 0,
+    "3P": 0,
+    "FG%": 0,
+    "3P%": 0,
+    "2P%": 0,
+    "FT%": 0
+}
 
 // LOGICA
 
@@ -349,6 +361,34 @@ function updateDataForStar(year){
                 dataG[1]=array[0];
             });
 
+    }
+    addArray();
+}
+
+
+function colapseYellow(bool){
+    if(bool){
+        if(yellow){
+            dataG[0] = yellow;
+            yellow = null;
+        }
+    }
+    else{
+        yellow = dataG[0];
+        dataG[0] = nullObj;
+    }
+    addArray();
+}
+function colapseRed(bool){
+    if(bool){
+        if(red){
+            dataG[1] = red;
+            red = null;
+        }
+    }
+    else{
+        red = dataG[1];
+        dataG[1] = nullObj;
     }
     addArray();
 }

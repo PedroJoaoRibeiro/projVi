@@ -131,8 +131,8 @@
 							data-width="130"></input>
 					</div>
 					<div style="top:-35px; left: 20px;" id="toglesStarBottom1" class="col-sm-4 hidden">
-						<input id="toggle-Yellow" type="checkbox" checked data-toggle="toggle" data-onstyle="warning" data-on="Yellow item" data-off="Yellow item" data-width="285"></input>
-						<input id="toggle-Red" type="checkbox" data-toggle="toggle" data-onstyle="danger" data-on="Red item" data-off="Red item" data-width="285"></input>
+						<input id="toggle-Yellow" type="checkbox" disabled checked data-toggle="toggle" data-onstyle="warning" data-on="Yellow item" data-off="Yellow item" data-width="285"></input>
+						<input id="toggle-Red" type="checkbox" disabled checked data-toggle="toggle" data-onstyle="danger" data-on="Red item" data-off="Red item" data-width="285"></input>
 					</div>
 					
 
@@ -184,6 +184,7 @@
 
 		if ($(this).prop('checked') == false) {
 			Comparator();
+			updateStarAxes(dataG[0]);
 			$('#toggle-Yellow').bootstrapToggle('disable');
 			$('#toggle-Red').bootstrapToggle('disable');
 		}
@@ -191,6 +192,28 @@
 			Comparator();
 			$('#toggle-Yellow').bootstrapToggle('enable');
 			$('#toggle-Red').bootstrapToggle('enable');
+		}
+	})
+
+	$('#toggle-Yellow').change(function () {
+
+		if ($(this).prop('checked') == false) {
+			colapseYellow(false);
+			
+		}
+		else if ($(this).prop('checked')) {
+			colapseYellow(true);
+		}
+	})
+
+	$('#toggle-Red').change(function () {
+
+		if ($(this).prop('checked') == false) {
+			colapseRed(false);
+			
+		}
+		else if ($(this).prop('checked')) {
+			colapseRed(true);
 		}
 	})
 
